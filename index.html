@@ -3,731 +3,889 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Luxorion Digital</title>
-  <meta name="description" content="Luxorion Digital creates premium websites, AI automation systems and client acquisition solutions for modern businesses." />
+  <title>Luxorion Digital | Global IT Solutions</title>
+  <meta
+    name="description"
+    content="Luxorion Digital builds websites, mobile apps, automation systems, AI workflows, and scalable digital products for global businesses."
+  />
+  <meta
+    name="keywords"
+    content="Luxorion Digital, web development, mobile apps, automation, n8n, AI automation, software development, UAE IT company"
+  />
+  <meta name="theme-color" content="#0b1020" />
+
   <style>
-    :root{
-      --bg:#030712;
-      --bg-soft:#07111f;
-      --card:rgba(12,22,42,.72);
-      --card-border:rgba(255,255,255,.08);
-      --text:#f8fafc;
-      --muted:#9ca3af;
-      --cyan:#22d3ee;
-      --blue:#3b82f6;
-      --line:rgba(255,255,255,.06);
-      --success:#25D366;
-      --shadow:0 20px 60px rgba(0,0,0,.45);
-      --radius:22px;
+    :root {
+      --bg: #050816;
+      --bg-2: #0a1024;
+      --panel: rgba(255, 255, 255, 0.06);
+      --panel-border: rgba(255, 255, 255, 0.12);
+      --text: #ffffff;
+      --muted: rgba(255, 255, 255, 0.72);
+      --soft: rgba(255, 255, 255, 0.5);
+      --accent: #7c5cff;
+      --accent-2: #19c6ff;
+      --accent-3: #30f2b2;
+      --shadow: 0 20px 60px rgba(0, 0, 0, 0.35);
+      --radius: 20px;
+      --container: 1200px;
     }
 
-    *{box-sizing:border-box}
-    html{scroll-behavior:smooth}
-    body{
-      margin:0;
-      font-family: Inter, "Segoe UI", Arial, sans-serif;
-      color:var(--text);
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: Arial, Helvetica, sans-serif;
       background:
-        radial-gradient(circle at 20% 15%, rgba(34,211,238,.12), transparent 22%),
-        radial-gradient(circle at 80% 10%, rgba(59,130,246,.14), transparent 22%),
-        radial-gradient(circle at 50% 90%, rgba(34,211,238,.08), transparent 26%),
-        linear-gradient(180deg, #020617 0%, #000814 100%);
-      overflow-x:hidden;
+        radial-gradient(circle at 20% 20%, rgba(124, 92, 255, 0.20), transparent 30%),
+        radial-gradient(circle at 80% 30%, rgba(25, 198, 255, 0.15), transparent 30%),
+        radial-gradient(circle at 60% 80%, rgba(48, 242, 178, 0.10), transparent 25%),
+        linear-gradient(135deg, var(--bg), var(--bg-2));
+      color: var(--text);
+      overflow-x: hidden;
+      min-height: 100vh;
+      position: relative;
     }
 
-    .bg-grid{
-      position:fixed;
-      inset:0;
-      pointer-events:none;
-      opacity:.06;
+    /* Animated background */
+    .background {
+      position: fixed;
+      inset: 0;
+      overflow: hidden;
+      z-index: -2;
+    }
+
+    .blob {
+      position: absolute;
+      border-radius: 50%;
+      filter: blur(70px);
+      opacity: 0.35;
+      animation: floatBlob 18s infinite ease-in-out alternate;
+    }
+
+    .blob.one {
+      width: 380px;
+      height: 380px;
+      background: #6f5bff;
+      top: 8%;
+      left: -80px;
+      animation-duration: 20s;
+    }
+
+    .blob.two {
+      width: 320px;
+      height: 320px;
+      background: #17c9ff;
+      top: 18%;
+      right: -90px;
+      animation-duration: 17s;
+    }
+
+    .blob.three {
+      width: 300px;
+      height: 300px;
+      background: #29f0b2;
+      bottom: -80px;
+      left: 20%;
+      animation-duration: 22s;
+    }
+
+    .grid-overlay {
+      position: fixed;
+      inset: 0;
+      z-index: -1;
       background-image:
-        linear-gradient(rgba(255,255,255,.08) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(255,255,255,.08) 1px, transparent 1px);
-      background-size: 42px 42px;
-      mask-image: radial-gradient(circle at center, black 40%, transparent 90%);
-      z-index:0;
+        linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px);
+      background-size: 40px 40px;
+      mask-image: radial-gradient(circle at center, black 35%, transparent 90%);
+      pointer-events: none;
+    }
+
+    @keyframes floatBlob {
+      0% {
+        transform: translate(0, 0) scale(1);
+      }
+      50% {
+        transform: translate(40px, -30px) scale(1.1);
+      }
+      100% {
+        transform: translate(-30px, 40px) scale(0.9);
+      }
+    }
+
+    .container {
+      width: min(92%, var(--container));
+      margin: 0 auto;
+    }
+
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      backdrop-filter: blur(16px);
+      background: rgba(5, 8, 22, 0.55);
+      border-bottom: 1px solid rgba(255,255,255,0.08);
+    }
+
+    .nav {
+      height: 84px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      text-decoration: none;
+      color: white;
+      min-width: 0;
+    }
+
+    .logo-wrap {
+      width: 54px;
+      height: 54px;
+      border-radius: 14px;
+      background: rgba(255,255,255,0.06);
+      border: 1px solid rgba(255,255,255,0.10);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+      flex-shrink: 0;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.25);
+    }
+
+    .logo-wrap img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      display: block;
+      padding: 6px;
+    }
+
+    .logo-text-fallback {
+      display: none;
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: 1.2px;
+      color: white;
+      text-align: center;
+      line-height: 1.2;
+      padding: 6px;
+    }
+
+    .brand-text {
+      display: flex;
+      flex-direction: column;
+      min-width: 0;
+    }
+
+    .brand-title {
+      font-size: 20px;
+      font-weight: 700;
+      letter-spacing: 0.3px;
+      white-space: nowrap;
+    }
+
+    .brand-subtitle {
+      font-size: 12px;
+      color: var(--soft);
+      margin-top: 3px;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
     }
 
-    .glow-1,.glow-2,.glow-3{
-      position:fixed;
-      border-radius:50%;
-      filter:blur(90px);
-      pointer-events:none;
-      z-index:0;
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 22px;
+      align-items: center;
     }
-    .glow-1{width:340px;height:340px;left:-120px;top:120px;background:rgba(34,211,238,.12)}
-    .glow-2{width:420px;height:420px;right:-140px;top:80px;background:rgba(59,130,246,.11)}
-    .glow-3{width:380px;height:380px;left:50%;bottom:-140px;transform:translateX(-50%);background:rgba(14,165,233,.08)}
-
-    .container{
-      width:min(1200px, calc(100% - 40px));
-      margin:0 auto;
-      position:relative;
-      z-index:1;
-    }
 
-    .glass{
-      background:linear-gradient(180deg, rgba(255,255,255,.05), rgba(255,255,255,.025));
-      border:1px solid var(--card-border);
-      backdrop-filter:blur(14px);
-      -webkit-backdrop-filter:blur(14px);
-      box-shadow:var(--shadow);
+    nav a {
+      text-decoration: none;
+      color: var(--muted);
+      font-size: 15px;
+      transition: 0.25s ease;
     }
 
-    header{
-      position:sticky;
-      top:0;
-      z-index:20;
-      backdrop-filter:blur(16px);
-      -webkit-backdrop-filter:blur(16px);
-      background:rgba(3,7,18,.65);
-      border-bottom:1px solid var(--line);
+    nav a:hover {
+      color: white;
     }
-
-    .header-inner{
-      display:flex;
-      align-items:center;
-      justify-content:space-between;
-      gap:20px;
-      min-height:86px;
-    }
-
-    .brand{
-      display:flex;
-      align-items:center;
-      gap:14px;
-      text-decoration:none;
-      color:var(--text);
-      min-width:0;
-    }
-
-    .brand img{
-      width:64px;
-      height:64px;
-      object-fit:contain;
-      filter:drop-shadow(0 0 18px rgba(34,211,238,.35));
-      flex:0 0 auto;
-    }
-
-    .brand-text{
-      line-height:1.05;
-    }
-
-    .brand-title{
-      font-size:15px;
-      font-weight:800;
-      letter-spacing:.28em;
-      color:#dbeafe;
-      text-transform:uppercase;
-    }
-
-    .brand-sub{
-      margin-top:6px;
-      font-size:11px;
-      letter-spacing:.34em;
-      text-transform:uppercase;
-      color:rgba(255,255,255,.55);
-    }
-
-    nav{
-      display:flex;
-      align-items:center;
-      gap:28px;
-    }
-
-    nav a{
-      color:rgba(255,255,255,.72);
-      text-decoration:none;
-      font-size:14px;
-      transition:.25s;
-    }
-
-    nav a:hover{color:#fff}
-
-    .lang-switch{
-      display:flex;
-      align-items:center;
-      gap:8px;
-      flex-wrap:wrap;
-    }
-
-    .lang-btn{
-      appearance:none;
-      border:1px solid rgba(255,255,255,.1);
-      background:rgba(255,255,255,.03);
-      color:rgba(255,255,255,.68);
-      padding:10px 14px;
-      border-radius:999px;
-      cursor:pointer;
-      font-size:12px;
-      font-weight:700;
-      letter-spacing:.08em;
-      transition:.25s;
-    }
-
-    .lang-btn.active,
-    .lang-btn:hover{
-      color:#fff;
-      border-color:rgba(34,211,238,.38);
-      background:rgba(34,211,238,.1);
+
+    .nav-cta {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 12px 18px;
+      border-radius: 12px;
+      background: linear-gradient(135deg, var(--accent), var(--accent-2));
+      color: white;
+      font-weight: 700;
+      text-decoration: none;
+      box-shadow: 0 12px 30px rgba(84, 119, 255, 0.25);
+      transition: transform 0.25s ease, box-shadow 0.25s ease;
+      white-space: nowrap;
     }
 
-    .hero{
-      padding:76px 0 48px;
-    }
-
-    .hero-grid{
-      display:grid;
-      grid-template-columns:1.12fr .88fr;
-      gap:48px;
-      align-items:center;
+    .nav-cta:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 18px 36px rgba(84, 119, 255, 0.35);
     }
 
-    .eyebrow{
-      display:inline-flex;
-      align-items:center;
-      gap:10px;
-      padding:12px 16px;
-      border-radius:999px;
-      border:1px solid rgba(34,211,238,.22);
-      background:rgba(34,211,238,.08);
-      color:#a5f3fc;
-      text-transform:uppercase;
-      letter-spacing:.18em;
-      font-size:12px;
-      font-weight:700;
+    .menu-toggle {
+      display: none;
+      font-size: 28px;
+      background: none;
+      border: none;
+      color: white;
+      cursor: pointer;
     }
 
-    .hero h1{
-      margin:22px 0 0;
-      font-size:68px;
-      line-height:1.02;
-      letter-spacing:-.04em;
-      font-weight:800;
-      max-width:900px;
+    .hero {
+      padding: 90px 0 70px;
     }
 
-    .hero p{
-      margin:24px 0 0;
-      font-size:19px;
-      line-height:1.8;
-      color:var(--muted);
-      max-width:760px;
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.1fr 0.9fr;
+      gap: 34px;
+      align-items: center;
     }
 
-    .hero-actions{
-      display:flex;
-      gap:16px;
-      margin-top:36px;
-      flex-wrap:wrap;
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      background: rgba(255,255,255,0.06);
+      border: 1px solid rgba(255,255,255,0.10);
+      padding: 10px 14px;
+      border-radius: 999px;
+      color: var(--muted);
+      font-size: 14px;
+      margin-bottom: 22px;
     }
 
-    .btn{
-      display:inline-flex;
-      align-items:center;
-      justify-content:center;
-      gap:10px;
-      min-height:58px;
-      padding:0 28px;
-      border-radius:16px;
-      text-decoration:none;
-      font-weight:800;
-      font-size:15px;
-      transition:.28s;
-      cursor:pointer;
-      border:none;
+    .eyebrow::before {
+      content: "";
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--accent-2), var(--accent-3));
+      box-shadow: 0 0 18px rgba(25,198,255,0.6);
     }
 
-    .btn-primary{
-      background:linear-gradient(90deg, var(--cyan), var(--blue));
-      color:#03111d;
-      box-shadow:0 16px 40px rgba(34,211,238,.28);
+    h1 {
+      font-size: clamp(40px, 5vw, 74px);
+      line-height: 1.02;
+      letter-spacing: -1.6px;
+      margin-bottom: 20px;
     }
 
-    .btn-primary:hover{transform:translateY(-2px) scale(1.01)}
+    .gradient-text {
+      background: linear-gradient(135deg, #ffffff, #88d8ff, #9c86ff);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      color: transparent;
+    }
 
-    .btn-secondary{
-      color:#fff;
-      border:1px solid rgba(255,255,255,.1);
-      background:rgba(255,255,255,.04);
+    .hero p {
+      font-size: 18px;
+      line-height: 1.75;
+      color: var(--muted);
+      max-width: 720px;
+      margin-bottom: 30px;
     }
 
-    .btn-secondary:hover{
-      border-color:rgba(34,211,238,.28);
-      background:rgba(255,255,255,.07);
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+      margin-bottom: 28px;
     }
 
-    .hero-stats{
-      display:grid;
-      grid-template-columns:repeat(3,1fr);
-      gap:16px;
-      margin-top:34px;
-      max-width:760px;
+    .btn-primary,
+    .btn-secondary {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 52px;
+      padding: 14px 22px;
+      border-radius: 14px;
+      text-decoration: none;
+      font-weight: 700;
+      transition: 0.25s ease;
     }
 
-    .stat{
-      border-radius:18px;
-      padding:20px;
+    .btn-primary {
+      background: linear-gradient(135deg, var(--accent), var(--accent-2));
+      color: white;
+      box-shadow: 0 18px 38px rgba(84, 119, 255, 0.28);
     }
 
-    .stat-value{
-      font-size:28px;
-      font-weight:800;
-      color:#a5f3fc;
+    .btn-primary:hover {
+      transform: translateY(-2px);
     }
 
-    .stat-label{
-      margin-top:8px;
-      color:rgba(255,255,255,.6);
-      font-size:14px;
-      line-height:1.6;
+    .btn-secondary {
+      border: 1px solid rgba(255,255,255,0.14);
+      background: rgba(255,255,255,0.04);
+      color: white;
     }
 
-    .hero-visual{
-      position:relative;
-      display:flex;
-      justify-content:center;
-      align-items:center;
-      min-height:520px;
+    .btn-secondary:hover {
+      background: rgba(255,255,255,0.08);
     }
 
-    .orb-wrap{
-      position:relative;
-      width:min(500px, 100%);
-      aspect-ratio:1/1;
+    .hero-stats {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 14px;
+      margin-top: 10px;
     }
 
-    .orb-core{
-      position:absolute;
-      inset:50px;
-      border-radius:28px;
-      display:flex;
-      align-items:center;
-      justify-content:center;
-      overflow:hidden;
+    .stat-card {
+      background: var(--panel);
+      border: 1px solid var(--panel-border);
+      border-radius: 18px;
+      padding: 20px;
+      box-shadow: var(--shadow);
     }
 
-    .orb-core img{
-      width:74%;
-      object-fit:contain;
-      filter:drop-shadow(0 0 28px rgba(34,211,238,.4));
-      animation:floatY 6s ease-in-out infinite;
+    .stat-card h3 {
+      font-size: 28px;
+      margin-bottom: 8px;
     }
 
-    .ring{
-      position:absolute;
-      inset:0;
-      border-radius:50%;
-      border:1px solid rgba(34,211,238,.16);
-      animation:spin 18s linear infinite;
+    .stat-card p {
+      font-size: 14px;
+      line-height: 1.5;
+      color: var(--soft);
+      margin: 0;
     }
 
-    .ring.r2{
-      inset:40px;
-      animation-direction:reverse;
-      animation-duration:14s;
-      border-color:rgba(59,130,246,.16);
+    .hero-visual {
+      position: relative;
     }
 
-    .ring.r3{
-      inset:85px;
-      animation-duration:12s;
-      border-color:rgba(255,255,255,.08);
+    .showcase {
+      position: relative;
+      background: linear-gradient(180deg, rgba(255,255,255,0.10), rgba(255,255,255,0.03));
+      border: 1px solid rgba(255,255,255,0.12);
+      border-radius: 28px;
+      padding: 24px;
+      box-shadow: var(--shadow);
+      overflow: hidden;
     }
 
-    .star{
-      position:absolute;
-      width:12px;
-      height:12px;
-      border-radius:50%;
-      background:#a5f3fc;
-      box-shadow:0 0 18px rgba(165,243,252,.9);
+    .showcase::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(circle at top right, rgba(124,92,255,0.25), transparent 35%);
+      pointer-events: none;
     }
-    .s1{top:22px;left:50%;transform:translateX(-50%)}
-    .s2{right:30px;top:50%;transform:translateY(-50%)}
-    .s3{left:60px;bottom:70px}
-    .s4{left:18%;top:18%}
-    .s5{right:18%;bottom:18%}
 
-    section{
-      padding:44px 0;
+    .mini-bar {
+      display: flex;
+      gap: 8px;
+      margin-bottom: 18px;
     }
 
-    .section-head{
-      display:flex;
-      align-items:end;
-      justify-content:space-between;
-      gap:22px;
-      margin-bottom:28px;
-      flex-wrap:wrap;
+    .mini-bar span {
+      width: 11px;
+      height: 11px;
+      border-radius: 50%;
+      background: rgba(255,255,255,0.25);
     }
 
-    .section-kicker{
-      font-size:12px;
-      text-transform:uppercase;
-      letter-spacing:.22em;
-      color:#a5f3fc;
-      font-weight:700;
+    .screen {
+      background: rgba(8, 12, 29, 0.82);
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 20px;
+      padding: 18px;
+      backdrop-filter: blur(10px);
     }
 
-    .section-title{
-      margin:10px 0 0;
-      font-size:42px;
-      line-height:1.08;
-      letter-spacing:-.03em;
+    .screen-top {
+      display: grid;
+      grid-template-columns: 1.15fr 0.85fr;
+      gap: 16px;
+      margin-bottom: 16px;
     }
 
-    .section-desc{
-      max-width:620px;
-      color:var(--muted);
-      line-height:1.8;
-      font-size:16px;
+    .panel,
+    .panel-small {
+      background: rgba(255,255,255,0.05);
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 18px;
+      padding: 16px;
     }
 
-    .grid-4{
-      display:grid;
-      grid-template-columns:repeat(4,1fr);
-      gap:20px;
+    .line {
+      height: 10px;
+      border-radius: 999px;
+      background: rgba(255,255,255,0.10);
+      margin-bottom: 10px;
+      overflow: hidden;
+      position: relative;
     }
 
-    .grid-3{
-      display:grid;
-      grid-template-columns:repeat(3,1fr);
-      gap:20px;
+    .line::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      width: 68%;
+      background: linear-gradient(90deg, var(--accent), var(--accent-2));
+      border-radius: 999px;
     }
 
-    .grid-2{
-      display:grid;
-      grid-template-columns:repeat(2,1fr);
-      gap:20px;
+    .line.short::after {
+      width: 42%;
     }
 
-    .card{
-      border-radius:var(--radius);
-      padding:28px;
+    .line.medium::after {
+      width: 56%;
     }
 
-    .card-icon{
-      width:52px;
-      height:52px;
-      border-radius:16px;
-      display:flex;
-      align-items:center;
-      justify-content:center;
-      background:linear-gradient(180deg, rgba(34,211,238,.18), rgba(59,130,246,.12));
-      border:1px solid rgba(255,255,255,.08);
-      font-size:22px;
-      color:#a5f3fc;
-      margin-bottom:18px;
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 12px;
+      margin-top: 12px;
     }
 
-    .card h3{
-      margin:0;
-      font-size:23px;
-      line-height:1.2;
+    .small-card {
+      min-height: 90px;
+      border-radius: 16px;
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(255,255,255,0.08);
+      padding: 12px;
     }
 
-    .card p{
-      margin:14px 0 0;
-      color:var(--muted);
-      line-height:1.8;
-      font-size:15px;
+    .small-card .chip {
+      width: 48px;
+      height: 10px;
+      border-radius: 999px;
+      background: linear-gradient(90deg, var(--accent-2), var(--accent-3));
+      margin-bottom: 12px;
     }
 
-    .highlight{
-      display:grid;
-      grid-template-columns:.95fr 1.05fr;
-      gap:20px;
-      align-items:stretch;
+    .small-card .text-row {
+      height: 8px;
+      border-radius: 999px;
+      background: rgba(255,255,255,0.12);
+      margin-bottom: 8px;
     }
 
-    .list{
-      display:grid;
-      gap:16px;
+    .small-card .text-row:last-child {
+      width: 65%;
     }
 
-    .list-item{
-      border-radius:20px;
-      padding:22px;
+    section {
+      padding: 36px 0 80px;
     }
 
-    .list-item h4{
-      margin:0 0 8px;
-      font-size:18px;
+    .section-title {
+      font-size: clamp(28px, 3.4vw, 50px);
+      margin-bottom: 14px;
+      letter-spacing: -0.8px;
     }
 
-    .list-item p{
-      margin:0;
-      color:var(--muted);
-      line-height:1.75;
-      font-size:14px;
+    .section-subtitle {
+      font-size: 17px;
+      line-height: 1.8;
+      color: var(--muted);
+      max-width: 850px;
+      margin-bottom: 34px;
     }
 
-    .metric{
-      text-align:center;
-      padding:30px 20px;
+    .services-grid,
+    .process-grid,
+    .tech-grid {
+      display: grid;
+      gap: 18px;
     }
 
-    .metric-value{
-      font-size:42px;
-      font-weight:800;
-      color:#a5f3fc;
-      letter-spacing:-.03em;
+    .services-grid {
+      grid-template-columns: repeat(3, 1fr);
     }
 
-    .metric-label{
-      margin-top:12px;
-      color:var(--muted);
-      line-height:1.7;
-      font-size:15px;
+    .process-grid {
+      grid-template-columns: repeat(4, 1fr);
     }
 
-    .process-step{
-      position:relative;
-      overflow:hidden;
+    .tech-grid {
+      grid-template-columns: repeat(4, 1fr);
     }
 
-    .process-step .num{
-      font-size:13px;
-      font-weight:800;
-      letter-spacing:.28em;
-      color:#a5f3fc;
-      text-transform:uppercase;
+    .card {
+      background: var(--panel);
+      border: 1px solid var(--panel-border);
+      border-radius: 22px;
+      padding: 24px;
+      box-shadow: var(--shadow);
+      transition: 0.25s ease;
     }
 
-    .process-step h3{
-      margin-top:18px;
+    .card:hover {
+      transform: translateY(-4px);
+      border-color: rgba(255,255,255,0.18);
     }
 
-    .cta{
-      padding:0 0 60px;
+    .icon-box {
+      width: 52px;
+      height: 52px;
+      border-radius: 16px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 22px;
+      background: linear-gradient(135deg, rgba(124,92,255,0.22), rgba(25,198,255,0.18));
+      border: 1px solid rgba(255,255,255,0.10);
+      margin-bottom: 18px;
     }
 
-    .cta-box{
-      border-radius:32px;
-      padding:40px;
-      position:relative;
-      overflow:hidden;
+    .card h3 {
+      font-size: 21px;
+      margin-bottom: 12px;
     }
 
-    .cta-box::before{
-      content:"";
-      position:absolute;
-      inset:-20% auto auto -10%;
-      width:260px;
-      height:260px;
-      background:rgba(34,211,238,.12);
-      filter:blur(80px);
-      border-radius:50%;
-      pointer-events:none;
+    .card p {
+      color: var(--muted);
+      line-height: 1.75;
+      font-size: 15px;
     }
 
-    .cta-grid{
-      position:relative;
-      display:grid;
-      grid-template-columns:1fr .95fr;
-      gap:26px;
-      align-items:center;
+    .process-number {
+      font-size: 14px;
+      color: var(--accent-2);
+      font-weight: 700;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      margin-bottom: 12px;
+      display: inline-block;
     }
 
-    .contact-links{
-      display:grid;
-      gap:14px;
+    .tech-pill {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 82px;
+      text-align: center;
+      font-weight: 700;
+      font-size: 16px;
     }
 
-    .contact-link{
-      display:flex;
-      justify-content:space-between;
-      align-items:center;
-      gap:14px;
-      padding:18px 20px;
-      text-decoration:none;
-      color:#fff;
-      border-radius:18px;
-      border:1px solid rgba(255,255,255,.08);
-      background:rgba(255,255,255,.04);
-      transition:.24s;
+    .cta {
+      padding-bottom: 100px;
     }
 
-    .contact-link:hover{
-      border-color:rgba(34,211,238,.24);
-      background:rgba(255,255,255,.07);
+    .cta-box {
+      background: linear-gradient(180deg, rgba(255,255,255,0.09), rgba(255,255,255,0.04));
+      border: 1px solid rgba(255,255,255,0.12);
+      border-radius: 28px;
+      padding: 42px;
+      box-shadow: var(--shadow);
+      display: grid;
+      grid-template-columns: 1.1fr 0.9fr;
+      gap: 22px;
+      align-items: center;
     }
 
-    .contact-link small{
-      display:block;
-      color:rgba(255,255,255,.5);
-      margin-bottom:4px;
-      font-size:12px;
-      letter-spacing:.06em;
-      text-transform:uppercase;
+    .cta-box p {
+      color: var(--muted);
+      font-size: 17px;
+      line-height: 1.8;
+      margin-top: 12px;
     }
 
-    .contact-link strong{
-      font-size:16px;
-      line-height:1.4;
+    .contact-list {
+      display: grid;
+      gap: 14px;
     }
 
-    .whatsapp-float{
-      position:fixed;
-      right:22px;
-      bottom:22px;
-      z-index:30;
-      display:inline-flex;
-      align-items:center;
-      gap:10px;
-      padding:14px 18px;
-      border-radius:999px;
-      text-decoration:none;
-      font-weight:800;
-      color:#fff;
-      background:var(--success);
-      box-shadow:0 16px 40px rgba(37,211,102,.25);
+    .contact-item {
+      background: rgba(255,255,255,0.05);
+      border: 1px solid rgba(255,255,255,0.10);
+      border-radius: 18px;
+      padding: 18px 20px;
     }
 
-    footer{
-      border-top:1px solid var(--line);
-      padding:26px 0 42px;
-      color:rgba(255,255,255,.42);
-      font-size:14px;
-      text-align:center;
+    .contact-item strong {
+      display: block;
+      font-size: 14px;
+      color: var(--soft);
+      margin-bottom: 6px;
+      text-transform: uppercase;
+      letter-spacing: 1px;
     }
 
-    body[dir="rtl"]{
-      text-align:right;
+    .contact-item a,
+    .contact-item span {
+      color: white;
+      text-decoration: none;
+      font-size: 17px;
+      word-break: break-word;
     }
-    body[dir="rtl"] .header-inner,
-    body[dir="rtl"] .section-head,
-    body[dir="rtl"] .cta-grid{
-      direction:rtl;
+
+    footer {
+      border-top: 1px solid rgba(255,255,255,0.08);
+      padding: 26px 0;
+      color: var(--soft);
+      font-size: 14px;
     }
-    body[dir="rtl"] .hero-actions,
-    body[dir="rtl"] .lang-switch,
-    body[dir="rtl"] nav{
-      direction:rtl;
+
+    .footer-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 20px;
+      flex-wrap: wrap;
     }
 
-    @keyframes floatY{
-      0%,100%{transform:translateY(0)}
-      50%{transform:translateY(-10px)}
+    .reveal {
+      opacity: 0;
+      transform: translateY(20px);
+      transition: 0.7s ease;
     }
-    @keyframes spin{
-      from{transform:rotate(0)}
-      to{transform:rotate(360deg)}
+
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
     }
 
-    @media (max-width: 1100px){
+    @media (max-width: 1080px) {
       .hero-grid,
-      .highlight,
-      .cta-grid{
-        grid-template-columns:1fr;
+      .cta-box,
+      .screen-top {
+        grid-template-columns: 1fr;
       }
-      .hero h1{font-size:56px}
-      .grid-4{grid-template-columns:repeat(2,1fr)}
-      .hero-visual{min-height:420px}
+
+      .services-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .process-grid,
+      .tech-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
     }
 
-    @media (max-width: 820px){
-      nav{display:none}
-      .hero{padding:58px 0 24px}
-      .hero h1{font-size:42px}
-      .hero p{font-size:17px}
+    @media (max-width: 860px) {
+      nav {
+        position: fixed;
+        top: 84px;
+        left: 0;
+        right: 0;
+        background: rgba(5, 8, 22, 0.96);
+        border-bottom: 1px solid rgba(255,255,255,0.08);
+        backdrop-filter: blur(20px);
+        display: none;
+      }
+
+      nav.open {
+        display: block;
+      }
+
+      nav ul {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 16px;
+        padding: 20px 4%;
+      }
+
+      .menu-toggle {
+        display: block;
+      }
+
+      .desktop-cta {
+        display: none;
+      }
+
+      .services-grid,
+      .process-grid,
+      .tech-grid,
       .hero-stats,
-      .grid-4,
-      .grid-3,
-      .grid-2{
-        grid-template-columns:1fr;
+      .cards {
+        grid-template-columns: 1fr;
       }
-      .section-title{font-size:34px}
-      .brand-text{display:none}
-      .brand img{width:56px;height:56px}
-      .cta-box{padding:28px}
-      .whatsapp-float span{display:none}
-      .whatsapp-float{padding:14px}
+
+      .hero {
+        padding-top: 70px;
+      }
+
+      h1 {
+        font-size: clamp(34px, 8vw, 56px);
+      }
+
+      .brand-title {
+        font-size: 18px;
+      }
+
+      .brand-subtitle {
+        font-size: 11px;
+      }
     }
 
-    @media (max-width: 520px){
-      .container{width:min(100% - 26px, 1200px)}
-      .hero h1{font-size:36px}
-      .btn{width:100%}
-      .hero-actions{flex-direction:column}
-      .lang-btn{padding:9px 12px}
+    @media (max-width: 560px) {
+      .nav {
+        height: 76px;
+      }
+
+      nav {
+        top: 76px;
+      }
+
+      .logo-wrap {
+        width: 48px;
+        height: 48px;
+      }
+
+      .cta-box,
+      .showcase,
+      .card,
+      .stat-card {
+        padding: 20px;
+      }
+
+      .section-subtitle,
+      .hero p,
+      .cta-box p {
+        font-size: 16px;
+      }
     }
   </style>
 </head>
 <body>
-  <div class="bg-grid"></div>
-  <div class="glow-1"></div>
-  <div class="glow-2"></div>
-  <div class="glow-3"></div>
+  <div class="background">
+    <div class="blob one"></div>
+    <div class="blob two"></div>
+    <div class="blob three"></div>
+  </div>
+  <div class="grid-overlay"></div>
 
   <header>
-    <div class="container header-inner">
-      <a class="brand" href="#top">
-        <img src="https://cdn.jsdelivr.net/gh/luxoriondigital-rgb/luxorion-site@main/logo.png" alt="Luxorion Digital Logo">
+    <div class="container nav">
+      <a href="#home" class="brand">
+        <div class="logo-wrap">
+          <img id="site-logo" src="./logo.png" alt="Luxorion Digital Logo" />
+          <div id="logo-fallback" class="logo-text-fallback">LUX<br>ORION</div>
+        </div>
         <div class="brand-text">
-          <div class="brand-title">Luxorion</div>
-          <div class="brand-sub">Digital Studio</div>
+          <span class="brand-title">Luxorion Digital</span>
+          <span class="brand-subtitle">Global IT Solutions</span>
         </div>
       </a>
 
-      <nav>
-        <a href="#services" data-i18n="navServices">Services</a>
-        <a href="#results" data-i18n="navResults">Results</a>
-        <a href="#why" data-i18n="navWhy">Why Us</a>
-        <a href="#process" data-i18n="navProcess">Process</a>
-        <a href="#contact" data-i18n="navContact">Contact</a>
+      <button class="menu-toggle" id="menuToggle" aria-label="Open menu">☰</button>
+
+      <nav id="mobileNav">
+        <ul>
+          <li><a href="#services">Services</a></li>
+          <li><a href="#process">Process</a></li>
+          <li><a href="#technology">Technology</a></li>
+          <li><a href="#contact">Contact</a></li>
+          <li><a class="nav-cta" href="mailto:Luxoriondigital@gmail.com">Start a Project</a></li>
+        </ul>
       </nav>
 
-      <div class="lang-switch">
-        <button class="lang-btn active" data-lang="en">EN</button>
-        <button class="lang-btn" data-lang="ru">RU</button>
-        <button class="lang-btn" data-lang="ar">AR</button>
-      </div>
+      <a class="nav-cta desktop-cta" href="mailto:Luxoriondigital@gmail.com">Start a Project</a>
     </div>
   </header>
 
-  <main id="top" class="container">
-    <section class="hero">
-      <div class="hero-grid">
-        <div>
-          <div class="eyebrow" data-i18n="eyebrow">Premium websites • AI automation • Growth systems</div>
-          <h1 data-i18n="heroTitle">We build premium digital systems that make your business look expensive and perform like a machine.</h1>
-          <p data-i18n="heroDesc">Luxorion Digital creates high-conversion websites, AI-powered automations, mobile-first digital experiences, and client acquisition systems for modern brands that want speed, status, and real growth.</p>
+  <main>
+    <section class="hero" id="home">
+      <div class="container hero-grid">
+        <div class="hero-content reveal">
+          <div class="eyebrow">Websites • Mobile Apps • Automation • AI Systems</div>
+
+          <h1>
+            We build
+            <span class="gradient-text">digital systems</span>
+            that move business forward.
+          </h1>
+
+          <p>
+            Luxorion Digital creates premium websites, scalable mobile applications,
+            intelligent automation, and AI-powered workflows for ambitious companies
+            that want speed, quality, and long-term growth.
+          </p>
 
           <div class="hero-actions">
-            <a class="btn btn-primary" href="https://wa.me/971558913535" data-i18n="heroBtnPrimary">Get a free strategy call</a>
-            <a class="btn btn-secondary" href="#services" data-i18n="heroBtnSecondary">Explore services</a>
+            <a href="#contact" class="btn-primary">Discuss Your Project</a>
+            <a href="#services" class="btn-secondary">Explore Services</a>
           </div>
 
           <div class="hero-stats">
-            <div class="glass stat">
-              <div class="stat-value">24/7</div>
-              <div class="stat-label" data-i18n="stat1">automation-ready systems</div>
+            <div class="stat-card">
+              <h3>Web</h3>
+              <p>Modern corporate websites, landing pages, admin dashboards, and custom platforms.</p>
             </div>
-            <div class="glass stat">
-              <div class="stat-value">3</div>
-              <div class="stat-label" data-i18n="stat2">languages built in</div>
+            <div class="stat-card">
+              <h3>Apps</h3>
+              <p>Powerful mobile solutions designed for performance, usability, and future scaling.</p>
             </div>
-            <div class="glass stat">
-              <div class="stat-value" data-i18n="stat3Value">Premium</div>
-              <div class="stat-label" data-i18n="stat3">design-first execution</div>
+            <div class="stat-card">
+              <h3>AI + n8n</h3>
+              <p>Automation pipelines that save time, reduce manual work, and increase output.</p>
             </div>
           </div>
         </div>
 
-        <div class="hero-visual">
-          <div class="orb-wrap">
-            <div class="ring r1 ring"></div>
-            <div class="ring r2 ring"></div>
-            <div class="ring r3 ring"></div>
-            <div class="star s1"></div>
-            <div class="star s2"></div>
-            <div class="star s3"></div>
-            <div class="star s4"></div>
-            <div class="star s5"></div>
-            <div class="orb-core glass">
-              <img src="https://cdn.jsdelivr.net/gh/luxoriondigital-rgb/luxorion-site@main/logo.png" alt="Luxorion Digital Emblem">
+        <div class="hero-visual reveal">
+          <div class="showcase">
+            <div class="mini-bar">
+              <span></span><span></span><span></span>
+            </div>
+
+            <div class="screen">
+              <div class="screen-top">
+                <div class="panel">
+                  <div class="line"></div>
+                  <div class="line medium"></div>
+                  <div class="line short"></div>
+                </div>
+                <div class="panel-small">
+                  <div class="line medium"></div>
+                  <div class="line short"></div>
+                </div>
+              </div>
+
+              <div class="cards">
+                <div class="small-card">
+                  <div class="chip"></div>
+                  <div class="text-row"></div>
+                  <div class="text-row"></div>
+                  <div class="text-row"></div>
+                </div>
+
+                <div class="small-card">
+                  <div class="chip"></div>
+                  <div class="text-row"></div>
+                  <div class="text-row"></div>
+                  <div class="text-row"></div>
+                </div>
+
+                <div class="small-card">
+                  <div class="chip"></div>
+                  <div class="text-row"></div>
+                  <div class="text-row"></div>
+                  <div class="text-row"></div>
+                </div>
+              </div>
             </div>
           </div>
         </div>
@@ -735,364 +893,264 @@
     </section>
 
     <section id="services">
-      <div class="section-head">
-        <div>
-          <div class="section-kicker" data-i18n="servicesKicker">Services</div>
-          <h2 class="section-title" data-i18n="servicesTitle">Digital systems designed to impress and convert.</h2>
-        </div>
-        <div class="section-desc" data-i18n="servicesDesc">Every offer is built to position your brand higher, reduce manual work, and turn more visitors into conversations, leads, and sales.</div>
-      </div>
-
-      <div class="grid-4">
-        <div class="glass card">
-          <div class="card-icon">✦</div>
-          <h3 data-i18n="service1Title">Premium Websites</h3>
-          <p data-i18n="service1Desc">Modern high-conversion websites that look expensive, load fast, and make your company feel established from the first second.</p>
-        </div>
-        <div class="glass card">
-          <div class="card-icon">⚙</div>
-          <h3 data-i18n="service2Title">AI Automation</h3>
-          <p data-i18n="service2Desc">Workflows with n8n, lead routing, notifications, content pipelines, CRM actions, and smart business automations that save hours daily.</p>
-        </div>
-        <div class="glass card">
-          <div class="card-icon">◈</div>
-          <h3 data-i18n="service3Title">Mobile & Web Apps</h3>
-          <p data-i18n="service3Desc">Tailored product interfaces for ambitious businesses that need an experience beyond a simple website.</p>
-        </div>
-        <div class="glass card">
-          <div class="card-icon">↗</div>
-          <h3 data-i18n="service4Title">Growth Systems</h3>
-          <p data-i18n="service4Desc">Integrated WhatsApp, Instagram, Telegram, forms, landing pages, and content systems that bring leads into your pipeline automatically.</p>
-        </div>
-      </div>
-    </section>
-
-    <section id="results">
-      <div class="section-head">
-        <div>
-          <div class="section-kicker" data-i18n="resultsKicker">Results</div>
-          <h2 class="section-title" data-i18n="resultsTitle">Built to drive visibility, trust, and revenue.</h2>
-        </div>
-        <div class="section-desc" data-i18n="resultsDesc">Strong digital systems are not decoration. They increase response speed, improve positioning, and turn traffic into conversations and sales.</div>
-      </div>
-
-      <div class="grid-3">
-        <div class="glass card metric">
-          <div class="metric-value">+300%</div>
-          <div class="metric-label" data-i18n="metric1">Potential increase in qualified leads through better presentation and stronger conversion structure.</div>
-        </div>
-        <div class="glass card metric">
-          <div class="metric-value">80%</div>
-          <div class="metric-label" data-i18n="metric2">Manual work can be reduced with smart automations, notifications, and lead routing.</div>
-        </div>
-        <div class="glass card metric">
-          <div class="metric-value">24/7</div>
-          <div class="metric-label" data-i18n="metric3">Your digital system keeps collecting leads and moving customers forward even outside business hours.</div>
-        </div>
-      </div>
-    </section>
-
-    <section id="why">
-      <div class="highlight">
-        <div class="glass card">
-          <div class="section-kicker" data-i18n="whyKicker">Why Luxorion</div>
-          <h2 class="section-title" style="margin-top:10px" data-i18n="whyTitle">We don’t just make things look good. We make them work.</h2>
-          <p class="section-desc" style="margin-top:22px" data-i18n="whyDesc">Most agencies sell visuals. We build an ecosystem: brand presence, automation, lead capture, customer flow, and conversion logic. The result is not just a better site. It is a better business system.</p>
+      <div class="container">
+        <div class="reveal">
+          <h2 class="section-title">What we do</h2>
+          <p class="section-subtitle">
+            We combine design, engineering, automation, and AI to help brands launch faster,
+            operate smarter, and present themselves at a premium level.
+          </p>
         </div>
 
-        <div class="list">
-          <div class="glass list-item">
-            <h4 data-i18n="why1Title">Premium-first design</h4>
-            <p data-i18n="why1Desc">Your site should immediately feel more expensive than your competitors.</p>
+        <div class="services-grid">
+          <div class="card reveal">
+            <div class="icon-box">🌐</div>
+            <h3>Website Development</h3>
+            <p>
+              High-end business websites, landing pages, service platforms, and company portals
+              with clean UX, responsive design, and strong brand presentation.
+            </p>
           </div>
-          <div class="glass list-item">
-            <h4 data-i18n="why2Title">Fast execution</h4>
-            <p data-i18n="why2Desc">We move quickly, structure clearly, and avoid endless agency delays.</p>
+
+          <div class="card reveal">
+            <div class="icon-box">📱</div>
+            <h3>Mobile App Development</h3>
+            <p>
+              Custom mobile apps for startups and enterprises with scalable architecture,
+              polished interfaces, and smooth user experience across devices.
+            </p>
           </div>
-          <div class="glass list-item">
-            <h4 data-i18n="why3Title">Business thinking</h4>
-            <p data-i18n="why3Desc">Every page, button, and workflow is designed around growth, not decoration.</p>
+
+          <div class="card reveal">
+            <div class="icon-box">⚙️</div>
+            <h3>Business Automation</h3>
+            <p>
+              Workflow automation using n8n and API integrations to connect your tools,
+              reduce repetitive work, and make operations more efficient.
+            </p>
           </div>
-          <div class="glass list-item">
-            <h4 data-i18n="why4Title">Scalable systems</h4>
-            <p data-i18n="why4Desc">The same foundation can expand into ads, automations, funnels, and CRM.</p>
+
+          <div class="card reveal">
+            <div class="icon-box">🤖</div>
+            <h3>AI Integrations</h3>
+            <p>
+              Smart assistants, AI content systems, automated customer flows, and intelligent
+              business logic built around real-world use cases.
+            </p>
+          </div>
+
+          <div class="card reveal">
+            <div class="icon-box">🎨</div>
+            <h3>Brand & UI Systems</h3>
+            <p>
+              Modern visual identity, interface systems, page layouts, and digital presentation
+              crafted to position your company above the ordinary.
+            </p>
+          </div>
+
+          <div class="card reveal">
+            <div class="icon-box">🚀</div>
+            <h3>Launch & Growth Support</h3>
+            <p>
+              From concept to deployment, we help structure digital products that are ready
+              for growth, marketing, and long-term iteration.
+            </p>
           </div>
         </div>
       </div>
     </section>
 
     <section id="process">
-      <div class="section-head">
-        <div>
-          <div class="section-kicker" data-i18n="processKicker">Process</div>
-          <h2 class="section-title" data-i18n="processTitle">Clear process. Premium outcome.</h2>
+      <div class="container">
+        <div class="reveal">
+          <h2 class="section-title">How we work</h2>
+          <p class="section-subtitle">
+            We focus on clarity, speed, and real business value — not just visual appearance.
+          </p>
+        </div>
+
+        <div class="process-grid">
+          <div class="card reveal">
+            <span class="process-number">Step 01</span>
+            <h3>Discovery</h3>
+            <p>
+              We define your goals, product direction, audience, and the exact role your digital system must play.
+            </p>
+          </div>
+
+          <div class="card reveal">
+            <span class="process-number">Step 02</span>
+            <h3>Design & Structure</h3>
+            <p>
+              We create a strong visual and structural foundation so the product looks premium and works logically.
+            </p>
+          </div>
+
+          <div class="card reveal">
+            <span class="process-number">Step 03</span>
+            <h3>Development</h3>
+            <p>
+              We build the website, app, or automation system with attention to performance, stability, and scale.
+            </p>
+          </div>
+
+          <div class="card reveal">
+            <span class="process-number">Step 04</span>
+            <h3>Launch & Improve</h3>
+            <p>
+              We deploy, test, optimize, and prepare the system for real-world business use and growth.
+            </p>
+          </div>
         </div>
       </div>
+    </section>
 
-      <div class="grid-3">
-        <div class="glass card process-step">
-          <div class="num">01</div>
-          <h3 data-i18n="process1Title">Strategy</h3>
-          <p data-i18n="process1Desc">We define the offer, audience, structure, and conversion path before design starts.</p>
+    <section id="technology">
+      <div class="container">
+        <div class="reveal">
+          <h2 class="section-title">Technology focus</h2>
+          <p class="section-subtitle">
+            We use modern tools and flexible stacks to create reliable digital products and automation ecosystems.
+          </p>
         </div>
-        <div class="glass card process-step">
-          <div class="num">02</div>
-          <h3 data-i18n="process2Title">Design & Build</h3>
-          <p data-i18n="process2Desc">We create the visual system, build the site, and connect the essential tools.</p>
-        </div>
-        <div class="glass card process-step">
-          <div class="num">03</div>
-          <h3 data-i18n="process3Title">Launch & Automate</h3>
-          <p data-i18n="process3Desc">We publish, connect lead flows, and turn the site into a working sales asset.</p>
+
+        <div class="tech-grid">
+          <div class="card tech-pill reveal">HTML / CSS / JavaScript</div>
+          <div class="card tech-pill reveal">Responsive Web Platforms</div>
+          <div class="card tech-pill reveal">Mobile App Interfaces</div>
+          <div class="card tech-pill reveal">n8n Automation Workflows</div>
+          <div class="card tech-pill reveal">AI APIs & Assistants</div>
+          <div class="card tech-pill reveal">CRM / API Integrations</div>
+          <div class="card tech-pill reveal">Business Process Design</div>
+          <div class="card tech-pill reveal">Scalable Digital Architecture</div>
         </div>
       </div>
     </section>
 
     <section class="cta" id="contact">
-      <div class="glass cta-box">
-        <div class="cta-grid">
+      <div class="container">
+        <div class="cta-box reveal">
           <div>
-            <div class="section-kicker" data-i18n="contactKicker">Contact</div>
-            <h2 class="section-title" style="margin-top:10px" data-i18n="contactTitle">Ready to build something that actually brings in clients?</h2>
-            <p class="section-desc" style="margin-top:22px" data-i18n="contactDesc">Let’s build a premium website, AI automation, or full growth system for your business. Tell us what you need and we will show you the fastest way to launch.</p>
-            <div class="hero-actions">
-              <a class="btn btn-primary" href="https://wa.me/971558913535" data-i18n="contactBtn">Message on WhatsApp</a>
+            <h2 class="section-title">Let’s build something powerful</h2>
+            <p>
+              Whether you need a premium company website, mobile app, smart automation,
+              or AI-driven digital system, Luxorion Digital is ready to help you launch
+              with speed, precision, and a strong business focus.
+            </p>
+
+            <div class="hero-actions" style="margin-top: 24px;">
+              <a href="mailto:Luxoriondigital@gmail.com" class="btn-primary">Email Us</a>
+              <a href="tel:+971558913535" class="btn-secondary">Call Now</a>
             </div>
           </div>
 
-          <div class="contact-links">
-            <a class="contact-link" href="https://wa.me/971558913535">
-              <span>
-                <small>WhatsApp</small>
-                <strong>+971 55 891 3535</strong>
-              </span>
-              <span>↗</span>
-            </a>
+          <div class="contact-list">
+            <div class="contact-item">
+              <strong>Email</strong>
+              <a href="mailto:Luxoriondigital@gmail.com">Luxoriondigital@gmail.com</a>
+            </div>
 
-            <a class="contact-link" href="https://t.me/luxoriondigital">
-              <span>
-                <small>Telegram</small>
-                <strong>@luxoriondigital</strong>
-              </span>
-              <span>↗</span>
-            </a>
+            <div class="contact-item">
+              <strong>Phone</strong>
+              <a href="tel:+971558913535">+971 55 891 3535</a>
+            </div>
 
-            <a class="contact-link" href="mailto:luxoriondigital@gmail.com">
-              <span>
-                <small>Email</small>
-                <strong>luxoriondigital@gmail.com</strong>
-              </span>
-              <span>↗</span>
-            </a>
+            <div class="contact-item">
+              <strong>Website</strong>
+              <span>Luxoriondigital.com</span>
+            </div>
           </div>
         </div>
       </div>
     </section>
   </main>
 
-  <a class="whatsapp-float" href="https://wa.me/971558913535" aria-label="WhatsApp">
-    <span>WhatsApp</span>
-  </a>
-
   <footer>
-    <div class="container" data-i18n="footer">© 2026 Luxorion Digital. Premium websites, AI automation, and client acquisition systems.</div>
+    <div class="container footer-row">
+      <div>© 2026 Luxorion Digital. All rights reserved.</div>
+      <div>Web Development • Mobile Apps • Automation • AI Solutions</div>
+    </div>
   </footer>
 
   <script>
-    const translations = {
-      en: {
-        navServices: "Services",
-        navResults: "Results",
-        navWhy: "Why Us",
-        navProcess: "Process",
-        navContact: "Contact",
-        eyebrow: "Premium websites • AI automation • Growth systems",
-        heroTitle: "We build premium digital systems that make your business look expensive and perform like a machine.",
-        heroDesc: "Luxorion Digital creates high-conversion websites, AI-powered automations, mobile-first digital experiences, and client acquisition systems for modern brands that want speed, status, and real growth.",
-        heroBtnPrimary: "Get a free strategy call",
-        heroBtnSecondary: "Explore services",
-        stat1: "automation-ready systems",
-        stat2: "languages built in",
-        stat3Value: "Premium",
-        stat3: "design-first execution",
-        servicesKicker: "Services",
-        servicesTitle: "Digital systems designed to impress and convert.",
-        servicesDesc: "Every offer is built to position your brand higher, reduce manual work, and turn more visitors into conversations, leads, and sales.",
-        service1Title: "Premium Websites",
-        service1Desc: "Modern high-conversion websites that look expensive, load fast, and make your company feel established from the first second.",
-        service2Title: "AI Automation",
-        service2Desc: "Workflows with n8n, lead routing, notifications, content pipelines, CRM actions, and smart business automations that save hours daily.",
-        service3Title: "Mobile & Web Apps",
-        service3Desc: "Tailored product interfaces for ambitious businesses that need an experience beyond a simple website.",
-        service4Title: "Growth Systems",
-        service4Desc: "Integrated WhatsApp, Instagram, Telegram, forms, landing pages, and content systems that bring leads into your pipeline automatically.",
-        resultsKicker: "Results",
-        resultsTitle: "Built to drive visibility, trust, and revenue.",
-        resultsDesc: "Strong digital systems are not decoration. They increase response speed, improve positioning, and turn traffic into conversations and sales.",
-        metric1: "Potential increase in qualified leads through better presentation and stronger conversion structure.",
-        metric2: "Manual work can be reduced with smart automations, notifications, and lead routing.",
-        metric3: "Your digital system keeps collecting leads and moving customers forward even outside business hours.",
-        whyKicker: "Why Luxorion",
-        whyTitle: "We don’t just make things look good. We make them work.",
-        whyDesc: "Most agencies sell visuals. We build an ecosystem: brand presence, automation, lead capture, customer flow, and conversion logic. The result is not just a better site. It is a better business system.",
-        why1Title: "Premium-first design",
-        why1Desc: "Your site should immediately feel more expensive than your competitors.",
-        why2Title: "Fast execution",
-        why2Desc: "We move quickly, structure clearly, and avoid endless agency delays.",
-        why3Title: "Business thinking",
-        why3Desc: "Every page, button, and workflow is designed around growth, not decoration.",
-        why4Title: "Scalable systems",
-        why4Desc: "The same foundation can expand into ads, automations, funnels, and CRM.",
-        processKicker: "Process",
-        processTitle: "Clear process. Premium outcome.",
-        process1Title: "Strategy",
-        process1Desc: "We define the offer, audience, structure, and conversion path before design starts.",
-        process2Title: "Design & Build",
-        process2Desc: "We create the visual system, build the site, and connect the essential tools.",
-        process3Title: "Launch & Automate",
-        process3Desc: "We publish, connect lead flows, and turn the site into a working sales asset.",
-        contactKicker: "Contact",
-        contactTitle: "Ready to build something that actually brings in clients?",
-        contactDesc: "Let’s build a premium website, AI automation, or full growth system for your business. Tell us what you need and we will show you the fastest way to launch.",
-        contactBtn: "Message on WhatsApp",
-        footer: "© 2026 Luxorion Digital. Premium websites, AI automation, and client acquisition systems."
-      },
-      ru: {
-        navServices: "Услуги",
-        navResults: "Результаты",
-        navWhy: "Почему мы",
-        navProcess: "Процесс",
-        navContact: "Контакты",
-        eyebrow: "Премиум сайты • AI автоматизация • Системы роста",
-        heroTitle: "Мы создаем премиальные цифровые системы, которые делают ваш бизнес дорогим на вид и сильным по результату.",
-        heroDesc: "Luxorion Digital создает высококонверсионные сайты, AI-автоматизацию, современные цифровые продукты и системы привлечения клиентов для бизнеса, которому нужны скорость, статус и реальный рост.",
-        heroBtnPrimary: "Получить стратегический звонок",
-        heroBtnSecondary: "Смотреть услуги",
-        stat1: "системы, готовые к автоматизации",
-        stat2: "языка встроено",
-        stat3Value: "Премиум",
-        stat3: "дизайн с фокусом на результат",
-        servicesKicker: "Услуги",
-        servicesTitle: "Цифровые системы, созданные впечатлять и конвертировать.",
-        servicesDesc: "Каждое решение помогает поднять ваш бренд выше, сократить ручную работу и превратить посетителей в диалоги, лиды и продажи.",
-        service1Title: "Премиум сайты",
-        service1Desc: "Современные высококонверсионные сайты, которые выглядят дорого, быстро загружаются и сразу усиливают доверие к вашей компании.",
-        service2Title: "AI автоматизация",
-        service2Desc: "Сценарии на n8n, маршрутизация лидов, уведомления, контент-пайплайны, CRM-действия и умная автоматизация, которая экономит часы каждый день.",
-        service3Title: "Мобильные и веб-приложения",
-        service3Desc: "Индивидуальные цифровые продукты для бизнеса, которому уже мало обычного сайта.",
-        service4Title: "Системы роста",
-        service4Desc: "Интеграция WhatsApp, Instagram, Telegram, форм, лендингов и контент-систем, которые автоматически приводят лидов в вашу воронку.",
-        resultsKicker: "Результаты",
-        resultsTitle: "Сделано для роста видимости, доверия и выручки.",
-        resultsDesc: "Сильная цифровая система — это не украшение. Она увеличивает скорость реакции, улучшает позиционирование и превращает трафик в диалоги и продажи.",
-        metric1: "Потенциальный рост качественных лидов за счет лучшей подачи и более сильной структуры конверсии.",
-        metric2: "Ручная работа может быть существенно сокращена за счет умной автоматизации, уведомлений и маршрутизации заявок.",
-        metric3: "Ваша цифровая система продолжает собирать лиды и двигать клиента вперед даже вне рабочего времени.",
-        whyKicker: "Почему Luxorion",
-        whyTitle: "Мы не просто делаем красиво. Мы делаем так, чтобы это работало.",
-        whyDesc: "Большинство агентств продают визуал. Мы строим экосистему: присутствие бренда, автоматизацию, захват лидов, клиентский путь и логику конверсии. Результат — не просто лучший сайт, а более сильная бизнес-система.",
-        why1Title: "Премиум сначала",
-        why1Desc: "Ваш сайт должен сразу ощущаться дороже, чем у конкурентов.",
-        why2Title: "Быстрое исполнение",
-        why2Desc: "Мы движемся быстро, работаем структурно и не создаем бесконечных задержек, как обычные агентства.",
-        why3Title: "Бизнес-мышление",
-        why3Desc: "Каждая страница, кнопка и автоматизация строятся вокруг роста, а не вокруг декора.",
-        why4Title: "Масштабируемая система",
-        why4Desc: "Эту основу можно дальше расширять в рекламу, автоматизацию, воронки и CRM.",
-        processKicker: "Процесс",
-        processTitle: "Понятный процесс. Премиальный результат.",
-        process1Title: "Стратегия",
-        process1Desc: "Сначала мы определяем оффер, аудиторию, структуру и путь конверсии, и только потом начинаем дизайн.",
-        process2Title: "Дизайн и сборка",
-        process2Desc: "Мы создаем визуальную систему, собираем сайт и подключаем ключевые инструменты.",
-        process3Title: "Запуск и автоматизация",
-        process3Desc: "Мы публикуем проект, подключаем поток лидов и превращаем сайт в рабочий инструмент продаж.",
-        contactKicker: "Контакты",
-        contactTitle: "Готовы создать систему, которая действительно приводит клиентов?",
-        contactDesc: "Давайте сделаем для вашего бизнеса премиальный сайт, AI-автоматизацию или полную систему роста. Расскажите, что вам нужно, и мы покажем самый быстрый путь к запуску.",
-        contactBtn: "Написать в WhatsApp",
-        footer: "© 2026 Luxorion Digital. Премиум сайты, AI автоматизация и системы привлечения клиентов."
-      },
-      ar: {
-        navServices: "الخدمات",
-        navResults: "النتائج",
-        navWhy: "لماذا نحن",
-        navProcess: "العملية",
-        navContact: "التواصل",
-        eyebrow: "مواقع فاخرة • أتمتة بالذكاء الاصطناعي • أنظمة نمو",
-        heroTitle: "نقوم بإنشاء أنظمة رقمية فاخرة تجعل عملك يبدو أقوى وأكثر قيمة ويعمل كآلة حقيقية.",
-        heroDesc: "تقوم Luxorion Digital بإنشاء مواقع عالية التحويل، وأتمتة بالذكاء الاصطناعي، وتجارب رقمية حديثة، وأنظمة جذب عملاء للشركات التي تريد السرعة والهيبة والنمو الحقيقي.",
-        heroBtnPrimary: "احصل على مكالمة استراتيجية",
-        heroBtnSecondary: "استكشف الخدمات",
-        stat1: "أنظمة جاهزة للأتمتة",
-        stat2: "لغات مدمجة",
-        stat3Value: "فاخر",
-        stat3: "تنفيذ يعتمد على التصميم",
-        servicesKicker: "الخدمات",
-        servicesTitle: "أنظمة رقمية صُممت لتبهر وتحوّل الزوار إلى عملاء.",
-        servicesDesc: "كل خدمة لدينا تهدف إلى رفع قيمة علامتك التجارية وتقليل العمل اليدوي وتحويل الزيارات إلى محادثات وعملاء ومبيعات.",
-        service1Title: "مواقع فاخرة",
-        service1Desc: "مواقع حديثة عالية التحويل تبدو باهظة واحترافية وتمنح شركتك حضوراً قوياً من اللحظة الأولى.",
-        service2Title: "أتمتة بالذكاء الاصطناعي",
-        service2Desc: "أنظمة n8n، توجيه العملاء المحتملين، الإشعارات، خطوط المحتوى، إجراءات CRM، وأتمتة ذكية توفر ساعات من العمل يومياً.",
-        service3Title: "تطبيقات ويب وموبايل",
-        service3Desc: "تجارب رقمية مخصصة للشركات الطموحة التي تحتاج أكثر من مجرد موقع بسيط.",
-        service4Title: "أنظمة النمو",
-        service4Desc: "دمج WhatsApp وInstagram وTelegram والنماذج وصفحات الهبوط وأنظمة المحتوى لجلب العملاء المحتملين تلقائياً.",
-        resultsKicker: "النتائج",
-        resultsTitle: "مصمم لزيادة الظهور والثقة والإيرادات.",
-        resultsDesc: "النظام الرقمي القوي ليس مجرد شكل جميل، بل وسيلة لزيادة سرعة الاستجابة وتحسين التمركز وتحويل الزيارات إلى فرص ومبيعات.",
-        metric1: "إمكانية زيادة العملاء المحتملين المؤهلين عبر عرض أقوى وهيكلة تحويل أفضل.",
-        metric2: "يمكن تقليل العمل اليدوي بشكل كبير عبر الأتمتة الذكية والإشعارات وتوجيه الطلبات.",
-        metric3: "يستمر نظامك الرقمي في جمع العملاء وتحريكهم للأمام حتى خارج ساعات العمل.",
-        whyKicker: "لماذا Luxorion",
-        whyTitle: "نحن لا نجعل الأشياء جميلة فقط. نحن نجعلها تعمل.",
-        whyDesc: "معظم الوكالات تبيع الشكل. نحن نبني منظومة كاملة: حضور العلامة، الأتمتة، التقاط العملاء، تدفق العميل، ومنطق التحويل. النتيجة ليست مجرد موقع أفضل، بل نظام أعمال أقوى.",
-        why1Title: "تصميم فاخر أولاً",
-        why1Desc: "يجب أن يشعر العميل فوراً أن موقعك أعلى قيمة من منافسيك.",
-        why2Title: "تنفيذ سريع",
-        why2Desc: "نعمل بسرعة وبوضوح ونتجنب التأخير الطويل الذي تعاني منه الكثير من الوكالات.",
-        why3Title: "تفكير تجاري",
-        why3Desc: "كل صفحة وزر ونظام أتمتة لدينا مبني حول النمو وليس حول الزينة فقط.",
-        why4Title: "نظام قابل للتوسع",
-        why4Desc: "يمكن توسيع هذه القاعدة لاحقاً إلى الإعلانات والأتمتة والقمع البيعي وCRM.",
-        processKicker: "العملية",
-        processTitle: "عملية واضحة. نتيجة فاخرة.",
-        process1Title: "الاستراتيجية",
-        process1Desc: "نحدد العرض والجمهور والهيكل ومسار التحويل قبل أن نبدأ التصميم.",
-        process2Title: "التصميم والتنفيذ",
-        process2Desc: "نقوم ببناء الهوية البصرية والموقع وربط الأدوات الأساسية.",
-        process3Title: "الإطلاق والأتمتة",
-        process3Desc: "نطلق المشروع ونربط تدفق العملاء المحتملين ونحوّل الموقع إلى أصل مبيعات فعلي.",
-        contactKicker: "تواصل",
-        contactTitle: "جاهز لبناء نظام يجلب لك العملاء فعلاً؟",
-        contactDesc: "دعنا نبني لمشروعك موقعاً فاخراً أو أتمتة بالذكاء الاصطناعي أو نظام نمو متكامل. أخبرنا بما تحتاجه وسنوضح لك أسرع طريق للإطلاق.",
-        contactBtn: "راسلنا على واتساب",
-        footer: "© 2026 Luxorion Digital. مواقع فاخرة، أتمتة بالذكاء الاصطناعي، وأنظمة جذب عملاء."
-      }
-    };
+    // Mobile menu
+    const menuToggle = document.getElementById('menuToggle');
+    const mobileNav = document.getElementById('mobileNav');
 
-    function applyLanguage(lang){
-      const dict = translations[lang];
-      document.documentElement.lang = lang;
-      document.body.dir = lang === 'ar' ? 'rtl' : 'ltr';
+    menuToggle.addEventListener('click', () => {
+      mobileNav.classList.toggle('open');
+    });
 
-      document.querySelectorAll('[data-i18n]').forEach(el => {
-        const key = el.getAttribute('data-i18n');
-        if(dict[key]) el.textContent = dict[key];
+    document.querySelectorAll('nav a').forEach(link => {
+      link.addEventListener('click', () => {
+        mobileNav.classList.remove('open');
       });
+    });
 
-      document.querySelectorAll('.lang-btn').forEach(btn => {
-        btn.classList.toggle('active', btn.dataset.lang === lang);
+    // Reveal on scroll
+    const reveals = document.querySelectorAll('.reveal');
+
+    function revealOnScroll() {
+      const triggerBottom = window.innerHeight * 0.88;
+
+      reveals.forEach(el => {
+        const rect = el.getBoundingClientRect();
+        if (rect.top < triggerBottom) {
+          el.classList.add('visible');
+        }
       });
     }
 
-    document.querySelectorAll('.lang-btn').forEach(btn => {
-      btn.addEventListener('click', () => applyLanguage(btn.dataset.lang));
+    window.addEventListener('scroll', revealOnScroll);
+    window.addEventListener('load', revealOnScroll);
+    revealOnScroll();
+
+    // Logo fallback / multi-path loader
+    const logo = document.getElementById('site-logo');
+    const logoFallback = document.getElementById('logo-fallback');
+
+    const logoPaths = [
+      './logo.png',
+      './assets/logo.png',
+      './Logo.png',
+      './assets/Logo.png',
+      './logo.jpg',
+      './assets/logo.jpg',
+      './logo.webp',
+      './assets/logo.webp'
+    ];
+
+    let currentLogoIndex = 0;
+
+    function showTextFallback() {
+      logo.style.display = 'none';
+      logoFallback.style.display = 'block';
+    }
+
+    function tryNextLogo() {
+      currentLogoIndex++;
+
+      if (currentLogoIndex >= logoPaths.length) {
+        showTextFallback();
+        return;
+      }
+
+      logo.src = logoPaths[currentLogoIndex];
+    }
+
+    logo.addEventListener('error', tryNextLogo);
+
+    logo.addEventListener('load', () => {
+      logo.style.display = 'block';
+      logoFallback.style.display = 'none';
     });
 
-    applyLanguage('en');
+    // Safety timeout in case browser caches broken image strangely
+    setTimeout(() => {
+      if (!logo.complete || logo.naturalWidth === 0) {
+        tryNextLogo();
+      }
+    }, 1200);
   </script>
 </body>
 </html>
