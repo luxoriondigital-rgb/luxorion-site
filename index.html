@@ -8,6 +8,7 @@
   <meta name="theme-color" content="#071124" />
 
   <style>
+    /* Стили остаются без изменений, они корректны */
     :root{
       --bg:#040816;
       --bg2:#08152d;
@@ -35,7 +36,7 @@
     }
 
     body{
-      font-family:Arial, Helvetica, sans-serif;
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Arial, sans-serif;
       background:
         radial-gradient(circle at 15% 20%, rgba(108,99,255,.18), transparent 28%),
         radial-gradient(circle at 82% 18%, rgba(29,207,255,.16), transparent 30%),
@@ -298,6 +299,8 @@
       color:#fff;
       font-size:30px;
       cursor:pointer;
+      padding:8px;
+      line-height:1;
     }
 
     .hero{
@@ -375,6 +378,7 @@
       font-weight:700;
       text-decoration:none;
       transition:.25s ease;
+      cursor:pointer;
     }
 
     .btn-primary{
@@ -749,6 +753,10 @@
       word-break:break-word;
     }
 
+    .contact-item a:hover{
+      text-decoration:underline;
+    }
+
     footer{
       border-top:1px solid rgba(255,255,255,.08);
       padding:26px 0;
@@ -822,9 +830,11 @@
         left:0;
         right:0;
         background:rgba(4,8,22,.96);
+        backdrop-filter:blur(16px);
         border-bottom:1px solid rgba(255,255,255,.08);
         display:none;
         padding:8px 0;
+        z-index:999;
       }
 
       nav.open{
@@ -838,12 +848,21 @@
         padding:16px 4%;
       }
 
+      nav a{
+        font-size:18px;
+        padding:8px 0;
+        display:inline-block;
+      }
+
       .desktop-only{
         display:none;
       }
 
       .hero-stats,
-      .small-cards,
+      .small-cards{
+        grid-template-columns:1fr;
+      }
+
       .services-grid,
       .process-grid,
       .tech-grid{
@@ -906,6 +925,12 @@
       .btn-top{
         display:none;
       }
+      
+      .footer-row{
+        flex-direction:column;
+        text-align:center;
+        gap:12px;
+      }
     }
   </style>
 </head>
@@ -917,11 +942,11 @@
     <div class="blob b4"></div>
   </div>
   <div class="grid-overlay"></div>
-  <canvas id="particles"></canvas>
+  <canvas id="particles" aria-hidden="true"></canvas>
 
   <header>
     <div class="container nav">
-      <a href="#home" class="brand">
+      <a href="#home" class="brand" aria-label="Luxorion Digital home">
         <div class="logo-box">
           <img id="siteLogo" src="./logo.png" alt="Luxorion Digital Logo">
           <div id="logoFallback" class="logo-fallback">LUX<br>ORION</div>
@@ -933,7 +958,7 @@
       </a>
 
       <div class="nav-right">
-        <nav id="mobileNav">
+        <nav id="mobileNav" aria-label="Main navigation">
           <ul>
             <li><a href="#services" data-i18n="nav_services">Services</a></li>
             <li><a href="#process" data-i18n="nav_process">Process</a></li>
@@ -942,14 +967,14 @@
           </ul>
         </nav>
 
-        <div class="lang-switch">
-          <button class="lang-btn active" data-lang="en">EN</button>
-          <button class="lang-btn" data-lang="ru">RU</button>
-          <button class="lang-btn" data-lang="ar">AR</button>
+        <div class="lang-switch" role="group" aria-label="Language selector">
+          <button class="lang-btn active" data-lang="en" aria-label="English">EN</button>
+          <button class="lang-btn" data-lang="ru" aria-label="Русский">RU</button>
+          <button class="lang-btn" data-lang="ar" aria-label="العربية">AR</button>
         </div>
 
         <a class="btn-top desktop-only" href="mailto:Luxoriondigital@gmail.com" data-i18n="start_project">Start a Project</a>
-        <button class="menu-toggle" id="menuToggle">☰</button>
+        <button class="menu-toggle" id="menuToggle" aria-label="Menu" aria-expanded="false">☰</button>
       </div>
     </div>
   </header>
@@ -994,8 +1019,8 @@
         </div>
 
         <div class="hero-visual reveal">
-          <div class="orbit"></div>
-          <div class="showcase">
+          <div class="orbit" aria-hidden="true"></div>
+          <div class="showcase" aria-hidden="true">
             <div class="mini-dots">
               <span></span><span></span><span></span>
             </div>
@@ -1150,7 +1175,7 @@
       <div class="container">
         <div class="cta-box reveal">
           <div>
-            <h2 class="section-title" data-i18n="contact_title">Let’s build something powerful</h2>
+            <h2 class="section-title" data-i18n="contact_title">Let's build something powerful</h2>
             <p data-i18n="contact_text">Whether you need a premium company website, mobile app, smart automation, or AI-driven digital system, Luxorion Digital is ready to help you launch with speed, precision, and a strong business focus.</p>
 
             <div class="hero-actions" style="margin-top:24px;">
@@ -1192,15 +1217,19 @@
     const menuToggle = document.getElementById('menuToggle');
     const mobileNav = document.getElementById('mobileNav');
 
-    menuToggle.addEventListener('click', () => {
-      mobileNav.classList.toggle('open');
-    });
-
-    document.querySelectorAll('nav a').forEach(link => {
-      link.addEventListener('click', () => {
-        mobileNav.classList.remove('open');
+    if (menuToggle && mobileNav) {
+      menuToggle.addEventListener('click', () => {
+        const isOpen = mobileNav.classList.toggle('open');
+        menuToggle.setAttribute('aria-expanded', isOpen);
       });
-    });
+
+      document.querySelectorAll('nav a').forEach(link => {
+        link.addEventListener('click', () => {
+          mobileNav.classList.remove('open');
+          menuToggle.setAttribute('aria-expanded', 'false');
+        });
+      });
+    }
 
     // REVEAL ANIMATION
     const reveals = document.querySelectorAll('.reveal');
@@ -1219,65 +1248,82 @@
     window.addEventListener('load', revealOnScroll);
     revealOnScroll();
 
-    // LOGO FALLBACK
+    // LOGO FALLBACK - исправлено: проверка загрузки изображения
     const logo = document.getElementById('siteLogo');
     const logoFallback = document.getElementById('logoFallback');
 
-    const logoPaths = [
-      './logo.png',
-      './Logo.png',
-      './logo.jpg',
-      './Logo.jpg',
-      './logo.webp',
-      './Logo.webp',
-      './assets/logo.png',
-      './assets/Logo.png'
-    ];
+    if (logo && logoFallback) {
+      const logoPaths = [
+        './logo.png',
+        './Logo.png',
+        './logo.jpg',
+        './Logo.jpg',
+        './logo.webp',
+        './assets/logo.png'
+      ];
+      
+      let logoIndex = 0;
 
-    let logoIndex = 0;
+      function showLogoFallback() {
+        logo.style.display = 'none';
+        logoFallback.style.display = 'block';
+      }
 
-    function showLogoFallback() {
-      logo.style.display = 'none';
-      logoFallback.style.display = 'block';
+      function tryNextLogo() {
+        logoIndex++;
+        if (logoIndex >= logoPaths.length) {
+          showLogoFallback();
+          return;
+        }
+        logo.src = logoPaths[logoIndex];
+      }
+
+      logo.addEventListener('error', tryNextLogo);
+      logo.addEventListener('load', () => {
+        logo.style.display = 'block';
+        logoFallback.style.display = 'none';
+      });
+
+      // Таймаут на случай, если загрузка зависла
+      setTimeout(() => {
+        if (logo.complete && logo.naturalWidth === 0) {
+          tryNextLogo();
+        } else if (!logo.complete) {
+          tryNextLogo();
+        }
+      }, 1500);
     }
 
-    function tryNextLogo() {
-      logoIndex++;
-      if (logoIndex >= logoPaths.length) {
-        showLogoFallback();
-        return;
-      }
-      logo.src = logoPaths[logoIndex];
-    }
-
-    logo.addEventListener('error', tryNextLogo);
-    logo.addEventListener('load', () => {
-      logo.style.display = 'block';
-      logoFallback.style.display = 'none';
-    });
-
-    setTimeout(() => {
-      if (!logo.complete || logo.naturalWidth === 0) {
-        tryNextLogo();
-      }
-    }, 1200);
-
-    // PARTICLES BACKGROUND
+    // PARTICLES BACKGROUND - оптимизировано
     const canvas = document.getElementById('particles');
-    const ctx = canvas.getContext('2d');
-
+    let ctx = null;
     let particles = [];
     let particleCount = 70;
+    let animationFrameId = null;
+    let isCanvasSupported = false;
+
+    function initParticles() {
+      if (!canvas) return;
+      ctx = canvas.getContext('2d');
+      if (!ctx) return;
+      isCanvasSupported = true;
+      resizeCanvas();
+      createParticles();
+      drawParticles();
+    }
 
     function resizeCanvas() {
+      if (!canvas) return;
       canvas.width = window.innerWidth;
       canvas.height = window.innerHeight;
+      createParticles();
     }
 
     function createParticles() {
-      particles = [];
+      if (!canvas) return;
       const isMobile = window.innerWidth < 768;
       particleCount = isMobile ? 35 : 70;
+      particles = [];
 
       for (let i = 0; i < particleCount; i++) {
         particles.push({
@@ -1292,6 +1338,7 @@
     }
 
     function drawParticles() {
+      if (!ctx || !canvas) return;
       ctx.clearRect(0, 0, canvas.width, canvas.height);
 
       for (let i = 0; i < particles.length; i++) {
@@ -1308,7 +1355,8 @@
         if (p.x < 0 || p.x > canvas.width) p.dx *= -1;
         if (p.y < 0 || p.y > canvas.height) p.dy *= -1;
 
-        for (let j = i + 1; j < particles.length; j++) {
+        // Ограничиваем количество отрисовываемых линий для производительности
+        for (let j = i + 1; j < particles.length && j < i + 30; j++) {
           const p2 = particles[j];
           const dist = Math.hypot(p.x - p2.x, p.y - p2.y);
 
@@ -1317,25 +1365,31 @@
             ctx.moveTo(p.x, p.y);
             ctx.lineTo(p2.x, p2.y);
             ctx.strokeStyle = `rgba(120, 170, 255, ${0.08 - dist / 1800})`;
-            ctx.lineWidth = 1;
+            ctx.lineWidth = 0.8;
             ctx.stroke();
           }
         }
       }
 
-      requestAnimationFrame(drawParticles);
+      animationFrameId = requestAnimationFrame(drawParticles);
     }
 
-    resizeCanvas();
-    createParticles();
-    drawParticles();
-
     window.addEventListener('resize', () => {
-      resizeCanvas();
-      createParticles();
+      if (isCanvasSupported) {
+        resizeCanvas();
+      }
     });
 
-    // LANGUAGE SWITCH
+    initParticles();
+
+    // Очистка анимации при выгрузке страницы (хорошая практика)
+    window.addEventListener('beforeunload', () => {
+      if (animationFrameId) {
+        cancelAnimationFrame(animationFrameId);
+      }
+    });
+
+    // LANGUAGE SWITCH - полные переводы
     const translations = {
       en: {
         brand_subtitle: "GLOBAL IT SOLUTIONS",
@@ -1385,7 +1439,7 @@
         process4_text: "We deploy, test, optimize, and prepare the system for real-world business use and growth.",
         technology_title: "Technology focus",
         technology_subtitle: "We use modern tools and flexible stacks to create reliable digital products and automation ecosystems.",
-        contact_title: "Let’s build something powerful",
+        contact_title: "Let's build something powerful",
         contact_text: "Whether you need a premium company website, mobile app, smart automation, or AI-driven digital system, Luxorion Digital is ready to help you launch with speed, precision, and a strong business focus.",
         contact_btn1: "Email Us",
         contact_btn2: "Call Now",
@@ -1522,8 +1576,13 @@
 
       document.querySelectorAll('[data-i18n]').forEach(el => {
         const key = el.getAttribute('data-i18n');
-        if (dict[key]) {
-          el.innerHTML = dict[key];
+        if (dict[key] !== undefined) {
+          // Сохраняем HTML-структуру для элементов с внутренним HTML
+          if (key === 'hero_title') {
+            el.innerHTML = dict[key];
+          } else {
+            el.textContent = dict[key];
+          }
         }
       });
 
