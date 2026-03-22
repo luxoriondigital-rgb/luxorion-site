@@ -3,26 +3,31 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Luxorion Digital | Global IT Solutions</title>
-  <meta name="description" content="Luxorion Digital builds premium websites, mobile apps, automation systems and AI workflows for global businesses." />
+  <title>Luxorion Digital | Premium Web, Apps & AI Automation</title>
+  <meta
+    name="description"
+    content="Luxorion Digital builds premium websites, mobile apps, automation systems and AI workflows for ambitious global businesses."
+  />
   <meta name="theme-color" content="#071124" />
 
   <style>
-    /* Стили остаются без изменений, они корректны */
     :root{
       --bg:#040816;
-      --bg2:#08152d;
-      --panel:rgba(255,255,255,.07);
+      --bg2:#07152d;
+      --bg3:#0a1d3f;
+      --panel:rgba(255,255,255,.06);
+      --panel-2:rgba(255,255,255,.08);
       --panel-border:rgba(255,255,255,.12);
       --text:#ffffff;
-      --muted:rgba(255,255,255,.75);
-      --soft:rgba(255,255,255,.55);
-      --accent:#6c63ff;
-      --accent2:#1dcfff;
-      --accent3:#2df3b2;
+      --muted:rgba(255,255,255,.74);
+      --soft:rgba(255,255,255,.54);
+      --accent:#6f63ff;
+      --accent2:#22cfff;
+      --accent3:#28efb0;
       --shadow:0 20px 60px rgba(0,0,0,.35);
-      --radius:22px;
+      --shadow-strong:0 30px 90px rgba(0,0,0,.42);
       --container:1240px;
+      --radius:24px;
     }
 
     *{
@@ -36,22 +41,22 @@
     }
 
     body{
-      font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Arial, sans-serif;
-      background:
-        radial-gradient(circle at 15% 20%, rgba(108,99,255,.18), transparent 28%),
-        radial-gradient(circle at 82% 18%, rgba(29,207,255,.16), transparent 30%),
-        radial-gradient(circle at 50% 85%, rgba(45,243,178,.10), transparent 25%),
-        linear-gradient(135deg, var(--bg), var(--bg2));
+      font-family:Arial, Helvetica, sans-serif;
       color:var(--text);
       min-height:100vh;
       overflow-x:hidden;
       position:relative;
+      background:
+        radial-gradient(circle at 12% 18%, rgba(111,99,255,.16), transparent 30%),
+        radial-gradient(circle at 88% 20%, rgba(34,207,255,.16), transparent 28%),
+        radial-gradient(circle at 52% 84%, rgba(40,239,176,.10), transparent 22%),
+        linear-gradient(135deg, var(--bg), var(--bg2) 45%, var(--bg3));
     }
 
-    .animated-bg{
+    .bg{
       position:fixed;
       inset:0;
-      z-index:-3;
+      z-index:-5;
       overflow:hidden;
       pointer-events:none;
     }
@@ -59,78 +64,113 @@
     .blob{
       position:absolute;
       border-radius:50%;
-      filter:blur(70px);
-      opacity:.42;
-      animation:floatBlob 18s ease-in-out infinite alternate;
+      filter:blur(80px);
+      opacity:.35;
+      animation:blobFloat 18s ease-in-out infinite alternate;
     }
 
-    .blob.b1{
-      width:430px;
-      height:430px;
-      background:#6c63ff;
-      top:6%;
-      left:-120px;
-      animation-duration:20s;
-    }
-
-    .blob.b2{
-      width:380px;
-      height:380px;
-      background:#14cfff;
-      top:12%;
-      right:-120px;
-      animation-duration:16s;
-    }
-
-    .blob.b3{
-      width:420px;
-      height:420px;
-      background:#23d8a3;
-      bottom:-160px;
-      left:24%;
+    .blob.one{
+      width:440px;
+      height:440px;
+      background:#6f63ff;
+      top:4%;
+      left:-130px;
       animation-duration:22s;
     }
 
-    .blob.b4{
-      width:300px;
-      height:300px;
-      background:#5d7dff;
-      bottom:10%;
-      right:8%;
-      opacity:.22;
-      animation-duration:19s;
+    .blob.two{
+      width:370px;
+      height:370px;
+      background:#22cfff;
+      top:8%;
+      right:-110px;
+      animation-duration:17s;
     }
 
-    @keyframes floatBlob{
+    .blob.three{
+      width:430px;
+      height:430px;
+      background:#28efb0;
+      left:18%;
+      bottom:-180px;
+      animation-duration:24s;
+    }
+
+    .blob.four{
+      width:260px;
+      height:260px;
+      background:#507dff;
+      right:12%;
+      bottom:16%;
+      opacity:.16;
+      animation-duration:15s;
+    }
+
+    @keyframes blobFloat{
       0%{transform:translate(0,0) scale(1);}
-      50%{transform:translate(35px,-28px) scale(1.08);}
-      100%{transform:translate(-30px,42px) scale(.92);}
+      50%{transform:translate(42px,-24px) scale(1.08);}
+      100%{transform:translate(-34px,40px) scale(.92);}
     }
 
-    .grid-overlay{
+    .grid{
       position:fixed;
       inset:0;
-      z-index:-2;
+      z-index:-4;
       background-image:
         linear-gradient(rgba(255,255,255,.03) 1px, transparent 1px),
         linear-gradient(90deg, rgba(255,255,255,.03) 1px, transparent 1px);
-      background-size:42px 42px;
-      mask-image:radial-gradient(circle at center, black 42%, transparent 95%);
+      background-size:44px 44px;
+      mask-image:radial-gradient(circle at center, black 42%, transparent 96%);
       opacity:.9;
-      animation:gridShift 20s linear infinite;
-      pointer-events:none;
+      animation:gridMove 16s ease-in-out infinite alternate;
     }
 
-    @keyframes gridShift{
-      0%{transform:translateY(0);}
-      50%{transform:translateY(-18px);}
-      100%{transform:translateY(0);}
+    @keyframes gridMove{
+      from{transform:translateY(0);}
+      to{transform:translateY(-16px);}
+    }
+
+    .glow-lines{
+      position:fixed;
+      inset:0;
+      z-index:-3;
+      pointer-events:none;
+      overflow:hidden;
+    }
+
+    .glow-lines::before,
+    .glow-lines::after{
+      content:"";
+      position:absolute;
+      width:65vw;
+      height:2px;
+      background:linear-gradient(90deg, transparent, rgba(34,207,255,.4), transparent);
+      filter:blur(1px);
+      opacity:.35;
+      transform:rotate(-18deg);
+      left:-10vw;
+      animation:lineFlow 12s linear infinite;
+    }
+
+    .glow-lines::before{
+      top:24%;
+    }
+
+    .glow-lines::after{
+      top:62%;
+      animation-duration:16s;
+      animation-direction:reverse;
+    }
+
+    @keyframes lineFlow{
+      0%{transform:translateX(-12vw) rotate(-18deg);}
+      100%{transform:translateX(30vw) rotate(-18deg);}
     }
 
     #particles{
       position:fixed;
       inset:0;
-      z-index:-1;
+      z-index:-2;
       pointer-events:none;
       opacity:.9;
     }
@@ -144,8 +184,8 @@
       position:sticky;
       top:0;
       z-index:1000;
+      background:rgba(4,8,22,.56);
       backdrop-filter:blur(16px);
-      background:rgba(4,8,22,.58);
       border-bottom:1px solid rgba(255,255,255,.08);
     }
 
@@ -170,15 +210,15 @@
     .logo-box{
       width:58px;
       height:58px;
-      border-radius:16px;
-      background:rgba(255,255,255,.06);
-      border:1px solid rgba(255,255,255,.12);
+      border-radius:18px;
+      background:linear-gradient(180deg, rgba(255,255,255,.08), rgba(255,255,255,.04));
+      border:1px solid rgba(255,255,255,.10);
       display:flex;
       align-items:center;
       justify-content:center;
       overflow:hidden;
       flex-shrink:0;
-      box-shadow:0 12px 28px rgba(0,0,0,.26);
+      box-shadow:0 12px 32px rgba(0,0,0,.25);
     }
 
     .logo-box img{
@@ -193,8 +233,8 @@
       display:none;
       text-align:center;
       line-height:1.05;
-      font-weight:700;
       font-size:13px;
+      font-weight:700;
       letter-spacing:1px;
       color:#fff;
     }
@@ -214,8 +254,8 @@
     .brand-subtitle{
       margin-top:3px;
       font-size:12px;
-      letter-spacing:1.7px;
       text-transform:uppercase;
+      letter-spacing:1.7px;
       color:var(--soft);
       white-space:nowrap;
     }
@@ -238,58 +278,77 @@
       color:var(--muted);
       font-size:15px;
       transition:.25s ease;
+      position:relative;
+    }
+
+    nav a::after{
+      content:"";
+      position:absolute;
+      left:0;
+      bottom:-7px;
+      width:0;
+      height:2px;
+      border-radius:999px;
+      background:linear-gradient(90deg, var(--accent), var(--accent2));
+      transition:.25s ease;
     }
 
     nav a:hover{
       color:#fff;
     }
 
+    nav a:hover::after{
+      width:100%;
+    }
+
     .lang-switch{
       display:flex;
-      gap:8px;
       align-items:center;
-      background:rgba(255,255,255,.04);
+      gap:6px;
+      background:linear-gradient(180deg, rgba(255,255,255,.06), rgba(255,255,255,.03));
       border:1px solid rgba(255,255,255,.10);
-      padding:6px;
       border-radius:999px;
+      padding:6px;
+      box-shadow:0 10px 30px rgba(0,0,0,.18);
     }
 
     .lang-btn{
       border:none;
       background:transparent;
       color:var(--muted);
-      padding:8px 12px;
+      padding:9px 14px;
       border-radius:999px;
-      cursor:pointer;
       font-size:13px;
       font-weight:700;
+      cursor:pointer;
       transition:.25s ease;
     }
 
     .lang-btn.active{
       color:#fff;
       background:linear-gradient(135deg, var(--accent), var(--accent2));
-      box-shadow:0 8px 20px rgba(93,119,255,.25);
+      box-shadow:0 10px 26px rgba(84,119,255,.28);
     }
 
     .btn-top{
       display:inline-flex;
       align-items:center;
       justify-content:center;
-      min-height:50px;
-      padding:0 20px;
-      border-radius:14px;
+      min-height:52px;
+      padding:0 22px;
+      border-radius:16px;
       text-decoration:none;
       color:#fff;
       font-weight:700;
       background:linear-gradient(135deg, var(--accent), var(--accent2));
-      box-shadow:0 14px 32px rgba(84,119,255,.28);
+      box-shadow:0 14px 34px rgba(84,119,255,.28);
       transition:.25s ease;
       white-space:nowrap;
     }
 
     .btn-top:hover{
       transform:translateY(-2px);
+      box-shadow:0 18px 38px rgba(84,119,255,.35);
     }
 
     .menu-toggle{
@@ -299,19 +358,30 @@
       color:#fff;
       font-size:30px;
       cursor:pointer;
-      padding:8px;
-      line-height:1;
     }
 
     .hero{
-      padding:88px 0 68px;
+      padding:88px 0 70px;
       position:relative;
+      overflow:hidden;
+    }
+
+    .hero::before{
+      content:"";
+      position:absolute;
+      width:760px;
+      height:760px;
+      border-radius:50%;
+      background:radial-gradient(circle, rgba(90,130,255,.12), transparent 65%);
+      right:-160px;
+      top:-100px;
+      pointer-events:none;
     }
 
     .hero-grid{
       display:grid;
-      grid-template-columns:1.08fr .92fr;
-      gap:34px;
+      grid-template-columns:1.07fr .93fr;
+      gap:36px;
       align-items:center;
     }
 
@@ -319,34 +389,36 @@
       display:inline-flex;
       align-items:center;
       gap:10px;
-      margin-bottom:24px;
       padding:11px 16px;
       border-radius:999px;
       background:rgba(255,255,255,.06);
       border:1px solid rgba(255,255,255,.10);
       color:var(--muted);
       font-size:14px;
-      backdrop-filter:blur(10px);
+      margin-bottom:24px;
+      box-shadow:0 12px 30px rgba(0,0,0,.14);
     }
 
     .eyebrow::before{
       content:"";
-      width:10px;
-      height:10px;
+      width:11px;
+      height:11px;
       border-radius:50%;
       background:linear-gradient(135deg, var(--accent2), var(--accent3));
-      box-shadow:0 0 18px rgba(29,207,255,.6);
+      box-shadow:0 0 18px rgba(34,207,255,.55);
+      flex-shrink:0;
     }
 
     h1{
-      font-size:clamp(42px, 5vw, 82px);
-      line-height:1.02;
+      font-size:clamp(44px, 5.5vw, 84px);
+      line-height:1.01;
       letter-spacing:-2px;
       margin-bottom:22px;
+      max-width:760px;
     }
 
     .gradient{
-      background:linear-gradient(135deg, #ffffff, #85d7ff, #8f84ff);
+      background:linear-gradient(135deg, #ffffff, #8ad8ff, #8a82ff);
       -webkit-background-clip:text;
       -webkit-text-fill-color:transparent;
       background-clip:text;
@@ -355,9 +427,9 @@
 
     .hero p{
       font-size:18px;
-      line-height:1.75;
+      line-height:1.8;
       color:var(--muted);
-      max-width:760px;
+      max-width:730px;
       margin-bottom:32px;
     }
 
@@ -368,23 +440,23 @@
       margin-bottom:30px;
     }
 
-    .btn-primary,.btn-secondary{
-      min-height:54px;
-      padding:14px 24px;
-      border-radius:15px;
+    .btn-primary,
+    .btn-secondary{
       display:inline-flex;
       align-items:center;
       justify-content:center;
-      font-weight:700;
+      min-height:56px;
+      padding:14px 24px;
+      border-radius:16px;
       text-decoration:none;
+      font-weight:700;
       transition:.25s ease;
-      cursor:pointer;
     }
 
     .btn-primary{
       color:#fff;
       background:linear-gradient(135deg, var(--accent), var(--accent2));
-      box-shadow:0 16px 34px rgba(84,119,255,.3);
+      box-shadow:0 18px 36px rgba(84,119,255,.3);
     }
 
     .btn-primary:hover{
@@ -393,118 +465,178 @@
 
     .btn-secondary{
       color:#fff;
-      background:rgba(255,255,255,.04);
       border:1px solid rgba(255,255,255,.12);
+      background:rgba(255,255,255,.04);
+      backdrop-filter:blur(10px);
     }
 
     .btn-secondary:hover{
       background:rgba(255,255,255,.08);
+      transform:translateY(-2px);
     }
 
     .hero-stats{
       display:grid;
       grid-template-columns:repeat(3,1fr);
       gap:16px;
+      margin-top:4px;
     }
 
     .stat-card{
-      background:rgba(255,255,255,.07);
+      position:relative;
+      background:linear-gradient(180deg, rgba(255,255,255,.09), rgba(255,255,255,.05));
       border:1px solid rgba(255,255,255,.12);
-      border-radius:20px;
+      border-radius:22px;
       padding:22px;
       box-shadow:var(--shadow);
       backdrop-filter:blur(14px);
+      overflow:hidden;
+      transition:.25s ease;
+    }
+
+    .stat-card::before{
+      content:"";
+      position:absolute;
+      inset:0;
+      background:linear-gradient(135deg, rgba(111,99,255,.10), transparent 45%, rgba(34,207,255,.08));
+      pointer-events:none;
+    }
+
+    .stat-card:hover{
+      transform:translateY(-5px);
+      box-shadow:var(--shadow-strong);
+      border-color:rgba(255,255,255,.18);
     }
 
     .stat-card h3{
-      font-size:22px;
-      margin-bottom:8px;
+      position:relative;
+      z-index:1;
+      font-size:21px;
+      margin-bottom:9px;
     }
 
     .stat-card p{
+      position:relative;
+      z-index:1;
       margin:0;
       font-size:15px;
-      line-height:1.6;
+      line-height:1.65;
       color:var(--soft);
     }
 
     .hero-visual{
       position:relative;
+      min-height:560px;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+    }
+
+    .halo{
+      position:absolute;
+      width:520px;
+      height:520px;
+      border-radius:50%;
+      background:
+        radial-gradient(circle, rgba(34,207,255,.16), rgba(111,99,255,.08), transparent 68%);
+      filter:blur(10px);
+      animation:haloPulse 8s ease-in-out infinite;
+      pointer-events:none;
+    }
+
+    @keyframes haloPulse{
+      0%,100%{transform:scale(1); opacity:.85;}
+      50%{transform:scale(1.06); opacity:1;}
     }
 
     .orbit{
       position:absolute;
-      inset:auto;
-      width:160px;
-      height:160px;
-      border:1px solid rgba(255,255,255,.08);
+      width:150px;
+      height:150px;
+      border:1px solid rgba(255,255,255,.09);
       border-radius:50%;
-      top:-30px;
-      right:30px;
+      top:10px;
+      right:42px;
       animation:spinSlow 18s linear infinite;
-      opacity:.6;
+      opacity:.65;
     }
 
-    .orbit::before,.orbit::after{
+    .orbit::before,
+    .orbit::after{
       content:"";
       position:absolute;
       border-radius:50%;
     }
 
     .orbit::before{
-      width:14px;
-      height:14px;
+      width:12px;
+      height:12px;
       background:var(--accent2);
-      top:8px;
+      top:10px;
       left:50%;
       transform:translateX(-50%);
-      box-shadow:0 0 18px rgba(29,207,255,.55);
+      box-shadow:0 0 18px rgba(34,207,255,.55);
     }
 
     .orbit::after{
       width:10px;
       height:10px;
       background:var(--accent3);
-      bottom:18px;
-      right:18px;
-      box-shadow:0 0 16px rgba(45,243,178,.55);
+      bottom:16px;
+      right:16px;
+      box-shadow:0 0 16px rgba(40,239,176,.5);
     }
 
     @keyframes spinSlow{
-      from{transform:rotate(0deg);}
+      from{transform:rotate(0);}
       to{transform:rotate(360deg);}
     }
 
     .showcase{
       position:relative;
-      border-radius:30px;
-      padding:26px;
-      background:linear-gradient(180deg, rgba(255,255,255,.10), rgba(255,255,255,.04));
+      width:min(100%, 560px);
+      border-radius:32px;
+      padding:28px;
+      background:linear-gradient(180deg, rgba(255,255,255,.12), rgba(255,255,255,.05));
       border:1px solid rgba(255,255,255,.12);
-      box-shadow:var(--shadow);
-      overflow:hidden;
+      box-shadow:var(--shadow-strong);
       backdrop-filter:blur(14px);
-      animation:floatCard 7s ease-in-out infinite;
-    }
-
-    @keyframes floatCard{
-      0%{transform:translateY(0);}
-      50%{transform:translateY(-8px);}
-      100%{transform:translateY(0);}
+      overflow:hidden;
+      animation:cardFloat 7s ease-in-out infinite;
     }
 
     .showcase::before{
       content:"";
       position:absolute;
       inset:0;
-      background:radial-gradient(circle at top right, rgba(108,99,255,.24), transparent 35%);
+      background:
+        radial-gradient(circle at top right, rgba(111,99,255,.25), transparent 34%),
+        linear-gradient(135deg, rgba(34,207,255,.06), transparent 40%, rgba(40,239,176,.06));
       pointer-events:none;
+    }
+
+    .showcase::after{
+      content:"";
+      position:absolute;
+      top:-1px;
+      left:6%;
+      width:42%;
+      height:1px;
+      background:linear-gradient(90deg, rgba(255,255,255,0), rgba(255,255,255,.85), rgba(255,255,255,0));
+      opacity:.75;
+    }
+
+    @keyframes cardFloat{
+      0%,100%{transform:translateY(0);}
+      50%{transform:translateY(-10px);}
     }
 
     .mini-dots{
       display:flex;
       gap:10px;
       margin-bottom:18px;
+      position:relative;
+      z-index:1;
     }
 
     .mini-dots span{
@@ -515,11 +647,13 @@
     }
 
     .screen{
-      background:rgba(8,12,29,.82);
+      position:relative;
+      z-index:1;
+      background:rgba(7,13,31,.86);
       border:1px solid rgba(255,255,255,.08);
-      border-radius:22px;
-      padding:20px;
-      backdrop-filter:blur(12px);
+      border-radius:24px;
+      padding:22px;
+      box-shadow:inset 0 1px 0 rgba(255,255,255,.04);
     }
 
     .screen-top{
@@ -532,15 +666,26 @@
     .panel{
       background:rgba(255,255,255,.05);
       border:1px solid rgba(255,255,255,.08);
-      border-radius:18px;
+      border-radius:20px;
       padding:18px;
+      min-height:118px;
+      position:relative;
+      overflow:hidden;
+    }
+
+    .panel::before{
+      content:"";
+      position:absolute;
+      inset:auto 0 0 0;
+      height:1px;
+      background:linear-gradient(90deg, transparent, rgba(255,255,255,.12), transparent);
     }
 
     .line{
       height:10px;
       border-radius:999px;
       background:rgba(255,255,255,.10);
-      margin-bottom:11px;
+      margin-bottom:12px;
       overflow:hidden;
       position:relative;
     }
@@ -552,15 +697,17 @@
       width:70%;
       border-radius:999px;
       background:linear-gradient(90deg, var(--accent), var(--accent2));
-      animation:linePulse 4s ease-in-out infinite alternate;
+      box-shadow:0 0 16px rgba(34,207,255,.18);
+      animation:lineGlow 4s ease-in-out infinite alternate;
     }
 
     .line.short::after{ width:42%; }
     .line.medium::after{ width:56%; }
+    .line.long::after{ width:78%; }
 
-    @keyframes linePulse{
-      0%{filter:brightness(1);}
-      100%{filter:brightness(1.25);}
+    @keyframes lineGlow{
+      from{filter:brightness(1);}
+      to{filter:brightness(1.25);}
     }
 
     .small-cards{
@@ -571,25 +718,39 @@
     }
 
     .small-card{
-      min-height:102px;
+      min-height:118px;
       border-radius:18px;
       background:rgba(255,255,255,.04);
       border:1px solid rgba(255,255,255,.08);
       padding:14px;
       transition:.25s ease;
+      position:relative;
+      overflow:hidden;
+    }
+
+    .small-card::before{
+      content:"";
+      position:absolute;
+      inset:0;
+      background:linear-gradient(135deg, rgba(111,99,255,.10), transparent 45%, rgba(34,207,255,.08));
+      opacity:.7;
+      pointer-events:none;
     }
 
     .small-card:hover{
       transform:translateY(-4px);
+      border-color:rgba(255,255,255,.14);
     }
 
     .chip{
-      width:54px;
+      width:52px;
       height:10px;
       border-radius:999px;
       background:linear-gradient(90deg, var(--accent2), var(--accent3));
       margin-bottom:14px;
-      box-shadow:0 0 18px rgba(29,207,255,.25);
+      position:relative;
+      z-index:1;
+      box-shadow:0 0 18px rgba(34,207,255,.2);
     }
 
     .text-row{
@@ -597,15 +758,56 @@
       border-radius:999px;
       background:rgba(255,255,255,.12);
       margin-bottom:8px;
+      position:relative;
+      z-index:1;
     }
 
     .text-row:last-child{
-      width:66%;
+      width:68%;
+    }
+
+    .float-badge{
+      position:absolute;
+      padding:10px 14px;
+      border-radius:16px;
+      background:linear-gradient(180deg, rgba(255,255,255,.10), rgba(255,255,255,.05));
+      border:1px solid rgba(255,255,255,.10);
+      box-shadow:0 16px 38px rgba(0,0,0,.2);
+      backdrop-filter:blur(12px);
+      font-size:13px;
+      color:var(--muted);
+      animation:badgeFloat 6s ease-in-out infinite;
+    }
+
+    .float-badge b{
+      color:#fff;
+      display:block;
+      margin-bottom:4px;
+      font-size:14px;
+    }
+
+    .badge-left{
+      left:-18px;
+      bottom:72px;
+    }
+
+    .badge-right{
+      right:-14px;
+      top:110px;
+      animation-delay:1.2s;
+    }
+
+    @keyframes badgeFloat{
+      0%,100%{transform:translateY(0);}
+      50%{transform:translateY(-8px);}
     }
 
     section{
-      padding:34px 0 80px;
-      position:relative;
+      padding:36px 0 84px;
+    }
+
+    .section-head{
+      margin-bottom:34px;
     }
 
     .section-title{
@@ -615,11 +817,10 @@
     }
 
     .section-subtitle{
-      max-width:850px;
-      color:var(--muted);
-      line-height:1.8;
       font-size:17px;
-      margin-bottom:34px;
+      line-height:1.8;
+      color:var(--muted);
+      max-width:860px;
     }
 
     .services-grid,
@@ -642,45 +843,66 @@
     }
 
     .card{
-      background:rgba(255,255,255,.07);
+      background:linear-gradient(180deg, rgba(255,255,255,.09), rgba(255,255,255,.05));
       border:1px solid rgba(255,255,255,.12);
-      border-radius:22px;
+      border-radius:24px;
       padding:24px;
       box-shadow:var(--shadow);
       backdrop-filter:blur(14px);
       transition:.25s ease;
+      position:relative;
+      overflow:hidden;
+    }
+
+    .card::before{
+      content:"";
+      position:absolute;
+      inset:0;
+      background:linear-gradient(135deg, rgba(111,99,255,.10), transparent 42%, rgba(34,207,255,.08));
+      opacity:.9;
+      pointer-events:none;
     }
 
     .card:hover{
-      transform:translateY(-4px);
+      transform:translateY(-5px);
+      box-shadow:var(--shadow-strong);
       border-color:rgba(255,255,255,.18);
     }
 
     .icon-box{
-      width:54px;
-      height:54px;
-      border-radius:16px;
+      width:56px;
+      height:56px;
+      border-radius:18px;
       display:flex;
       align-items:center;
       justify-content:center;
       font-size:24px;
-      background:linear-gradient(135deg, rgba(108,99,255,.24), rgba(29,207,255,.18));
+      background:linear-gradient(135deg, rgba(111,99,255,.24), rgba(34,207,255,.18));
       border:1px solid rgba(255,255,255,.10);
       margin-bottom:18px;
+      position:relative;
+      z-index:1;
+      box-shadow:0 10px 28px rgba(0,0,0,.16);
     }
 
     .card h3{
+      position:relative;
+      z-index:1;
       font-size:22px;
       margin-bottom:12px;
     }
 
     .card p{
+      position:relative;
+      z-index:1;
       color:var(--muted);
       line-height:1.75;
       font-size:15px;
     }
 
     .process-number{
+      position:relative;
+      z-index:1;
       display:inline-block;
       margin-bottom:12px;
       color:var(--accent2);
@@ -695,9 +917,61 @@
       align-items:center;
       justify-content:center;
       text-align:center;
-      min-height:86px;
+      min-height:88px;
       font-weight:700;
       font-size:16px;
+    }
+
+    .about-strip{
+      margin-top:10px;
+      display:grid;
+      grid-template-columns:1.1fr .9fr;
+      gap:18px;
+    }
+
+    .mini-panel{
+      background:linear-gradient(180deg, rgba(255,255,255,.08), rgba(255,255,255,.04));
+      border:1px solid rgba(255,255,255,.10);
+      border-radius:24px;
+      padding:24px;
+      box-shadow:var(--shadow);
+    }
+
+    .mini-panel h3{
+      font-size:22px;
+      margin-bottom:12px;
+    }
+
+    .mini-panel p{
+      color:var(--muted);
+      line-height:1.8;
+      font-size:15px;
+    }
+
+    .metric-row{
+      display:grid;
+      grid-template-columns:repeat(3,1fr);
+      gap:14px;
+      margin-top:18px;
+    }
+
+    .metric{
+      padding:18px;
+      border-radius:18px;
+      background:rgba(255,255,255,.04);
+      border:1px solid rgba(255,255,255,.08);
+      text-align:center;
+    }
+
+    .metric strong{
+      display:block;
+      font-size:28px;
+      margin-bottom:6px;
+    }
+
+    .metric span{
+      font-size:13px;
+      color:var(--soft);
     }
 
     .cta{
@@ -709,12 +983,30 @@
       grid-template-columns:1.1fr .9fr;
       gap:24px;
       align-items:center;
-      padding:42px;
+      padding:44px;
       border-radius:30px;
-      background:linear-gradient(180deg, rgba(255,255,255,.09), rgba(255,255,255,.04));
+      background:linear-gradient(180deg, rgba(255,255,255,.10), rgba(255,255,255,.05));
       border:1px solid rgba(255,255,255,.12);
-      box-shadow:var(--shadow);
+      box-shadow:var(--shadow-strong);
+      position:relative;
+      overflow:hidden;
       backdrop-filter:blur(16px);
+    }
+
+    .cta-box::before{
+      content:"";
+      position:absolute;
+      inset:0;
+      background:
+        radial-gradient(circle at top right, rgba(111,99,255,.22), transparent 30%),
+        radial-gradient(circle at bottom left, rgba(34,207,255,.12), transparent 34%);
+      pointer-events:none;
+    }
+
+    .cta-content,
+    .contact-list{
+      position:relative;
+      z-index:1;
     }
 
     .cta-box p{
@@ -734,6 +1026,12 @@
       border:1px solid rgba(255,255,255,.10);
       border-radius:18px;
       padding:18px 20px;
+      transition:.25s ease;
+    }
+
+    .contact-item:hover{
+      transform:translateY(-3px);
+      background:rgba(255,255,255,.07);
     }
 
     .contact-item strong{
@@ -753,10 +1051,6 @@
       word-break:break-word;
     }
 
-    .contact-item a:hover{
-      text-decoration:underline;
-    }
-
     footer{
       border-top:1px solid rgba(255,255,255,.08);
       padding:26px 0;
@@ -774,7 +1068,7 @@
 
     .reveal{
       opacity:0;
-      transform:translateY(22px);
+      transform:translateY(24px);
       transition:.8s ease;
     }
 
@@ -800,6 +1094,7 @@
 
     @media (max-width:1100px){
       .hero-grid,
+      .about-strip,
       .cta-box,
       .screen-top{
         grid-template-columns:1fr;
@@ -813,6 +1108,10 @@
       .tech-grid{
         grid-template-columns:repeat(2,1fr);
       }
+
+      .hero-visual{
+        min-height:auto;
+      }
     }
 
     @media (max-width:900px){
@@ -820,21 +1119,15 @@
         display:block;
       }
 
-      .nav-right{
-        gap:10px;
-      }
-
       nav{
         position:fixed;
         top:86px;
         left:0;
         right:0;
-        background:rgba(4,8,22,.96);
-        backdrop-filter:blur(16px);
-        border-bottom:1px solid rgba(255,255,255,.08);
         display:none;
+        background:rgba(4,8,22,.96);
+        border-bottom:1px solid rgba(255,255,255,.08);
         padding:8px 0;
-        z-index:999;
       }
 
       nav.open{
@@ -848,29 +1141,25 @@
         padding:16px 4%;
       }
 
-      nav a{
-        font-size:18px;
-        padding:8px 0;
-        display:inline-block;
-      }
-
       .desktop-only{
         display:none;
       }
 
       .hero-stats,
-      .small-cards{
-        grid-template-columns:1fr;
-      }
-
       .services-grid,
       .process-grid,
-      .tech-grid{
+      .tech-grid,
+      .small-cards,
+      .metric-row{
         grid-template-columns:1fr;
       }
 
       .hero{
-        padding-top:70px;
+        padding-top:72px;
+      }
+
+      .float-badge{
+        display:none;
       }
 
       .brand-title{
@@ -886,7 +1175,7 @@
       }
 
       .lang-btn{
-        padding:7px 10px;
+        padding:8px 10px;
         font-size:12px;
       }
     }
@@ -905,48 +1194,45 @@
         height:50px;
       }
 
+      h1{
+        font-size:clamp(36px, 10vw, 58px);
+        letter-spacing:-1.4px;
+      }
+
       .hero p,
       .section-subtitle,
       .cta-box p{
         font-size:16px;
       }
 
-      .cta-box,
+      .showcase,
       .card,
       .stat-card,
-      .showcase{
+      .mini-panel,
+      .cta-box{
         padding:20px;
-      }
-
-      h1{
-        font-size:clamp(36px, 10vw, 56px);
       }
 
       .btn-top{
         display:none;
       }
-      
-      .footer-row{
-        flex-direction:column;
-        text-align:center;
-        gap:12px;
-      }
     }
   </style>
 </head>
 <body>
-  <div class="animated-bg">
-    <div class="blob b1"></div>
-    <div class="blob b2"></div>
-    <div class="blob b3"></div>
-    <div class="blob b4"></div>
+  <div class="bg">
+    <div class="blob one"></div>
+    <div class="blob two"></div>
+    <div class="blob three"></div>
+    <div class="blob four"></div>
   </div>
-  <div class="grid-overlay"></div>
-  <canvas id="particles" aria-hidden="true"></canvas>
+  <div class="grid"></div>
+  <div class="glow-lines"></div>
+  <canvas id="particles"></canvas>
 
   <header>
     <div class="container nav">
-      <a href="#home" class="brand" aria-label="Luxorion Digital home">
+      <a href="#home" class="brand">
         <div class="logo-box">
           <img id="siteLogo" src="./logo.png" alt="Luxorion Digital Logo">
           <div id="logoFallback" class="logo-fallback">LUX<br>ORION</div>
@@ -958,7 +1244,7 @@
       </a>
 
       <div class="nav-right">
-        <nav id="mobileNav" aria-label="Main navigation">
+        <nav id="mobileNav">
           <ul>
             <li><a href="#services" data-i18n="nav_services">Services</a></li>
             <li><a href="#process" data-i18n="nav_process">Process</a></li>
@@ -967,14 +1253,14 @@
           </ul>
         </nav>
 
-        <div class="lang-switch" role="group" aria-label="Language selector">
-          <button class="lang-btn active" data-lang="en" aria-label="English">EN</button>
-          <button class="lang-btn" data-lang="ru" aria-label="Русский">RU</button>
-          <button class="lang-btn" data-lang="ar" aria-label="العربية">AR</button>
+        <div class="lang-switch">
+          <button class="lang-btn active" data-lang="en">EN</button>
+          <button class="lang-btn" data-lang="ru">RU</button>
+          <button class="lang-btn" data-lang="ar">AR</button>
         </div>
 
         <a class="btn-top desktop-only" href="mailto:Luxoriondigital@gmail.com" data-i18n="start_project">Start a Project</a>
-        <button class="menu-toggle" id="menuToggle" aria-label="Menu" aria-expanded="false">☰</button>
+        <button class="menu-toggle" id="menuToggle">☰</button>
       </div>
     </div>
   </header>
@@ -1019,8 +1305,20 @@
         </div>
 
         <div class="hero-visual reveal">
-          <div class="orbit" aria-hidden="true"></div>
-          <div class="showcase" aria-hidden="true">
+          <div class="halo"></div>
+          <div class="orbit"></div>
+
+          <div class="float-badge badge-left">
+            <b data-i18n="badge1_title">Automation</b>
+            <span data-i18n="badge1_text">Smart workflows that scale</span>
+          </div>
+
+          <div class="float-badge badge-right">
+            <b data-i18n="badge2_title">Premium Delivery</b>
+            <span data-i18n="badge2_text">Design + code + business focus</span>
+          </div>
+
+          <div class="showcase">
             <div class="mini-dots">
               <span></span><span></span><span></span>
             </div>
@@ -1028,7 +1326,7 @@
             <div class="screen">
               <div class="screen-top">
                 <div class="panel">
-                  <div class="line"></div>
+                  <div class="line long"></div>
                   <div class="line medium"></div>
                   <div class="line short"></div>
                 </div>
@@ -1069,7 +1367,7 @@
 
     <section id="services">
       <div class="container">
-        <div class="reveal">
+        <div class="section-head reveal">
           <h2 class="section-title" data-i18n="services_title">What we do</h2>
           <p class="section-subtitle" data-i18n="services_subtitle">
             We combine design, engineering, automation, and AI to help brands launch faster, operate smarter, and present themselves at a premium level.
@@ -1113,14 +1411,43 @@
             <p data-i18n="service6_text">From concept to deployment, we help structure digital products that are ready for growth, marketing, and long-term iteration.</p>
           </div>
         </div>
+
+        <div class="about-strip reveal">
+          <div class="mini-panel">
+            <h3 data-i18n="about_title">Built for ambitious companies</h3>
+            <p data-i18n="about_text">
+              We create digital products for businesses that want premium presentation, clear structure, automation, and scalable growth — not generic templates.
+            </p>
+          </div>
+
+          <div class="mini-panel">
+            <h3 data-i18n="metrics_title">What matters most</h3>
+            <div class="metric-row">
+              <div class="metric">
+                <strong>UX</strong>
+                <span data-i18n="metric1">Clarity & trust</span>
+              </div>
+              <div class="metric">
+                <strong>AI</strong>
+                <span data-i18n="metric2">Smart automation</span>
+              </div>
+              <div class="metric">
+                <strong>Scale</strong>
+                <span data-i18n="metric3">Built for growth</span>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
     </section>
 
     <section id="process">
       <div class="container">
-        <div class="reveal">
+        <div class="section-head reveal">
           <h2 class="section-title" data-i18n="process_title">How we work</h2>
-          <p class="section-subtitle" data-i18n="process_subtitle">We focus on clarity, speed, and real business value — not just visual appearance.</p>
+          <p class="section-subtitle" data-i18n="process_subtitle">
+            We focus on clarity, speed, execution quality, and real business value — not just visual appearance.
+          </p>
         </div>
 
         <div class="process-grid">
@@ -1145,7 +1472,7 @@
           <div class="card reveal">
             <span class="process-number" data-i18n="process_step4">Step 04</span>
             <h3 data-i18n="process4_title">Launch & Improve</h3>
-            <p data-i18n="process4_text">We deploy, test, optimize, and prepare the system for real-world business use and growth.</p>
+            <p data-i18n="process4_text">We deploy, test, optimize, and prepare the system for real-world business use and long-term growth.</p>
           </div>
         </div>
       </div>
@@ -1153,9 +1480,11 @@
 
     <section id="technology">
       <div class="container">
-        <div class="reveal">
+        <div class="section-head reveal">
           <h2 class="section-title" data-i18n="technology_title">Technology focus</h2>
-          <p class="section-subtitle" data-i18n="technology_subtitle">We use modern tools and flexible stacks to create reliable digital products and automation ecosystems.</p>
+          <p class="section-subtitle" data-i18n="technology_subtitle">
+            We use modern tools and flexible stacks to create reliable digital products and automation ecosystems.
+          </p>
         </div>
 
         <div class="tech-grid">
@@ -1174,9 +1503,11 @@
     <section class="cta" id="contact">
       <div class="container">
         <div class="cta-box reveal">
-          <div>
-            <h2 class="section-title" data-i18n="contact_title">Let's build something powerful</h2>
-            <p data-i18n="contact_text">Whether you need a premium company website, mobile app, smart automation, or AI-driven digital system, Luxorion Digital is ready to help you launch with speed, precision, and a strong business focus.</p>
+          <div class="cta-content">
+            <h2 class="section-title" data-i18n="contact_title">Let’s build something powerful</h2>
+            <p data-i18n="contact_text">
+              Whether you need a premium company website, mobile app, smart automation, or AI-driven digital system, Luxorion Digital is ready to help you launch with speed, precision, and a strong business focus.
+            </p>
 
             <div class="hero-actions" style="margin-top:24px;">
               <a href="mailto:Luxoriondigital@gmail.com" class="btn-primary" data-i18n="contact_btn1">Email Us</a>
@@ -1217,21 +1548,17 @@
     const menuToggle = document.getElementById('menuToggle');
     const mobileNav = document.getElementById('mobileNav');
 
-    if (menuToggle && mobileNav) {
-      menuToggle.addEventListener('click', () => {
-        const isOpen = mobileNav.classList.toggle('open');
-        menuToggle.setAttribute('aria-expanded', isOpen);
-      });
+    menuToggle.addEventListener('click', () => {
+      mobileNav.classList.toggle('open');
+    });
 
-      document.querySelectorAll('nav a').forEach(link => {
-        link.addEventListener('click', () => {
-          mobileNav.classList.remove('open');
-          menuToggle.setAttribute('aria-expanded', 'false');
-        });
+    document.querySelectorAll('nav a').forEach(link => {
+      link.addEventListener('click', () => {
+        mobileNav.classList.remove('open');
       });
-    }
+    });
 
-    // REVEAL ANIMATION
+    // REVEAL
     const reveals = document.querySelectorAll('.reveal');
 
     function revealOnScroll() {
@@ -1248,97 +1575,78 @@
     window.addEventListener('load', revealOnScroll);
     revealOnScroll();
 
-    // LOGO FALLBACK - исправлено: проверка загрузки изображения
+    // LOGO FALLBACK
     const logo = document.getElementById('siteLogo');
     const logoFallback = document.getElementById('logoFallback');
 
-    if (logo && logoFallback) {
-      const logoPaths = [
-        './logo.png',
-        './Logo.png',
-        './logo.jpg',
-        './Logo.jpg',
-        './logo.webp',
-        './assets/logo.png'
-      ];
-      
-      let logoIndex = 0;
+    const logoPaths = [
+      './logo.png',
+      './Logo.png',
+      './logo.jpg',
+      './Logo.jpg',
+      './logo.webp',
+      './Logo.webp',
+      './assets/logo.png',
+      './assets/Logo.png'
+    ];
 
-      function showLogoFallback() {
-        logo.style.display = 'none';
-        logoFallback.style.display = 'block';
-      }
+    let logoIndex = 0;
 
-      function tryNextLogo() {
-        logoIndex++;
-        if (logoIndex >= logoPaths.length) {
-          showLogoFallback();
-          return;
-        }
-        logo.src = logoPaths[logoIndex];
-      }
-
-      logo.addEventListener('error', tryNextLogo);
-      logo.addEventListener('load', () => {
-        logo.style.display = 'block';
-        logoFallback.style.display = 'none';
-      });
-
-      // Таймаут на случай, если загрузка зависла
-      setTimeout(() => {
-        if (logo.complete && logo.naturalWidth === 0) {
-          tryNextLogo();
-        } else if (!logo.complete) {
-          tryNextLogo();
-        }
-      }, 1500);
+    function showLogoFallback() {
+      logo.style.display = 'none';
+      logoFallback.style.display = 'block';
     }
 
-    // PARTICLES BACKGROUND - оптимизировано
+    function tryNextLogo() {
+      logoIndex++;
+      if (logoIndex >= logoPaths.length) {
+        showLogoFallback();
+        return;
+      }
+      logo.src = logoPaths[logoIndex];
+    }
+
+    logo.addEventListener('error', tryNextLogo);
+    logo.addEventListener('load', () => {
+      logo.style.display = 'block';
+      logoFallback.style.display = 'none';
+    });
+
+    setTimeout(() => {
+      if (!logo.complete || logo.naturalWidth === 0) {
+        tryNextLogo();
+      }
+    }, 1200);
+
+    // PARTICLES
     const canvas = document.getElementById('particles');
-    let ctx = null;
+    const ctx = canvas.getContext('2d');
     let particles = [];
-    let particleCount = 70;
-    let animationFrameId = null;
-    let isCanvasSupported = false;
-
-    function initParticles() {
-      if (!canvas) return;
-      ctx = canvas.getContext('2d');
-      if (!ctx) return;
-      isCanvasSupported = true;
-      resizeCanvas();
-      createParticles();
-      drawParticles();
-    }
+    let particleCount = 80;
 
     function resizeCanvas() {
-      if (!canvas) return;
       canvas.width = window.innerWidth;
       canvas.height = window.innerHeight;
-      createParticles();
     }
 
     function createParticles() {
-      if (!canvas) return;
-      const isMobile = window.innerWidth < 768;
-      particleCount = isMobile ? 35 : 70;
       particles = [];
+      const isMobile = window.innerWidth < 768;
+      particleCount = isMobile ? 38 : 80;
 
       for (let i = 0; i < particleCount; i++) {
         particles.push({
           x: Math.random() * canvas.width,
           y: Math.random() * canvas.height,
           r: Math.random() * 2 + 1,
-          dx: (Math.random() - 0.5) * 0.35,
-          dy: (Math.random() - 0.5) * 0.35,
-          a: Math.random() * 0.6 + 0.2
+          dx: (Math.random() - 0.5) * 0.28,
+          dy: (Math.random() - 0.5) * 0.28,
+          a: Math.random() * 0.55 + 0.2
         });
       }
     }
 
     function drawParticles() {
-      if (!ctx || !canvas) return;
       ctx.clearRect(0, 0, canvas.width, canvas.height);
 
       for (let i = 0; i < particles.length; i++) {
@@ -1346,7 +1654,7 @@
 
         ctx.beginPath();
         ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
-        ctx.fillStyle = `rgba(120, 210, 255, ${p.a})`;
+        ctx.fillStyle = `rgba(126, 204, 255, ${p.a})`;
         ctx.fill();
 
         p.x += p.dx;
@@ -1355,41 +1663,34 @@
         if (p.x < 0 || p.x > canvas.width) p.dx *= -1;
         if (p.y < 0 || p.y > canvas.height) p.dy *= -1;
 
-        // Ограничиваем количество отрисовываемых линий для производительности
-        for (let j = i + 1; j < particles.length && j < i + 30; j++) {
+        for (let j = i + 1; j < particles.length; j++) {
           const p2 = particles[j];
           const dist = Math.hypot(p.x - p2.x, p.y - p2.y);
 
-          if (dist < 120) {
+          if (dist < 130) {
             ctx.beginPath();
             ctx.moveTo(p.x, p.y);
             ctx.lineTo(p2.x, p2.y);
-            ctx.strokeStyle = `rgba(120, 170, 255, ${0.08 - dist / 1800})`;
-            ctx.lineWidth = 0.8;
+            ctx.strokeStyle = `rgba(120, 170, 255, ${0.085 - dist / 1700})`;
+            ctx.lineWidth = 1;
             ctx.stroke();
           }
         }
       }
 
-      animationFrameId = requestAnimationFrame(drawParticles);
+      requestAnimationFrame(drawParticles);
     }
 
+    resizeCanvas();
+    createParticles();
+    drawParticles();
+
     window.addEventListener('resize', () => {
-      if (isCanvasSupported) {
-        resizeCanvas();
-      }
+      resizeCanvas();
+      createParticles();
     });
 
-    initParticles();
-
-    // Очистка анимации при выгрузке страницы (хорошая практика)
-    window.addEventListener('beforeunload', () => {
-      if (animationFrameId) {
-        cancelAnimationFrame(animationFrameId);
-      }
-    });
-
-    // LANGUAGE SWITCH - полные переводы
+    // I18N
     const translations = {
       en: {
         brand_subtitle: "GLOBAL IT SOLUTIONS",
@@ -1409,6 +1710,10 @@
         stat2_text: "Powerful mobile solutions designed for performance, usability, and future scaling.",
         stat3_title: "AI + n8n",
         stat3_text: "Automation pipelines that save time, reduce manual work, and increase output.",
+        badge1_title: "Automation",
+        badge1_text: "Smart workflows that scale",
+        badge2_title: "Premium Delivery",
+        badge2_text: "Design + code + business focus",
         services_title: "What we do",
         services_subtitle: "We combine design, engineering, automation, and AI to help brands launch faster, operate smarter, and present themselves at a premium level.",
         service1_title: "Website Development",
@@ -1423,8 +1728,14 @@
         service5_text: "Modern visual identity, interface systems, page layouts, and digital presentation crafted to position your company above the ordinary.",
         service6_title: "Launch & Growth Support",
         service6_text: "From concept to deployment, we help structure digital products that are ready for growth, marketing, and long-term iteration.",
+        about_title: "Built for ambitious companies",
+        about_text: "We create digital products for businesses that want premium presentation, clear structure, automation, and scalable growth — not generic templates.",
+        metrics_title: "What matters most",
+        metric1: "Clarity & trust",
+        metric2: "Smart automation",
+        metric3: "Built for growth",
         process_title: "How we work",
-        process_subtitle: "We focus on clarity, speed, and real business value — not just visual appearance.",
+        process_subtitle: "We focus on clarity, speed, execution quality, and real business value — not just visual appearance.",
         process_step1: "Step 01",
         process1_title: "Discovery",
         process1_text: "We define your goals, product direction, audience, and the exact role your digital system must play.",
@@ -1436,10 +1747,10 @@
         process3_text: "We build the website, app, or automation system with attention to performance, stability, and scale.",
         process_step4: "Step 04",
         process4_title: "Launch & Improve",
-        process4_text: "We deploy, test, optimize, and prepare the system for real-world business use and growth.",
+        process4_text: "We deploy, test, optimize, and prepare the system for real-world business use and long-term growth.",
         technology_title: "Technology focus",
         technology_subtitle: "We use modern tools and flexible stacks to create reliable digital products and automation ecosystems.",
-        contact_title: "Let's build something powerful",
+        contact_title: "Let’s build something powerful",
         contact_text: "Whether you need a premium company website, mobile app, smart automation, or AI-driven digital system, Luxorion Digital is ready to help you launch with speed, precision, and a strong business focus.",
         contact_btn1: "Email Us",
         contact_btn2: "Call Now",
@@ -1467,6 +1778,10 @@
         stat2_text: "Мощные мобильные решения, созданные с упором на производительность, удобство и масштабирование.",
         stat3_title: "AI + n8n",
         stat3_text: "Автоматизация процессов, которая экономит время, снижает ручную работу и увеличивает результат.",
+        badge1_title: "Автоматизация",
+        badge1_text: "Умные процессы для роста",
+        badge2_title: "Премиум-подача",
+        badge2_text: "Дизайн + код + бизнес-логика",
         services_title: "Чем мы занимаемся",
         services_subtitle: "Мы объединяем дизайн, разработку, автоматизацию и AI, чтобы помогать брендам запускаться быстрее, работать эффективнее и выглядеть на премиальном уровне.",
         service1_title: "Разработка сайтов",
@@ -1481,8 +1796,14 @@
         service5_text: "Современная визуальная айдентика, интерфейсы и цифровая подача, которые поднимают восприятие компании выше среднего.",
         service6_title: "Запуск и развитие",
         service6_text: "От идеи до запуска — мы строим цифровые продукты, готовые к росту, маркетингу и дальнейшему развитию.",
+        about_title: "Создано для амбициозных компаний",
+        about_text: "Мы создаём цифровые продукты для бизнеса, которому нужны премиальная подача, чёткая структура, автоматизация и масштабируемый рост — а не шаблонные решения.",
+        metrics_title: "Что важно больше всего",
+        metric1: "Ясность и доверие",
+        metric2: "Умная автоматизация",
+        metric3: "Фокус на рост",
         process_title: "Как мы работаем",
-        process_subtitle: "Мы делаем акцент на ясности, скорости и реальной пользе для бизнеса, а не только на красивой картинке.",
+        process_subtitle: "Мы делаем акцент на ясности, скорости, качестве реализации и реальной пользе для бизнеса, а не только на красивой картинке.",
         process_step1: "Шаг 01",
         process1_title: "Анализ",
         process1_text: "Определяем цели, направление продукта, аудиторию и роль цифровой системы в вашем бизнесе.",
@@ -1494,7 +1815,7 @@
         process3_text: "Собираем сайт, приложение или систему автоматизации с упором на стабильность, скорость и масштаб.",
         process_step4: "Шаг 04",
         process4_title: "Запуск и улучшение",
-        process4_text: "Запускаем, тестируем, оптимизируем и готовим систему к реальному использованию и росту.",
+        process4_text: "Запускаем, тестируем, оптимизируем и готовим систему к реальному использованию и долгосрочному росту.",
         technology_title: "Технологический фокус",
         technology_subtitle: "Мы используем современные инструменты и гибкие стеки для создания надёжных цифровых продуктов и систем автоматизации.",
         contact_title: "Давайте создадим что-то сильное",
@@ -1525,6 +1846,10 @@
         stat2_text: "حلول جوال قوية مصممة للأداء وسهولة الاستخدام والتوسع المستقبلي.",
         stat3_title: "AI + n8n",
         stat3_text: "مسارات أتمتة توفر الوقت وتقلل العمل اليدوي وتزيد الإنتاجية.",
+        badge1_title: "الأتمتة",
+        badge1_text: "مسارات ذكية قابلة للتوسع",
+        badge2_title: "تسليم متميز",
+        badge2_text: "تصميم + برمجة + تركيز على الأعمال",
         services_title: "ماذا نقدم",
         services_subtitle: "نحن نجمع بين التصميم والهندسة والأتمتة والذكاء الاصطناعي لمساعدة العلامات التجارية على الإطلاق بسرعة والعمل بذكاء والظهور بمستوى متميز.",
         service1_title: "تطوير المواقع",
@@ -1539,8 +1864,14 @@
         service5_text: "هوية بصرية حديثة وأنظمة واجهات وتصميمات رقمية تضع شركتك في مستوى أعلى من المعتاد.",
         service6_title: "الإطلاق والنمو",
         service6_text: "من الفكرة إلى الإطلاق نساعدك في بناء منتجات رقمية جاهزة للنمو والتسويق والتطوير المستمر.",
+        about_title: "مبني للشركات الطموحة",
+        about_text: "نحن نصنع منتجات رقمية للشركات التي تريد حضوراً متميزاً وهيكلة واضحة وأتمتة ذكية ونمواً قابلاً للتوسع، لا مجرد قوالب عامة.",
+        metrics_title: "ما يهم أكثر",
+        metric1: "وضوح وثقة",
+        metric2: "أتمتة ذكية",
+        metric3: "جاهز للنمو",
         process_title: "كيف نعمل",
-        process_subtitle: "نركز على الوضوح والسرعة والقيمة الحقيقية للأعمال، وليس فقط على الشكل الجميل.",
+        process_subtitle: "نركز على الوضوح والسرعة وجودة التنفيذ والقيمة الحقيقية للأعمال، وليس فقط على الشكل الجميل.",
         process_step1: "الخطوة 01",
         process1_title: "الاكتشاف",
         process1_text: "نحدد أهدافك واتجاه المنتج والجمهور والدور الدقيق الذي يجب أن تؤديه المنظومة الرقمية.",
@@ -1552,7 +1883,7 @@
         process3_text: "نبني الموقع أو التطبيق أو نظام الأتمتة مع التركيز على الأداء والثبات وقابلية التوسع.",
         process_step4: "الخطوة 04",
         process4_title: "الإطلاق والتحسين",
-        process4_text: "نقوم بالنشر والاختبار والتحسين وإعداد النظام للاستخدام الفعلي والنمو.",
+        process4_text: "نقوم بالنشر والاختبار والتحسين وإعداد النظام للاستخدام الفعلي والنمو طويل المدى.",
         technology_title: "التركيز التقني",
         technology_subtitle: "نستخدم أدوات حديثة وتقنيات مرنة لإنشاء منتجات رقمية موثوقة وأنظمة أتمتة متكاملة.",
         contact_title: "لنصنع شيئاً قوياً",
@@ -1576,13 +1907,8 @@
 
       document.querySelectorAll('[data-i18n]').forEach(el => {
         const key = el.getAttribute('data-i18n');
-        if (dict[key] !== undefined) {
-          // Сохраняем HTML-структуру для элементов с внутренним HTML
-          if (key === 'hero_title') {
-            el.innerHTML = dict[key];
-          } else {
-            el.textContent = dict[key];
-          }
+        if (dict[key]) {
+          el.innerHTML = dict[key];
         }
       });
 
@@ -1594,9 +1920,7 @@
     }
 
     document.querySelectorAll('.lang-btn').forEach(btn => {
-      btn.addEventListener('click', () => {
-        setLanguage(btn.dataset.lang);
-      });
+      btn.addEventListener('click', () => setLanguage(btn.dataset.lang));
     });
 
     const savedLang = localStorage.getItem('luxorion_lang') || 'en';
