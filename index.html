@@ -1,202 +1,259 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Luxorion Digital</title>
+export default function LuxorionPremiumSite() {
+  return (
+    <div className="min-h-screen bg-[#030712] text-white selection:bg-cyan-400/30 selection:text-white">
+      <style>{`
+        html { scroll-behavior: smooth; }
+        @keyframes floatY {
+          0%,100% { transform: translateY(0px); }
+          50% { transform: translateY(-10px); }
+        }
+        @keyframes pulseGlow {
+          0%,100% { opacity: .55; }
+          50% { opacity: 1; }
+        }
+        @keyframes orbitSpin {
+          from { transform: rotate(0deg); }
+          to { transform: rotate(360deg); }
+        }
+        .glass {
+          background: linear-gradient(180deg, rgba(255,255,255,0.06), rgba(255,255,255,0.03));
+          backdrop-filter: blur(14px);
+          border: 1px solid rgba(255,255,255,0.08);
+        }
+      `}</style>
 
-<style>
-body {
-    margin:0;
-    font-family: Arial, sans-serif;
-    background: radial-gradient(circle at top, #0a0f2c, #000);
-    color:white;
+      <div className="fixed inset-0 pointer-events-none overflow-hidden">
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_20%_20%,rgba(34,211,238,.18),transparent_28%),radial-gradient(circle_at_80%_15%,rgba(59,130,246,.15),transparent_28%),radial-gradient(circle_at_50%_80%,rgba(14,165,233,.12),transparent_30%)]" />
+        <div className="absolute left-[-8rem] top-20 h-72 w-72 rounded-full bg-cyan-500/10 blur-3xl" />
+        <div className="absolute right-[-6rem] top-40 h-80 w-80 rounded-full bg-blue-500/10 blur-3xl" />
+        <div className="absolute bottom-[-8rem] left-1/2 h-96 w-96 -translate-x-1/2 rounded-full bg-sky-500/10 blur-3xl" />
+      </div>
+
+      <header className="sticky top-0 z-40 border-b border-white/5 bg-[#030712]/70 backdrop-blur-xl">
+        <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-4 lg:px-8">
+          <a href="#top" className="flex items-center gap-3">
+            <img src="logo.png" alt="Luxorion Digital logo" className="h-12 w-auto drop-shadow-[0_0_20px_rgba(34,211,238,0.35)]" />
+            <div>
+              <div className="text-sm font-semibold tracking-[0.28em] text-cyan-300">LUXORION</div>
+              <div className="text-[11px] uppercase tracking-[0.38em] text-white/55">Digital Studio</div>
+            </div>
+          </a>
+
+          <nav className="hidden items-center gap-8 text-sm text-white/70 md:flex">
+            <a href="#services" className="transition hover:text-white">Services</a>
+            <a href="#why" className="transition hover:text-white">Why Us</a>
+            <a href="#process" className="transition hover:text-white">Process</a>
+            <a href="#contact" className="transition hover:text-white">Contact</a>
+          </nav>
+
+          <div className="flex items-center gap-2">
+            <button className="rounded-full border border-white/10 px-3 py-2 text-xs font-medium text-white/80 transition hover:border-cyan-400/40 hover:text-white">EN</button>
+            <button className="rounded-full border border-white/5 px-3 py-2 text-xs font-medium text-white/45 transition hover:border-cyan-400/30 hover:text-white/80">RU</button>
+            <button className="rounded-full border border-white/5 px-3 py-2 text-xs font-medium text-white/45 transition hover:border-cyan-400/30 hover:text-white/80">AR</button>
+          </div>
+        </div>
+      </header>
+
+      <main id="top" className="relative z-10">
+        <section className="mx-auto max-w-7xl px-6 pb-20 pt-16 lg:px-8 lg:pb-28 lg:pt-24">
+          <div className="grid items-center gap-16 lg:grid-cols-[1.12fr_.88fr]">
+            <div>
+              <div className="mb-6 inline-flex items-center gap-2 rounded-full border border-cyan-400/20 bg-cyan-400/8 px-4 py-2 text-xs font-medium uppercase tracking-[0.26em] text-cyan-200">
+                Premium websites • AI automation • Growth systems
+              </div>
+
+              <h1 className="max-w-4xl text-4xl font-semibold leading-[1.02] tracking-tight text-white sm:text-5xl lg:text-7xl">
+                We build premium digital systems that make your business look expensive and perform like a machine.
+              </h1>
+
+              <p className="mt-7 max-w-2xl text-base leading-8 text-white/68 sm:text-lg">
+                Luxorion Digital creates high-conversion websites, AI-powered automations, mobile-first digital experiences, and client acquisition systems for modern brands that want speed, status, and real growth.
+              </p>
+
+              <div className="mt-10 flex flex-col gap-4 sm:flex-row">
+                <a
+                  href="https://wa.me/971558913535"
+                  className="inline-flex items-center justify-center rounded-2xl bg-gradient-to-r from-cyan-400 to-blue-500 px-7 py-4 text-sm font-semibold text-slate-950 shadow-[0_15px_60px_rgba(34,211,238,0.35)] transition hover:scale-[1.02]"
+                >
+                  Get a free strategy call
+                </a>
+                <a
+                  href="#services"
+                  className="inline-flex items-center justify-center rounded-2xl border border-white/10 bg-white/5 px-7 py-4 text-sm font-semibold text-white transition hover:border-cyan-300/35 hover:bg-white/8"
+                >
+                  Explore services
+                </a>
+              </div>
+
+              <div className="mt-12 grid max-w-2xl grid-cols-1 gap-4 sm:grid-cols-3">
+                {[
+                  ['24/7', 'automation-ready systems'],
+                  ['3', 'languages built in'],
+                  ['Premium', 'design-first execution'],
+                ].map(([value, label]) => (
+                  <div key={label} className="glass rounded-2xl p-5">
+                    <div className="text-2xl font-semibold text-cyan-300">{value}</div>
+                    <div className="mt-2 text-sm leading-6 text-white/58">{label}</div>
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            <div className="relative flex justify-center lg:justify-end">
+              <div className="relative h-[480px] w-[480px] max-w-full" style={{ animation: 'floatY 6s ease-in-out infinite' }}>
+                <div className="absolute inset-0 rounded-full bg-cyan-400/10 blur-3xl" style={{ animation: 'pulseGlow 4s ease-in-out infinite' }} />
+                <div className="absolute inset-8 rounded-full border border-cyan-300/20" style={{ animation: 'orbitSpin 18s linear infinite' }}>
+                  <div className="absolute left-1/2 top-0 h-3 w-3 -translate-x-1/2 -translate-y-1/2 rounded-full bg-cyan-300 shadow-[0_0_20px_rgba(103,232,249,0.9)]" />
+                </div>
+                <div className="absolute inset-16 rounded-full border border-blue-300/10" style={{ animation: 'orbitSpin 12s linear infinite reverse' }}>
+                  <div className="absolute right-0 top-1/2 h-3 w-3 translate-x-1/2 -translate-y-1/2 rounded-full bg-blue-300 shadow-[0_0_20px_rgba(147,197,253,0.9)]" />
+                </div>
+                <div className="glass absolute inset-0 flex items-center justify-center rounded-[2.25rem] p-10 shadow-[0_0_120px_rgba(34,211,238,0.08)]">
+                  <img src="logo.png" alt="Luxorion Digital" className="h-auto w-[76%] drop-shadow-[0_0_35px_rgba(34,211,238,0.45)]" />
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section id="services" className="mx-auto max-w-7xl px-6 py-8 lg:px-8 lg:py-12">
+          <div className="mb-10 flex flex-col gap-4 lg:flex-row lg:items-end lg:justify-between">
+            <div>
+              <div className="text-sm font-medium uppercase tracking-[0.28em] text-cyan-300/90">Services</div>
+              <h2 className="mt-4 text-3xl font-semibold tracking-tight text-white sm:text-4xl">Digital systems designed to impress and convert.</h2>
+            </div>
+            <p className="max-w-2xl text-sm leading-7 text-white/60 sm:text-base">
+              Every offer is built to position your brand higher, reduce manual work, and turn more visitors into conversations, leads, and sales.
+            </p>
+          </div>
+
+          <div className="grid gap-6 md:grid-cols-2 xl:grid-cols-4">
+            {[
+              {
+                title: 'Premium Websites',
+                text: 'Modern high-conversion websites that look expensive, load fast, and make your company feel established from the first second.',
+              },
+              {
+                title: 'AI Automation',
+                text: 'Workflows with n8n, lead routing, notifications, content pipelines, CRM actions, and smart business automations that save hours daily.',
+              },
+              {
+                title: 'Mobile & Web Apps',
+                text: 'Tailored product interfaces for ambitious businesses that need an experience beyond a simple website.',
+              },
+              {
+                title: 'Growth Systems',
+                text: 'Integrated WhatsApp, Instagram, Telegram, forms, landing pages, and content systems that bring leads into your pipeline automatically.',
+              },
+            ].map((item) => (
+              <div key={item.title} className="glass group rounded-3xl p-7 transition duration-300 hover:-translate-y-1 hover:border-cyan-300/20 hover:bg-white/[0.07]">
+                <div className="mb-5 h-12 w-12 rounded-2xl bg-gradient-to-br from-cyan-400/25 to-blue-500/25 p-[1px]">
+                  <div className="flex h-full w-full items-center justify-center rounded-2xl bg-[#07111f] text-cyan-300">
+                    ✦
+                  </div>
+                </div>
+                <h3 className="text-xl font-semibold text-white">{item.title}</h3>
+                <p className="mt-4 text-sm leading-7 text-white/62">{item.text}</p>
+              </div>
+            ))}
+          </div>
+        </section>
+
+        <section id="why" className="mx-auto max-w-7xl px-6 py-20 lg:px-8">
+          <div className="grid gap-8 lg:grid-cols-[.9fr_1.1fr]">
+            <div className="glass rounded-[2rem] p-8 lg:p-10">
+              <div className="text-sm font-medium uppercase tracking-[0.28em] text-cyan-300">Why Luxorion</div>
+              <h2 className="mt-4 text-3xl font-semibold tracking-tight text-white sm:text-4xl">
+                We don’t just make things look good. We make them work.
+              </h2>
+              <p className="mt-6 text-base leading-8 text-white/65">
+                Most agencies sell visuals. We build an ecosystem: brand presence, automation, lead capture, customer flow, and conversion logic. The result is not just a better site. It is a better business system.
+              </p>
+            </div>
+
+            <div className="grid gap-6 sm:grid-cols-2">
+              {[
+                ['Premium-first design', 'Your site should immediately feel more expensive than your competitors.'],
+                ['Fast execution', 'We move quickly, structure clearly, and avoid endless agency delays.'],
+                ['Business thinking', 'Every page, button, and workflow is designed around growth, not decoration.'],
+                ['Scalable systems', 'The same foundation can expand into ads, automations, funnels, and CRM.'],
+              ].map(([title, text]) => (
+                <div key={title} className="glass rounded-3xl p-7">
+                  <h3 className="text-lg font-semibold text-white">{title}</h3>
+                  <p className="mt-3 text-sm leading-7 text-white/60">{text}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        <section id="process" className="mx-auto max-w-7xl px-6 py-6 lg:px-8 lg:py-12">
+          <div className="mb-10">
+            <div className="text-sm font-medium uppercase tracking-[0.28em] text-cyan-300">Process</div>
+            <h2 className="mt-4 text-3xl font-semibold tracking-tight text-white sm:text-4xl">Clear process. Premium outcome.</h2>
+          </div>
+
+          <div className="grid gap-6 md:grid-cols-3">
+            {[
+              ['01', 'Strategy', 'We define the offer, audience, structure, and conversion path before design starts.'],
+              ['02', 'Design & Build', 'We create the visual system, build the site, and connect the essential tools.'],
+              ['03', 'Launch & Automate', 'We publish, connect lead flows, and turn the site into a working sales asset.'],
+            ].map(([step, title, text]) => (
+              <div key={step} className="glass rounded-3xl p-8">
+                <div className="text-sm font-semibold tracking-[0.35em] text-cyan-300">{step}</div>
+                <h3 className="mt-5 text-2xl font-semibold text-white">{title}</h3>
+                <p className="mt-4 text-sm leading-7 text-white/62">{text}</p>
+              </div>
+            ))}
+          </div>
+        </section>
+
+        <section id="contact" className="mx-auto max-w-7xl px-6 py-20 lg:px-8">
+          <div className="glass overflow-hidden rounded-[2rem] p-8 lg:p-12">
+            <div className="grid gap-10 lg:grid-cols-[1fr_.9fr] lg:items-center">
+              <div>
+                <div className="text-sm font-medium uppercase tracking-[0.28em] text-cyan-300">Contact</div>
+                <h2 className="mt-4 max-w-3xl text-3xl font-semibold tracking-tight text-white sm:text-5xl">
+                  Ready to build something that actually brings in clients?
+                </h2>
+                <p className="mt-6 max-w-2xl text-base leading-8 text-white/65">
+                  Let’s build a premium website, AI automation, or full growth system for your business. Tell us what you need and we will show you the fastest way to launch.
+                </p>
+              </div>
+
+              <div className="rounded-[1.75rem] border border-white/8 bg-[#07111f] p-6 lg:p-8">
+                <div className="space-y-4">
+                  <a href="https://wa.me/971558913535" className="flex items-center justify-between rounded-2xl border border-white/10 bg-white/5 px-5 py-4 transition hover:border-cyan-300/30 hover:bg-white/8">
+                    <span>
+                      <span className="block text-sm text-white/50">WhatsApp</span>
+                      <span className="mt-1 block text-base font-semibold text-white">+971 55 891 3535</span>
+                    </span>
+                    <span className="text-cyan-300">↗</span>
+                  </a>
+                  <a href="https://t.me/luxoriondigital" className="flex items-center justify-between rounded-2xl border border-white/10 bg-white/5 px-5 py-4 transition hover:border-cyan-300/30 hover:bg-white/8">
+                    <span>
+                      <span className="block text-sm text-white/50">Telegram</span>
+                      <span className="mt-1 block text-base font-semibold text-white">@luxoriondigital</span>
+                    </span>
+                    <span className="text-cyan-300">↗</span>
+                  </a>
+                  <a href="mailto:luxoriondigital@gmail.com" className="flex items-center justify-between rounded-2xl border border-white/10 bg-white/5 px-5 py-4 transition hover:border-cyan-300/30 hover:bg-white/8">
+                    <span>
+                      <span className="block text-sm text-white/50">Email</span>
+                      <span className="mt-1 block text-base font-semibold text-white">luxoriondigital@gmail.com</span>
+                    </span>
+                    <span className="text-cyan-300">↗</span>
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+      </main>
+
+      <footer className="relative z-10 border-t border-white/5 px-6 py-8 text-center text-sm text-white/40 lg:px-8">
+        © 2026 Luxorion Digital. Premium websites, AI automation, and client acquisition systems.
+      </footer>
+    </div>
+  );
 }
-
-/* CONTAINER */
-.container {
-    max-width:1200px;
-    margin:auto;
-    padding:40px;
-}
-
-/* HEADER */
-header {
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
-}
-
-.logo img {
-    height:50px;
-}
-
-.lang span {
-    cursor:pointer;
-    margin-left:10px;
-}
-
-/* HERO */
-.hero {
-    text-align:center;
-    margin-top:80px;
-}
-
-.hero img {
-    width:260px;
-    margin-bottom:30px;
-    filter: drop-shadow(0 0 20px #00d4ff);
-}
-
-h1 {
-    font-size:42px;
-}
-
-p {
-    color:#aaa;
-    max-width:600px;
-    margin:auto;
-    margin-top:20px;
-}
-
-.btn {
-    margin-top:30px;
-    padding:15px 40px;
-    background:linear-gradient(90deg,#00d4ff,#0066ff);
-    border:none;
-    color:white;
-    cursor:pointer;
-    font-size:16px;
-    border-radius:8px;
-}
-
-/* FEATURES */
-.features {
-    margin-top:100px;
-    display:grid;
-    grid-template-columns:repeat(3,1fr);
-    gap:30px;
-}
-
-.card {
-    background:#111933;
-    padding:30px;
-    border-radius:12px;
-    transition:0.3s;
-}
-
-.card:hover {
-    transform:translateY(-10px);
-    box-shadow:0 0 20px #00d4ff44;
-}
-
-/* FOOTER */
-footer {
-    margin-top:120px;
-    text-align:center;
-    color:#666;
-}
-
-/* ARABIC */
-.ar {
-    direction:rtl;
-    text-align:right;
-}
-</style>
-
-</head>
-
-<body>
-
-<div class="container">
-
-<header>
-<div class="logo">
-<img src="logo.png">
-</div>
-
-<div class="lang">
-<span onclick="setLang('en')">EN</span>
-<span onclick="setLang('ru')">RU</span>
-<span onclick="setLang('ar')">AR</span>
-</div>
-</header>
-
-<div class="hero">
-
-<img src="logo.png">
-
-<h1 id="title"></h1>
-<p id="desc"></p>
-
-<button class="btn">Get Clients</button>
-
-</div>
-
-<div class="features">
-
-<div class="card" id="f1"></div>
-<div class="card" id="f2"></div>
-<div class="card" id="f3"></div>
-
-</div>
-
-<footer>
-© Luxorion Digital
-</footer>
-
-</div>
-
-<script>
-
-const content = {
-
-en:{
-title:"We build AI systems that bring you clients automatically",
-desc:"Websites, automation and AI systems that work instead of you and generate real revenue.",
-f1:"AI Automation",
-f2:"Premium Websites",
-f3:"Client Acquisition Systems"
-},
-
-ru:{
-title:"Мы создаем AI системы, которые приводят клиентов автоматически",
-desc:"Сайты, автоматизация и AI системы, которые работают за вас и приносят прибыль.",
-f1:"AI Автоматизация",
-f2:"Премиум сайты",
-f3:"Системы привлечения клиентов"
-},
-
-ar:{
-title:"نقوم بإنشاء أنظمة ذكاء اصطناعي تجلب لك العملاء تلقائيًا",
-desc:"مواقع وأنظمة ذكاء اصطناعي تعمل بدلاً منك وتحقق أرباحًا حقيقية.",
-f1:"أتمتة الذكاء الاصطناعي",
-f2:"مواقع احترافية",
-f3:"أنظمة جذب العملاء"
-}
-
-};
-
-function setLang(lang){
-
-document.getElementById("title").innerText = content[lang].title;
-document.getElementById("desc").innerText = content[lang].desc;
-
-document.getElementById("f1").innerText = content[lang].f1;
-document.getElementById("f2").innerText = content[lang].f2;
-document.getElementById("f3").innerText = content[lang].f3;
-
-if(lang === "ar"){
-document.body.classList.add("ar");
-}else{
-document.body.classList.remove("ar");
-}
-
-}
-
-setLang("en");
-
-</script>
-
-</body>
-</html>
