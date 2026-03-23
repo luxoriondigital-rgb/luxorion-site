@@ -4,10 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Luxorion Digital | Premium Web, Apps & AI Automation</title>
-  <meta
-    name="description"
-    content="Luxorion Digital builds premium websites, mobile apps, automation systems and AI workflows for ambitious global businesses."
-  />
+  <meta name="description" content="Luxorion Digital builds premium websites, mobile apps, automation systems and AI workflows for ambitious global businesses." />
   <meta name="theme-color" content="#071124" />
 
   <style>
@@ -27,7 +24,6 @@
       --shadow:0 20px 60px rgba(0,0,0,.35);
       --shadow-strong:0 30px 90px rgba(0,0,0,.42);
       --container:1240px;
-      --radius:24px;
     }
 
     *{
@@ -130,43 +126,6 @@
       to{transform:translateY(-16px);}
     }
 
-    .glow-lines{
-      position:fixed;
-      inset:0;
-      z-index:-3;
-      pointer-events:none;
-      overflow:hidden;
-    }
-
-    .glow-lines::before,
-    .glow-lines::after{
-      content:"";
-      position:absolute;
-      width:65vw;
-      height:2px;
-      background:linear-gradient(90deg, transparent, rgba(34,207,255,.4), transparent);
-      filter:blur(1px);
-      opacity:.35;
-      transform:rotate(-18deg);
-      left:-10vw;
-      animation:lineFlow 12s linear infinite;
-    }
-
-    .glow-lines::before{
-      top:24%;
-    }
-
-    .glow-lines::after{
-      top:62%;
-      animation-duration:16s;
-      animation-direction:reverse;
-    }
-
-    @keyframes lineFlow{
-      0%{transform:translateX(-12vw) rotate(-18deg);}
-      100%{transform:translateX(30vw) rotate(-18deg);}
-    }
-
     #particles{
       position:fixed;
       inset:0;
@@ -184,7 +143,7 @@
       position:sticky;
       top:0;
       z-index:1000;
-      background:rgba(4,8,22,.56);
+      background:rgba(4,8,22,.58);
       backdrop-filter:blur(16px);
       border-bottom:1px solid rgba(255,255,255,.08);
     }
@@ -361,7 +320,7 @@
     }
 
     .hero{
-      padding:88px 0 70px;
+      padding:110px 0 70px;
       position:relative;
       overflow:hidden;
     }
@@ -380,7 +339,7 @@
 
     .hero-grid{
       display:grid;
-      grid-template-columns:1.07fr .93fr;
+      grid-template-columns:1.05fr .95fr;
       gap:36px;
       align-items:center;
     }
@@ -483,41 +442,26 @@
     }
 
     .stat-card{
-      position:relative;
       background:linear-gradient(180deg, rgba(255,255,255,.09), rgba(255,255,255,.05));
       border:1px solid rgba(255,255,255,.12);
       border-radius:22px;
       padding:22px;
       box-shadow:var(--shadow);
       backdrop-filter:blur(14px);
-      overflow:hidden;
       transition:.25s ease;
-    }
-
-    .stat-card::before{
-      content:"";
-      position:absolute;
-      inset:0;
-      background:linear-gradient(135deg, rgba(111,99,255,.10), transparent 45%, rgba(34,207,255,.08));
-      pointer-events:none;
     }
 
     .stat-card:hover{
       transform:translateY(-5px);
-      box-shadow:var(--shadow-strong);
       border-color:rgba(255,255,255,.18);
     }
 
     .stat-card h3{
-      position:relative;
-      z-index:1;
       font-size:21px;
       margin-bottom:9px;
     }
 
     .stat-card p{
-      position:relative;
-      z-index:1;
       margin:0;
       font-size:15px;
       line-height:1.65;
@@ -669,16 +613,7 @@
       border-radius:20px;
       padding:18px;
       min-height:118px;
-      position:relative;
       overflow:hidden;
-    }
-
-    .panel::before{
-      content:"";
-      position:absolute;
-      inset:auto 0 0 0;
-      height:1px;
-      background:linear-gradient(90deg, transparent, rgba(255,255,255,.12), transparent);
     }
 
     .line{
@@ -724,17 +659,6 @@
       border:1px solid rgba(255,255,255,.08);
       padding:14px;
       transition:.25s ease;
-      position:relative;
-      overflow:hidden;
-    }
-
-    .small-card::before{
-      content:"";
-      position:absolute;
-      inset:0;
-      background:linear-gradient(135deg, rgba(111,99,255,.10), transparent 45%, rgba(34,207,255,.08));
-      opacity:.7;
-      pointer-events:none;
     }
 
     .small-card:hover{
@@ -748,8 +672,6 @@
       border-radius:999px;
       background:linear-gradient(90deg, var(--accent2), var(--accent3));
       margin-bottom:14px;
-      position:relative;
-      z-index:1;
       box-shadow:0 0 18px rgba(34,207,255,.2);
     }
 
@@ -758,48 +680,10 @@
       border-radius:999px;
       background:rgba(255,255,255,.12);
       margin-bottom:8px;
-      position:relative;
-      z-index:1;
     }
 
     .text-row:last-child{
       width:68%;
-    }
-
-    .float-badge{
-      position:absolute;
-      padding:10px 14px;
-      border-radius:16px;
-      background:linear-gradient(180deg, rgba(255,255,255,.10), rgba(255,255,255,.05));
-      border:1px solid rgba(255,255,255,.10);
-      box-shadow:0 16px 38px rgba(0,0,0,.2);
-      backdrop-filter:blur(12px);
-      font-size:13px;
-      color:var(--muted);
-      animation:badgeFloat 6s ease-in-out infinite;
-    }
-
-    .float-badge b{
-      color:#fff;
-      display:block;
-      margin-bottom:4px;
-      font-size:14px;
-    }
-
-    .badge-left{
-      left:-18px;
-      bottom:72px;
-    }
-
-    .badge-right{
-      right:-14px;
-      top:110px;
-      animation-delay:1.2s;
-    }
-
-    @keyframes badgeFloat{
-      0%,100%{transform:translateY(0);}
-      50%{transform:translateY(-8px);}
     }
 
     section{
@@ -850,17 +734,6 @@
       box-shadow:var(--shadow);
       backdrop-filter:blur(14px);
       transition:.25s ease;
-      position:relative;
-      overflow:hidden;
-    }
-
-    .card::before{
-      content:"";
-      position:absolute;
-      inset:0;
-      background:linear-gradient(135deg, rgba(111,99,255,.10), transparent 42%, rgba(34,207,255,.08));
-      opacity:.9;
-      pointer-events:none;
     }
 
     .card:hover{
@@ -880,29 +753,21 @@
       background:linear-gradient(135deg, rgba(111,99,255,.24), rgba(34,207,255,.18));
       border:1px solid rgba(255,255,255,.10);
       margin-bottom:18px;
-      position:relative;
-      z-index:1;
       box-shadow:0 10px 28px rgba(0,0,0,.16);
     }
 
     .card h3{
-      position:relative;
-      z-index:1;
       font-size:22px;
       margin-bottom:12px;
     }
 
     .card p{
-      position:relative;
-      z-index:1;
       color:var(--muted);
       line-height:1.75;
       font-size:15px;
     }
 
     .process-number{
-      position:relative;
-      z-index:1;
       display:inline-block;
       margin-bottom:12px;
       color:var(--accent2);
@@ -988,25 +853,8 @@
       background:linear-gradient(180deg, rgba(255,255,255,.10), rgba(255,255,255,.05));
       border:1px solid rgba(255,255,255,.12);
       box-shadow:var(--shadow-strong);
-      position:relative;
       overflow:hidden;
       backdrop-filter:blur(16px);
-    }
-
-    .cta-box::before{
-      content:"";
-      position:absolute;
-      inset:0;
-      background:
-        radial-gradient(circle at top right, rgba(111,99,255,.22), transparent 30%),
-        radial-gradient(circle at bottom left, rgba(34,207,255,.12), transparent 34%);
-      pointer-events:none;
-    }
-
-    .cta-content,
-    .contact-list{
-      position:relative;
-      z-index:1;
     }
 
     .cta-box p{
@@ -1155,11 +1003,7 @@
       }
 
       .hero{
-        padding-top:72px;
-      }
-
-      .float-badge{
-        display:none;
+        padding-top:82px;
       }
 
       .brand-title{
@@ -1227,14 +1071,13 @@
     <div class="blob four"></div>
   </div>
   <div class="grid"></div>
-  <div class="glow-lines"></div>
   <canvas id="particles"></canvas>
 
   <header>
     <div class="container nav">
       <a href="#home" class="brand">
         <div class="logo-box">
-          <img id="siteLogo" src="./logo.png" alt="Luxorion Digital Logo">
+          <img id="siteLogo" src="/logo.png" alt="Luxorion Digital Logo">
           <div id="logoFallback" class="logo-fallback">LUX<br>ORION</div>
         </div>
         <div class="brand-text">
@@ -1269,9 +1112,7 @@
     <section class="hero" id="home">
       <div class="container hero-grid">
         <div class="hero-content reveal">
-          <div class="eyebrow" data-i18n="eyebrow">
-            Websites • Mobile Apps • Automation • AI Systems
-          </div>
+          <div class="eyebrow" data-i18n="eyebrow">Websites • Mobile Apps • Automation • AI Systems</div>
 
           <h1 data-i18n="hero_title">
             We build <span class="gradient">digital systems</span> that move business forward.
@@ -1307,16 +1148,6 @@
         <div class="hero-visual reveal">
           <div class="halo"></div>
           <div class="orbit"></div>
-
-          <div class="float-badge badge-left">
-            <b data-i18n="badge1_title">Automation</b>
-            <span data-i18n="badge1_text">Smart workflows that scale</span>
-          </div>
-
-          <div class="float-badge badge-right">
-            <b data-i18n="badge2_title">Premium Delivery</b>
-            <span data-i18n="badge2_text">Design + code + business focus</span>
-          </div>
 
           <div class="showcase">
             <div class="mini-dots">
@@ -1364,187 +1195,9 @@
         </div>
       </div>
     </section>
-
-    <section id="services">
-      <div class="container">
-        <div class="section-head reveal">
-          <h2 class="section-title" data-i18n="services_title">What we do</h2>
-          <p class="section-subtitle" data-i18n="services_subtitle">
-            We combine design, engineering, automation, and AI to help brands launch faster, operate smarter, and present themselves at a premium level.
-          </p>
-        </div>
-
-        <div class="services-grid">
-          <div class="card reveal">
-            <div class="icon-box">🌐</div>
-            <h3 data-i18n="service1_title">Website Development</h3>
-            <p data-i18n="service1_text">High-end business websites, landing pages, service platforms, and company portals with clean UX, responsive design, and strong brand presentation.</p>
-          </div>
-
-          <div class="card reveal">
-            <div class="icon-box">📱</div>
-            <h3 data-i18n="service2_title">Mobile App Development</h3>
-            <p data-i18n="service2_text">Custom mobile apps for startups and enterprises with scalable architecture, polished interfaces, and smooth user experience across devices.</p>
-          </div>
-
-          <div class="card reveal">
-            <div class="icon-box">⚙️</div>
-            <h3 data-i18n="service3_title">Business Automation</h3>
-            <p data-i18n="service3_text">Workflow automation using n8n and API integrations to connect your tools, reduce repetitive work, and make operations more efficient.</p>
-          </div>
-
-          <div class="card reveal">
-            <div class="icon-box">🤖</div>
-            <h3 data-i18n="service4_title">AI Integrations</h3>
-            <p data-i18n="service4_text">Smart assistants, AI content systems, automated customer flows, and intelligent business logic built around real-world use cases.</p>
-          </div>
-
-          <div class="card reveal">
-            <div class="icon-box">🎨</div>
-            <h3 data-i18n="service5_title">Brand & UI Systems</h3>
-            <p data-i18n="service5_text">Modern visual identity, interface systems, page layouts, and digital presentation crafted to position your company above the ordinary.</p>
-          </div>
-
-          <div class="card reveal">
-            <div class="icon-box">🚀</div>
-            <h3 data-i18n="service6_title">Launch & Growth Support</h3>
-            <p data-i18n="service6_text">From concept to deployment, we help structure digital products that are ready for growth, marketing, and long-term iteration.</p>
-          </div>
-        </div>
-
-        <div class="about-strip reveal">
-          <div class="mini-panel">
-            <h3 data-i18n="about_title">Built for ambitious companies</h3>
-            <p data-i18n="about_text">
-              We create digital products for businesses that want premium presentation, clear structure, automation, and scalable growth — not generic templates.
-            </p>
-          </div>
-
-          <div class="mini-panel">
-            <h3 data-i18n="metrics_title">What matters most</h3>
-            <div class="metric-row">
-              <div class="metric">
-                <strong>UX</strong>
-                <span data-i18n="metric1">Clarity & trust</span>
-              </div>
-              <div class="metric">
-                <strong>AI</strong>
-                <span data-i18n="metric2">Smart automation</span>
-              </div>
-              <div class="metric">
-                <strong>Scale</strong>
-                <span data-i18n="metric3">Built for growth</span>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section id="process">
-      <div class="container">
-        <div class="section-head reveal">
-          <h2 class="section-title" data-i18n="process_title">How we work</h2>
-          <p class="section-subtitle" data-i18n="process_subtitle">
-            We focus on clarity, speed, execution quality, and real business value — not just visual appearance.
-          </p>
-        </div>
-
-        <div class="process-grid">
-          <div class="card reveal">
-            <span class="process-number" data-i18n="process_step1">Step 01</span>
-            <h3 data-i18n="process1_title">Discovery</h3>
-            <p data-i18n="process1_text">We define your goals, product direction, audience, and the exact role your digital system must play.</p>
-          </div>
-
-          <div class="card reveal">
-            <span class="process-number" data-i18n="process_step2">Step 02</span>
-            <h3 data-i18n="process2_title">Design & Structure</h3>
-            <p data-i18n="process2_text">We create a strong visual and structural foundation so the product looks premium and works logically.</p>
-          </div>
-
-          <div class="card reveal">
-            <span class="process-number" data-i18n="process_step3">Step 03</span>
-            <h3 data-i18n="process3_title">Development</h3>
-            <p data-i18n="process3_text">We build the website, app, or automation system with attention to performance, stability, and scale.</p>
-          </div>
-
-          <div class="card reveal">
-            <span class="process-number" data-i18n="process_step4">Step 04</span>
-            <h3 data-i18n="process4_title">Launch & Improve</h3>
-            <p data-i18n="process4_text">We deploy, test, optimize, and prepare the system for real-world business use and long-term growth.</p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section id="technology">
-      <div class="container">
-        <div class="section-head reveal">
-          <h2 class="section-title" data-i18n="technology_title">Technology focus</h2>
-          <p class="section-subtitle" data-i18n="technology_subtitle">
-            We use modern tools and flexible stacks to create reliable digital products and automation ecosystems.
-          </p>
-        </div>
-
-        <div class="tech-grid">
-          <div class="card tech-pill reveal">HTML / CSS / JavaScript</div>
-          <div class="card tech-pill reveal">Responsive Web Platforms</div>
-          <div class="card tech-pill reveal">Mobile App Interfaces</div>
-          <div class="card tech-pill reveal">n8n Automation Workflows</div>
-          <div class="card tech-pill reveal">AI APIs & Assistants</div>
-          <div class="card tech-pill reveal">CRM / API Integrations</div>
-          <div class="card tech-pill reveal">Business Process Design</div>
-          <div class="card tech-pill reveal">Scalable Digital Architecture</div>
-        </div>
-      </div>
-    </section>
-
-    <section class="cta" id="contact">
-      <div class="container">
-        <div class="cta-box reveal">
-          <div class="cta-content">
-            <h2 class="section-title" data-i18n="contact_title">Let’s build something powerful</h2>
-            <p data-i18n="contact_text">
-              Whether you need a premium company website, mobile app, smart automation, or AI-driven digital system, Luxorion Digital is ready to help you launch with speed, precision, and a strong business focus.
-            </p>
-
-            <div class="hero-actions" style="margin-top:24px;">
-              <a href="mailto:Luxoriondigital@gmail.com" class="btn-primary" data-i18n="contact_btn1">Email Us</a>
-              <a href="tel:+971558913535" class="btn-secondary" data-i18n="contact_btn2">Call Now</a>
-            </div>
-          </div>
-
-          <div class="contact-list">
-            <div class="contact-item">
-              <strong data-i18n="email_label">Email</strong>
-              <a href="mailto:Luxoriondigital@gmail.com">Luxoriondigital@gmail.com</a>
-            </div>
-
-            <div class="contact-item">
-              <strong data-i18n="phone_label">Phone</strong>
-              <a href="tel:+971558913535">+971 55 891 3535</a>
-            </div>
-
-            <div class="contact-item">
-              <strong data-i18n="website_label">Website</strong>
-              <span>Luxoriondigital.com</span>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
   </main>
 
-  <footer>
-    <div class="container footer-row">
-      <div data-i18n="footer_left">© 2026 Luxorion Digital. All rights reserved.</div>
-      <div data-i18n="footer_right">Web Development • Mobile Apps • Automation • AI Solutions</div>
-    </div>
-  </footer>
-
   <script>
-    // MOBILE MENU
     const menuToggle = document.getElementById('menuToggle');
     const mobileNav = document.getElementById('mobileNav');
 
@@ -1553,12 +1206,9 @@
     });
 
     document.querySelectorAll('nav a').forEach(link => {
-      link.addEventListener('click', () => {
-        mobileNav.classList.remove('open');
-      });
+      link.addEventListener('click', () => mobileNav.classList.remove('open'));
     });
 
-    // REVEAL
     const reveals = document.querySelectorAll('.reveal');
 
     function revealOnScroll() {
@@ -1575,17 +1225,16 @@
     window.addEventListener('load', revealOnScroll);
     revealOnScroll();
 
-    // LOGO FALLBACK
     const logo = document.getElementById('siteLogo');
     const logoFallback = document.getElementById('logoFallback');
 
     const logoPaths = [
+      '/logo.png',
+      '/Logo.png',
+      '/assets/logo.png',
+      '/assets/Logo.png',
       './logo.png',
       './Logo.png',
-      './logo.jpg',
-      './Logo.jpg',
-      './logo.webp',
-      './Logo.webp',
       './assets/logo.png',
       './assets/Logo.png'
     ];
@@ -1616,9 +1265,8 @@
       if (!logo.complete || logo.naturalWidth === 0) {
         tryNextLogo();
       }
-    }, 1200);
+    }, 800);
 
-    // PARTICLES
     const canvas = document.getElementById('particles');
     const ctx = canvas.getContext('2d');
     let particles = [];
@@ -1690,7 +1338,6 @@
       createParticles();
     });
 
-    // I18N
     const translations = {
       en: {
         brand_subtitle: "GLOBAL IT SOLUTIONS",
@@ -1709,56 +1356,7 @@
         stat2_title: "Apps",
         stat2_text: "Powerful mobile solutions designed for performance, usability, and future scaling.",
         stat3_title: "AI + n8n",
-        stat3_text: "Automation pipelines that save time, reduce manual work, and increase output.",
-        badge1_title: "Automation",
-        badge1_text: "Smart workflows that scale",
-        badge2_title: "Premium Delivery",
-        badge2_text: "Design + code + business focus",
-        services_title: "What we do",
-        services_subtitle: "We combine design, engineering, automation, and AI to help brands launch faster, operate smarter, and present themselves at a premium level.",
-        service1_title: "Website Development",
-        service1_text: "High-end business websites, landing pages, service platforms, and company portals with clean UX, responsive design, and strong brand presentation.",
-        service2_title: "Mobile App Development",
-        service2_text: "Custom mobile apps for startups and enterprises with scalable architecture, polished interfaces, and smooth user experience across devices.",
-        service3_title: "Business Automation",
-        service3_text: "Workflow automation using n8n and API integrations to connect your tools, reduce repetitive work, and make operations more efficient.",
-        service4_title: "AI Integrations",
-        service4_text: "Smart assistants, AI content systems, automated customer flows, and intelligent business logic built around real-world use cases.",
-        service5_title: "Brand & UI Systems",
-        service5_text: "Modern visual identity, interface systems, page layouts, and digital presentation crafted to position your company above the ordinary.",
-        service6_title: "Launch & Growth Support",
-        service6_text: "From concept to deployment, we help structure digital products that are ready for growth, marketing, and long-term iteration.",
-        about_title: "Built for ambitious companies",
-        about_text: "We create digital products for businesses that want premium presentation, clear structure, automation, and scalable growth — not generic templates.",
-        metrics_title: "What matters most",
-        metric1: "Clarity & trust",
-        metric2: "Smart automation",
-        metric3: "Built for growth",
-        process_title: "How we work",
-        process_subtitle: "We focus on clarity, speed, execution quality, and real business value — not just visual appearance.",
-        process_step1: "Step 01",
-        process1_title: "Discovery",
-        process1_text: "We define your goals, product direction, audience, and the exact role your digital system must play.",
-        process_step2: "Step 02",
-        process2_title: "Design & Structure",
-        process2_text: "We create a strong visual and structural foundation so the product looks premium and works logically.",
-        process_step3: "Step 03",
-        process3_title: "Development",
-        process3_text: "We build the website, app, or automation system with attention to performance, stability, and scale.",
-        process_step4: "Step 04",
-        process4_title: "Launch & Improve",
-        process4_text: "We deploy, test, optimize, and prepare the system for real-world business use and long-term growth.",
-        technology_title: "Technology focus",
-        technology_subtitle: "We use modern tools and flexible stacks to create reliable digital products and automation ecosystems.",
-        contact_title: "Let’s build something powerful",
-        contact_text: "Whether you need a premium company website, mobile app, smart automation, or AI-driven digital system, Luxorion Digital is ready to help you launch with speed, precision, and a strong business focus.",
-        contact_btn1: "Email Us",
-        contact_btn2: "Call Now",
-        email_label: "Email",
-        phone_label: "Phone",
-        website_label: "Website",
-        footer_left: "© 2026 Luxorion Digital. All rights reserved.",
-        footer_right: "Web Development • Mobile Apps • Automation • AI Solutions"
+        stat3_text: "Automation pipelines that save time, reduce manual work, and increase output."
       },
       ru: {
         brand_subtitle: "ГЛОБАЛЬНЫЕ IT-РЕШЕНИЯ",
@@ -1777,56 +1375,7 @@
         stat2_title: "Приложения",
         stat2_text: "Мощные мобильные решения, созданные с упором на производительность, удобство и масштабирование.",
         stat3_title: "AI + n8n",
-        stat3_text: "Автоматизация процессов, которая экономит время, снижает ручную работу и увеличивает результат.",
-        badge1_title: "Автоматизация",
-        badge1_text: "Умные процессы для роста",
-        badge2_title: "Премиум-подача",
-        badge2_text: "Дизайн + код + бизнес-логика",
-        services_title: "Чем мы занимаемся",
-        services_subtitle: "Мы объединяем дизайн, разработку, автоматизацию и AI, чтобы помогать брендам запускаться быстрее, работать эффективнее и выглядеть на премиальном уровне.",
-        service1_title: "Разработка сайтов",
-        service1_text: "Премиальные бизнес-сайты, лендинги, сервисные платформы и корпоративные порталы с чистым UX и сильной подачей бренда.",
-        service2_title: "Разработка мобильных приложений",
-        service2_text: "Кастомные мобильные приложения для стартапов и компаний с масштабируемой архитектурой и удобным интерфейсом.",
-        service3_title: "Автоматизация бизнеса",
-        service3_text: "Автоматизация процессов через n8n и API-интеграции для соединения сервисов и сокращения ручной работы.",
-        service4_title: "AI-интеграции",
-        service4_text: "Умные ассистенты, AI-системы контента, автоматические клиентские сценарии и интеллектуальная бизнес-логика.",
-        service5_title: "Брендинг и UI-системы",
-        service5_text: "Современная визуальная айдентика, интерфейсы и цифровая подача, которые поднимают восприятие компании выше среднего.",
-        service6_title: "Запуск и развитие",
-        service6_text: "От идеи до запуска — мы строим цифровые продукты, готовые к росту, маркетингу и дальнейшему развитию.",
-        about_title: "Создано для амбициозных компаний",
-        about_text: "Мы создаём цифровые продукты для бизнеса, которому нужны премиальная подача, чёткая структура, автоматизация и масштабируемый рост — а не шаблонные решения.",
-        metrics_title: "Что важно больше всего",
-        metric1: "Ясность и доверие",
-        metric2: "Умная автоматизация",
-        metric3: "Фокус на рост",
-        process_title: "Как мы работаем",
-        process_subtitle: "Мы делаем акцент на ясности, скорости, качестве реализации и реальной пользе для бизнеса, а не только на красивой картинке.",
-        process_step1: "Шаг 01",
-        process1_title: "Анализ",
-        process1_text: "Определяем цели, направление продукта, аудиторию и роль цифровой системы в вашем бизнесе.",
-        process_step2: "Шаг 02",
-        process2_title: "Дизайн и структура",
-        process2_text: "Создаём сильную визуальную и логическую основу, чтобы продукт выглядел дорого и работал правильно.",
-        process_step3: "Шаг 03",
-        process3_title: "Разработка",
-        process3_text: "Собираем сайт, приложение или систему автоматизации с упором на стабильность, скорость и масштаб.",
-        process_step4: "Шаг 04",
-        process4_title: "Запуск и улучшение",
-        process4_text: "Запускаем, тестируем, оптимизируем и готовим систему к реальному использованию и долгосрочному росту.",
-        technology_title: "Технологический фокус",
-        technology_subtitle: "Мы используем современные инструменты и гибкие стеки для создания надёжных цифровых продуктов и систем автоматизации.",
-        contact_title: "Давайте создадим что-то сильное",
-        contact_text: "Если вам нужен премиальный сайт компании, мобильное приложение, умная автоматизация или AI-система, Luxorion Digital готов помочь вам запуститься быстро, точно и с сильным бизнес-акцентом.",
-        contact_btn1: "Написать нам",
-        contact_btn2: "Позвонить",
-        email_label: "Почта",
-        phone_label: "Телефон",
-        website_label: "Сайт",
-        footer_left: "© 2026 Luxorion Digital. Все права защищены.",
-        footer_right: "Разработка сайтов • Мобильные приложения • Автоматизация • AI-решения"
+        stat3_text: "Автоматизация процессов, которая экономит время, снижает ручную работу и увеличивает результат."
       },
       ar: {
         brand_subtitle: "حلول تقنية عالمية",
@@ -1845,56 +1394,7 @@
         stat2_title: "التطبيقات",
         stat2_text: "حلول جوال قوية مصممة للأداء وسهولة الاستخدام والتوسع المستقبلي.",
         stat3_title: "AI + n8n",
-        stat3_text: "مسارات أتمتة توفر الوقت وتقلل العمل اليدوي وتزيد الإنتاجية.",
-        badge1_title: "الأتمتة",
-        badge1_text: "مسارات ذكية قابلة للتوسع",
-        badge2_title: "تسليم متميز",
-        badge2_text: "تصميم + برمجة + تركيز على الأعمال",
-        services_title: "ماذا نقدم",
-        services_subtitle: "نحن نجمع بين التصميم والهندسة والأتمتة والذكاء الاصطناعي لمساعدة العلامات التجارية على الإطلاق بسرعة والعمل بذكاء والظهور بمستوى متميز.",
-        service1_title: "تطوير المواقع",
-        service1_text: "مواقع أعمال عالية المستوى وصفحات هبوط ومنصات خدمات وبوابات شركات بتجربة استخدام نظيفة وتصميم متجاوب وهوية قوية.",
-        service2_title: "تطوير تطبيقات الجوال",
-        service2_text: "تطبيقات جوال مخصصة للشركات والناشئين مع بنية قابلة للتوسع وواجهات مصقولة وتجربة استخدام سلسة.",
-        service3_title: "أتمتة الأعمال",
-        service3_text: "أتمتة سير العمل باستخدام n8n ودمج الـ API لربط أدواتك وتقليل العمل المتكرر وزيادة الكفاءة.",
-        service4_title: "دمج الذكاء الاصطناعي",
-        service4_text: "مساعدون أذكياء وأنظمة محتوى ذكية وتدفقات عمل آلية ومنطق أعمال مبني على حالات استخدام حقيقية.",
-        service5_title: "الهوية وواجهات الاستخدام",
-        service5_text: "هوية بصرية حديثة وأنظمة واجهات وتصميمات رقمية تضع شركتك في مستوى أعلى من المعتاد.",
-        service6_title: "الإطلاق والنمو",
-        service6_text: "من الفكرة إلى الإطلاق نساعدك في بناء منتجات رقمية جاهزة للنمو والتسويق والتطوير المستمر.",
-        about_title: "مبني للشركات الطموحة",
-        about_text: "نحن نصنع منتجات رقمية للشركات التي تريد حضوراً متميزاً وهيكلة واضحة وأتمتة ذكية ونمواً قابلاً للتوسع، لا مجرد قوالب عامة.",
-        metrics_title: "ما يهم أكثر",
-        metric1: "وضوح وثقة",
-        metric2: "أتمتة ذكية",
-        metric3: "جاهز للنمو",
-        process_title: "كيف نعمل",
-        process_subtitle: "نركز على الوضوح والسرعة وجودة التنفيذ والقيمة الحقيقية للأعمال، وليس فقط على الشكل الجميل.",
-        process_step1: "الخطوة 01",
-        process1_title: "الاكتشاف",
-        process1_text: "نحدد أهدافك واتجاه المنتج والجمهور والدور الدقيق الذي يجب أن تؤديه المنظومة الرقمية.",
-        process_step2: "الخطوة 02",
-        process2_title: "التصميم والهيكلة",
-        process2_text: "ننشئ أساساً بصرياً وهيكلياً قوياً ليبدو المنتج متميزاً ويعمل بشكل منطقي.",
-        process_step3: "الخطوة 03",
-        process3_title: "التطوير",
-        process3_text: "نبني الموقع أو التطبيق أو نظام الأتمتة مع التركيز على الأداء والثبات وقابلية التوسع.",
-        process_step4: "الخطوة 04",
-        process4_title: "الإطلاق والتحسين",
-        process4_text: "نقوم بالنشر والاختبار والتحسين وإعداد النظام للاستخدام الفعلي والنمو طويل المدى.",
-        technology_title: "التركيز التقني",
-        technology_subtitle: "نستخدم أدوات حديثة وتقنيات مرنة لإنشاء منتجات رقمية موثوقة وأنظمة أتمتة متكاملة.",
-        contact_title: "لنصنع شيئاً قوياً",
-        contact_text: "سواء كنت تحتاج إلى موقع شركة متميز أو تطبيق جوال أو أتمتة ذكية أو نظام رقمي مدعوم بالذكاء الاصطناعي، فإن Luxorion Digital جاهزة لمساعدتك على الإطلاق بسرعة ودقة وتركيز قوي على الأعمال.",
-        contact_btn1: "راسلنا",
-        contact_btn2: "اتصل الآن",
-        email_label: "البريد الإلكتروني",
-        phone_label: "الهاتف",
-        website_label: "الموقع",
-        footer_left: "© 2026 Luxorion Digital. جميع الحقوق محفوظة.",
-        footer_right: "تطوير مواقع • تطبيقات جوال • أتمتة • حلول ذكاء اصطناعي"
+        stat3_text: "مسارات أتمتة توفر الوقت وتقلل العمل اليدوي وتزيد الإنتاجية."
       }
     };
 
@@ -1907,9 +1407,7 @@
 
       document.querySelectorAll('[data-i18n]').forEach(el => {
         const key = el.getAttribute('data-i18n');
-        if (dict[key]) {
-          el.innerHTML = dict[key];
-        }
+        if (dict[key]) el.innerHTML = dict[key];
       });
 
       document.querySelectorAll('.lang-btn').forEach(btn => {
@@ -1923,8 +1421,7 @@
       btn.addEventListener('click', () => setLanguage(btn.dataset.lang));
     });
 
-    const savedLang = localStorage.getItem('luxorion_lang') || 'en';
-    setLanguage(savedLang);
+    setLanguage(localStorage.getItem('luxorion_lang') || 'en');
   </script>
 </body>
 </html>
