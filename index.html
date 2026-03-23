@@ -67,12 +67,12 @@
 
     header { position: sticky; top: 0; z-index: 1000; backdrop-filter: blur(16px); background: rgba(4,8,22,0.58); border-bottom: 1px solid rgba(255,255,255,0.08); }
     .nav { min-height: 86px; display: flex; align-items: center; justify-content: space-between; gap: 18px; padding: 10px 0; }
-    .brand { display: flex; align-items: center; gap: 16px; text-decoration: none; color: #fff; }
-    .logo-box { width: 90px; height: 90px; display: flex; align-items: center; justify-content: center; overflow: hidden; flex-shrink: 0; }
+    .brand { display: flex; align-items: center; gap: 18px; text-decoration: none; color: #fff; }
+    .logo-box { width: 110px; height: 110px; display: flex; align-items: center; justify-content: center; overflow: hidden; flex-shrink: 0; }
     .logo-img { width: 100%; height: 100%; object-fit: contain; }
     .brand-text { display: flex; flex-direction: column; }
-    .brand-title { font-size: 24px; font-weight: 700; background: linear-gradient(135deg, #fff, var(--accent2)); -webkit-background-clip: text; background-clip: text; color: transparent; }
-    .brand-subtitle { font-size: 13px; letter-spacing: 1.5px; color: var(--soft); margin-top: 4px; }
+    .brand-title { font-size: 28px; font-weight: 700; background: linear-gradient(135deg, #fff, var(--accent2)); -webkit-background-clip: text; background-clip: text; color: transparent; }
+    .brand-subtitle { font-size: 14px; letter-spacing: 2px; color: var(--soft); margin-top: 6px; }
     nav ul { list-style: none; display: flex; gap: 32px; }
     nav a { text-decoration: none; color: var(--muted); transition: 0.25s; font-size: 16px; font-weight: 500; }
     nav a:hover { color: #fff; }
@@ -192,21 +192,22 @@
       .menu-toggle { display: block; }
       nav.open ul { display: flex; flex-direction: column; position: absolute; top: 86px; left: 0; right: 0; background: rgba(4,8,22,0.98); padding: 20px; backdrop-filter: blur(20px); z-index: 1000; }
       .social-buttons { display: none; }
-      .logo-box { width: 75px; height: 75px; }
-      .brand-title { font-size: 22px; }
+      .logo-box { width: 90px; height: 90px; }
+      .brand-title { font-size: 24px; }
+      .brand-subtitle { font-size: 12px; }
     }
     @media (max-width: 700px) {
       .services-grid, .portfolio-grid, .blog-grid, .why-grid { grid-template-columns: 1fr; }
       .testimonial-card { min-width: 100%; }
       .hero-stats { grid-template-columns: 1fr; }
       .contact-form-section { padding: 28px; }
-      .logo-box { width: 65px; height: 65px; }
+      .logo-box { width: 75px; height: 75px; }
       .brand-title { font-size: 20px; }
-      .brand-subtitle { font-size: 11px; }
+      .brand-subtitle { font-size: 10px; }
       .brand { gap: 12px; }
     }
     @media (max-width: 480px) {
-      .logo-box { width: 55px; height: 55px; }
+      .logo-box { width: 65px; height: 65px; }
       .brand-title { font-size: 18px; }
       .brand-subtitle { font-size: 9px; }
     }
