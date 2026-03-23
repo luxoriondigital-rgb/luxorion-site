@@ -1,1427 +1,1464 @@
 <!DOCTYPE html>
-<html lang="en" dir="ltr">
+<html lang="ru">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Luxorion Digital | Premium Web, Apps & AI Automation</title>
-  <meta name="description" content="Luxorion Digital builds premium websites, mobile apps, automation systems and AI workflows for ambitious global businesses." />
-  <meta name="theme-color" content="#071124" />
-
+  <title>Luxorion Digital</title>
+  <meta
+    name="description"
+    content="Luxorion Digital — premium websites, mobile apps, AI automation and scalable digital solutions for modern business."
+  />
   <style>
-    :root{
-      --bg:#040816;
-      --bg2:#07152d;
-      --bg3:#0a1d3f;
-      --panel:rgba(255,255,255,.06);
-      --panel-2:rgba(255,255,255,.08);
-      --panel-border:rgba(255,255,255,.12);
-      --text:#ffffff;
-      --muted:rgba(255,255,255,.74);
-      --soft:rgba(255,255,255,.54);
-      --accent:#6f63ff;
-      --accent2:#22cfff;
-      --accent3:#28efb0;
-      --shadow:0 20px 60px rgba(0,0,0,.35);
-      --shadow-strong:0 30px 90px rgba(0,0,0,.42);
-      --container:1240px;
+    :root {
+      --bg: #06101d;
+      --bg-2: #0a1730;
+      --panel: rgba(10, 20, 40, 0.62);
+      --panel-2: rgba(255, 255, 255, 0.06);
+      --stroke: rgba(255, 255, 255, 0.08);
+      --text: #f5f8ff;
+      --muted: rgba(255, 255, 255, 0.72);
+      --accent: #56d7ff;
+      --accent-2: #6b7cff;
+      --accent-3: #1ad1a5;
+      --shadow: 0 20px 80px rgba(0, 0, 0, 0.35);
+      --radius-xl: 28px;
+      --radius-lg: 22px;
+      --radius-md: 18px;
+      --container: 1280px;
+      --header-h: 92px;
     }
 
-    *{
-      margin:0;
-      padding:0;
-      box-sizing:border-box;
+    * {
+      box-sizing: border-box;
     }
 
-    html{
-      scroll-behavior:smooth;
+    html {
+      scroll-behavior: smooth;
     }
 
-    body{
-      font-family:Arial, Helvetica, sans-serif;
-      color:var(--text);
-      min-height:100vh;
-      overflow-x:hidden;
-      position:relative;
+    html,
+    body {
+      margin: 0;
+      padding: 0;
+      max-width: 100%;
+      overflow-x: hidden;
       background:
-        radial-gradient(circle at 12% 18%, rgba(111,99,255,.16), transparent 30%),
-        radial-gradient(circle at 88% 20%, rgba(34,207,255,.16), transparent 28%),
-        radial-gradient(circle at 52% 84%, rgba(40,239,176,.10), transparent 22%),
-        linear-gradient(135deg, var(--bg), var(--bg2) 45%, var(--bg3));
+        radial-gradient(circle at 15% 20%, rgba(96, 74, 255, 0.22), transparent 28%),
+        radial-gradient(circle at 75% 18%, rgba(40, 180, 255, 0.18), transparent 24%),
+        radial-gradient(circle at 50% 85%, rgba(10, 210, 160, 0.14), transparent 28%),
+        linear-gradient(180deg, #07111f 0%, #071325 38%, #08101b 100%);
+      color: var(--text);
+      font-family: Inter, Arial, Helvetica, sans-serif;
     }
 
-    .bg{
-      position:fixed;
-      inset:0;
-      z-index:-5;
-      overflow:hidden;
-      pointer-events:none;
+    body {
+      position: relative;
     }
 
-    .blob{
-      position:absolute;
-      border-radius:50%;
-      filter:blur(80px);
-      opacity:.35;
-      animation:blobFloat 18s ease-in-out infinite alternate;
+    a {
+      color: inherit;
+      text-decoration: none;
     }
 
-    .blob.one{
-      width:440px;
-      height:440px;
-      background:#6f63ff;
-      top:4%;
-      left:-130px;
-      animation-duration:22s;
+    img {
+      display: block;
+      max-width: 100%;
     }
 
-    .blob.two{
-      width:370px;
-      height:370px;
-      background:#22cfff;
-      top:8%;
-      right:-110px;
-      animation-duration:17s;
-    }
-
-    .blob.three{
-      width:430px;
-      height:430px;
-      background:#28efb0;
-      left:18%;
-      bottom:-180px;
-      animation-duration:24s;
-    }
-
-    .blob.four{
-      width:260px;
-      height:260px;
-      background:#507dff;
-      right:12%;
-      bottom:16%;
-      opacity:.16;
-      animation-duration:15s;
-    }
-
-    @keyframes blobFloat{
-      0%{transform:translate(0,0) scale(1);}
-      50%{transform:translate(42px,-24px) scale(1.08);}
-      100%{transform:translate(-34px,40px) scale(.92);}
-    }
-
-    .grid{
-      position:fixed;
-      inset:0;
-      z-index:-4;
+    .bg-grid {
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      z-index: 0;
+      opacity: 0.5;
       background-image:
-        linear-gradient(rgba(255,255,255,.03) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(255,255,255,.03) 1px, transparent 1px);
-      background-size:44px 44px;
-      mask-image:radial-gradient(circle at center, black 42%, transparent 96%);
-      opacity:.9;
-      animation:gridMove 16s ease-in-out infinite alternate;
+        linear-gradient(rgba(255,255,255,0.05) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,0.05) 1px, transparent 1px);
+      background-size: 48px 48px;
+      mask-image: radial-gradient(circle at center, black 35%, transparent 92%);
+      -webkit-mask-image: radial-gradient(circle at center, black 35%, transparent 92%);
     }
 
-    @keyframes gridMove{
-      from{transform:translateY(0);}
-      to{transform:translateY(-16px);}
+    .bg-orbs {
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      z-index: 0;
+      overflow: hidden;
     }
 
-    #particles{
-      position:fixed;
-      inset:0;
-      z-index:-2;
-      pointer-events:none;
-      opacity:.9;
+    .orb {
+      position: absolute;
+      border-radius: 50%;
+      filter: blur(18px);
+      opacity: 0.45;
+      animation: floatOrb linear infinite;
     }
 
-    .container{
-      width:min(92%, var(--container));
-      margin:0 auto;
+    .orb-1 {
+      width: 340px;
+      height: 340px;
+      left: -60px;
+      top: 140px;
+      background: radial-gradient(circle, rgba(111,92,255,0.55), transparent 70%);
+      animation-duration: 16s;
     }
 
-    header{
-      position:sticky;
-      top:0;
-      z-index:1000;
-      background:rgba(4,8,22,.58);
-      backdrop-filter:blur(16px);
-      border-bottom:1px solid rgba(255,255,255,.08);
+    .orb-2 {
+      width: 420px;
+      height: 420px;
+      right: -120px;
+      top: 120px;
+      background: radial-gradient(circle, rgba(54,186,255,0.42), transparent 68%);
+      animation-duration: 18s;
     }
 
-    .nav{
-      min-height:86px;
-      display:flex;
-      align-items:center;
-      justify-content:space-between;
-      gap:18px;
-      padding:10px 0;
+    .orb-3 {
+      width: 380px;
+      height: 380px;
+      left: 24%;
+      bottom: -140px;
+      background: radial-gradient(circle, rgba(18,208,168,0.36), transparent 70%);
+      animation-duration: 20s;
     }
 
-    .brand{
-      display:flex;
-      align-items:center;
-      gap:14px;
-      text-decoration:none;
-      color:#fff;
-      min-width:0;
+    @keyframes floatOrb {
+      0% { transform: translate3d(0,0,0) scale(1); }
+      25% { transform: translate3d(24px,-20px,0) scale(1.04); }
+      50% { transform: translate3d(-16px,26px,0) scale(0.98); }
+      75% { transform: translate3d(18px,12px,0) scale(1.03); }
+      100% { transform: translate3d(0,0,0) scale(1); }
     }
 
-    .logo-box{
-      width:58px;
-      height:58px;
-      border-radius:18px;
-      background:linear-gradient(180deg, rgba(255,255,255,.08), rgba(255,255,255,.04));
-      border:1px solid rgba(255,255,255,.10);
-      display:flex;
-      align-items:center;
-      justify-content:center;
-      overflow:hidden;
-      flex-shrink:0;
-      box-shadow:0 12px 32px rgba(0,0,0,.25);
+    .site {
+      position: relative;
+      z-index: 1;
+      width: 100%;
+      max-width: 100%;
+      overflow-x: clip;
     }
 
-    .logo-box img{
-      width:100%;
-      height:100%;
-      object-fit:contain;
-      padding:6px;
-      display:block;
+    .container {
+      width: min(var(--container), calc(100% - 32px));
+      margin: 0 auto;
     }
 
-    .logo-fallback{
-      display:none;
-      text-align:center;
-      line-height:1.05;
-      font-size:13px;
-      font-weight:700;
-      letter-spacing:1px;
-      color:#fff;
+    .header-wrap {
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      padding: 16px 0 0;
+      backdrop-filter: blur(0px);
     }
 
-    .brand-text{
-      display:flex;
-      flex-direction:column;
-      min-width:0;
+    .header {
+      min-height: var(--header-h);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 18px;
+      padding: 14px 18px;
+      border-radius: 26px;
+      background: linear-gradient(180deg, rgba(10, 20, 42, 0.88), rgba(8, 18, 36, 0.82));
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      box-shadow: 0 20px 50px rgba(0,0,0,0.24);
+      width: 100%;
+      max-width: 100%;
+      overflow: hidden;
     }
 
-    .brand-title{
-      font-size:20px;
-      font-weight:700;
-      white-space:nowrap;
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      min-width: 0;
+      flex: 0 1 auto;
     }
 
-    .brand-subtitle{
-      margin-top:3px;
-      font-size:12px;
-      text-transform:uppercase;
-      letter-spacing:1.7px;
-      color:var(--soft);
-      white-space:nowrap;
+    .brand-logo {
+      width: 72px;
+      height: 72px;
+      border-radius: 20px;
+      object-fit: contain;
+      flex-shrink: 0;
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(255,255,255,0.08);
+      padding: 9px;
+      box-shadow: 0 12px 34px rgba(0,0,0,0.28);
     }
 
-    .nav-right{
-      display:flex;
-      align-items:center;
-      gap:16px;
+    .brand-text {
+      display: flex;
+      flex-direction: column;
+      min-width: 0;
     }
 
-    nav ul{
-      list-style:none;
-      display:flex;
-      align-items:center;
-      gap:24px;
+    .brand-title {
+      font-size: 18px;
+      font-weight: 800;
+      line-height: 1.05;
+      letter-spacing: -0.02em;
+      white-space: nowrap;
     }
 
-    nav a{
-      text-decoration:none;
-      color:var(--muted);
-      font-size:15px;
-      transition:.25s ease;
-      position:relative;
+    .brand-subtitle {
+      margin-top: 4px;
+      font-size: 12px;
+      color: var(--muted);
+      letter-spacing: 0.02em;
+      text-transform: uppercase;
+      white-space: nowrap;
     }
 
-    nav a::after{
-      content:"";
-      position:absolute;
-      left:0;
-      bottom:-7px;
-      width:0;
-      height:2px;
-      border-radius:999px;
-      background:linear-gradient(90deg, var(--accent), var(--accent2));
-      transition:.25s ease;
+    .nav {
+      display: flex;
+      align-items: center;
+      gap: 28px;
+      min-width: 0;
+      flex: 1 1 auto;
+      justify-content: center;
     }
 
-    nav a:hover{
-      color:#fff;
+    .nav a {
+      color: rgba(255,255,255,0.82);
+      font-size: 16px;
+      font-weight: 500;
+      transition: 0.25s ease;
+      white-space: nowrap;
     }
 
-    nav a:hover::after{
-      width:100%;
+    .nav a:hover {
+      color: #ffffff;
+      transform: translateY(-1px);
     }
 
-    .lang-switch{
-      display:flex;
-      align-items:center;
-      gap:6px;
-      background:linear-gradient(180deg, rgba(255,255,255,.06), rgba(255,255,255,.03));
-      border:1px solid rgba(255,255,255,.10);
-      border-radius:999px;
-      padding:6px;
-      box-shadow:0 10px 30px rgba(0,0,0,.18);
+    .header-actions {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      flex-shrink: 0;
     }
 
-    .lang-btn{
-      border:none;
-      background:transparent;
-      color:var(--muted);
-      padding:9px 14px;
-      border-radius:999px;
-      font-size:13px;
-      font-weight:700;
-      cursor:pointer;
-      transition:.25s ease;
+    .lang-switch {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 6px;
+      border-radius: 999px;
+      background: rgba(255,255,255,0.05);
+      border: 1px solid rgba(255,255,255,0.08);
+      box-shadow: inset 0 1px 0 rgba(255,255,255,0.04);
     }
 
-    .lang-btn.active{
-      color:#fff;
-      background:linear-gradient(135deg, var(--accent), var(--accent2));
-      box-shadow:0 10px 26px rgba(84,119,255,.28);
+    .lang-btn {
+      border: 0;
+      background: transparent;
+      color: rgba(255,255,255,0.72);
+      font-size: 15px;
+      font-weight: 700;
+      min-width: 46px;
+      height: 44px;
+      border-radius: 999px;
+      cursor: pointer;
+      transition: 0.25s ease;
+      padding: 0 14px;
     }
 
-    .btn-top{
-      display:inline-flex;
-      align-items:center;
-      justify-content:center;
-      min-height:52px;
-      padding:0 22px;
-      border-radius:16px;
-      text-decoration:none;
-      color:#fff;
-      font-weight:700;
-      background:linear-gradient(135deg, var(--accent), var(--accent2));
-      box-shadow:0 14px 34px rgba(84,119,255,.28);
-      transition:.25s ease;
-      white-space:nowrap;
+    .lang-btn.active {
+      color: #fff;
+      background: linear-gradient(135deg, var(--accent-2), #40d8ff);
+      box-shadow: 0 8px 22px rgba(77, 137, 255, 0.35);
     }
 
-    .btn-top:hover{
-      transform:translateY(-2px);
-      box-shadow:0 18px 38px rgba(84,119,255,.35);
+    .cta-btn {
+      height: 54px;
+      padding: 0 28px;
+      border: 0;
+      border-radius: 18px;
+      cursor: pointer;
+      font-size: 15px;
+      font-weight: 800;
+      color: #fff;
+      background: linear-gradient(135deg, var(--accent-2), #36c9ff);
+      box-shadow: 0 18px 30px rgba(54, 120, 255, 0.28);
+      transition: 0.25s ease;
+      white-space: nowrap;
     }
 
-    .menu-toggle{
-      display:none;
-      border:none;
-      background:none;
-      color:#fff;
-      font-size:30px;
-      cursor:pointer;
+    .cta-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 24px 36px rgba(54, 120, 255, 0.34);
     }
 
-    .hero{
-      padding:110px 0 70px;
-      position:relative;
-      overflow:hidden;
+    .hero {
+      position: relative;
+      overflow: hidden;
+      padding: 26px 0 88px;
+      width: 100%;
+      max-width: 100%;
     }
 
-    .hero::before{
-      content:"";
-      position:absolute;
-      width:760px;
-      height:760px;
-      border-radius:50%;
-      background:radial-gradient(circle, rgba(90,130,255,.12), transparent 65%);
-      right:-160px;
-      top:-100px;
-      pointer-events:none;
+    .hero-inner {
+      width: min(var(--container), calc(100% - 32px));
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: minmax(0, 1.05fr) minmax(0, 0.95fr);
+      align-items: center;
+      gap: 42px;
+      min-width: 0;
     }
 
-    .hero-grid{
-      display:grid;
-      grid-template-columns:1.05fr .95fr;
-      gap:36px;
-      align-items:center;
+    .hero-left,
+    .hero-right {
+      min-width: 0;
+      width: 100%;
     }
 
-    .eyebrow{
-      display:inline-flex;
-      align-items:center;
-      gap:10px;
-      padding:11px 16px;
-      border-radius:999px;
-      background:rgba(255,255,255,.06);
-      border:1px solid rgba(255,255,255,.10);
-      color:var(--muted);
-      font-size:14px;
-      margin-bottom:24px;
-      box-shadow:0 12px 30px rgba(0,0,0,.14);
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 10px 16px;
+      border-radius: 999px;
+      background: rgba(255,255,255,0.06);
+      border: 1px solid rgba(255,255,255,0.08);
+      color: rgba(255,255,255,0.82);
+      font-size: 14px;
+      font-weight: 600;
+      margin-bottom: 22px;
+      backdrop-filter: blur(8px);
     }
 
-    .eyebrow::before{
-      content:"";
-      width:11px;
-      height:11px;
-      border-radius:50%;
-      background:linear-gradient(135deg, var(--accent2), var(--accent3));
-      box-shadow:0 0 18px rgba(34,207,255,.55);
-      flex-shrink:0;
+    .eyebrow::before {
+      content: "";
+      width: 9px;
+      height: 9px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--accent), var(--accent-3));
+      box-shadow: 0 0 14px rgba(69, 220, 255, 0.7);
     }
 
-    h1{
-      font-size:clamp(44px, 5.5vw, 84px);
-      line-height:1.01;
-      letter-spacing:-2px;
-      margin-bottom:22px;
-      max-width:760px;
+    .hero-title {
+      margin: 0;
+      font-size: clamp(48px, 7vw, 98px);
+      line-height: 0.96;
+      letter-spacing: -0.045em;
+      font-weight: 900;
+      max-width: 800px;
     }
 
-    .gradient{
-      background:linear-gradient(135deg, #ffffff, #8ad8ff, #8a82ff);
-      -webkit-background-clip:text;
-      -webkit-text-fill-color:transparent;
-      background-clip:text;
-      color:transparent;
+    .accent {
+      background: linear-gradient(135deg, #b9e4ff 0%, #79dcff 30%, #9e9eff 75%, #d8d4ff 100%);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
     }
 
-    .hero p{
-      font-size:18px;
-      line-height:1.8;
-      color:var(--muted);
-      max-width:730px;
-      margin-bottom:32px;
+    .hero-text {
+      margin: 28px 0 0;
+      color: var(--muted);
+      font-size: clamp(18px, 2vw, 22px);
+      line-height: 1.72;
+      max-width: 760px;
     }
 
-    .hero-actions{
-      display:flex;
-      flex-wrap:wrap;
-      gap:14px;
-      margin-bottom:30px;
+    .hero-buttons {
+      display: flex;
+      gap: 16px;
+      flex-wrap: wrap;
+      margin-top: 34px;
     }
 
     .btn-primary,
-    .btn-secondary{
-      display:inline-flex;
-      align-items:center;
-      justify-content:center;
-      min-height:56px;
-      padding:14px 24px;
-      border-radius:16px;
-      text-decoration:none;
-      font-weight:700;
-      transition:.25s ease;
+    .btn-secondary {
+      min-height: 58px;
+      padding: 0 28px;
+      border-radius: 18px;
+      font-weight: 800;
+      font-size: 16px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      transition: 0.25s ease;
     }
 
-    .btn-primary{
-      color:#fff;
-      background:linear-gradient(135deg, var(--accent), var(--accent2));
-      box-shadow:0 18px 36px rgba(84,119,255,.3);
+    .btn-primary {
+      color: #fff;
+      background: linear-gradient(135deg, var(--accent-2), #39d0ff);
+      box-shadow: 0 18px 32px rgba(76, 115, 255, 0.3);
     }
 
-    .btn-primary:hover{
-      transform:translateY(-2px);
+    .btn-primary:hover {
+      transform: translateY(-2px);
     }
 
-    .btn-secondary{
-      color:#fff;
-      border:1px solid rgba(255,255,255,.12);
-      background:rgba(255,255,255,.04);
-      backdrop-filter:blur(10px);
+    .btn-secondary {
+      color: #fff;
+      background: rgba(255,255,255,0.06);
+      border: 1px solid rgba(255,255,255,0.09);
+      backdrop-filter: blur(10px);
     }
 
-    .btn-secondary:hover{
-      background:rgba(255,255,255,.08);
-      transform:translateY(-2px);
+    .btn-secondary:hover {
+      background: rgba(255,255,255,0.1);
     }
 
-    .hero-stats{
-      display:grid;
-      grid-template-columns:repeat(3,1fr);
-      gap:16px;
-      margin-top:4px;
+    .hero-right {
+      display: flex;
+      justify-content: center;
+      align-items: center;
     }
 
-    .stat-card{
-      background:linear-gradient(180deg, rgba(255,255,255,.09), rgba(255,255,255,.05));
-      border:1px solid rgba(255,255,255,.12);
-      border-radius:22px;
-      padding:22px;
-      box-shadow:var(--shadow);
-      backdrop-filter:blur(14px);
-      transition:.25s ease;
-    }
-
-    .stat-card:hover{
-      transform:translateY(-5px);
-      border-color:rgba(255,255,255,.18);
-    }
-
-    .stat-card h3{
-      font-size:21px;
-      margin-bottom:9px;
-    }
-
-    .stat-card p{
-      margin:0;
-      font-size:15px;
-      line-height:1.65;
-      color:var(--soft);
-    }
-
-    .hero-visual{
-      position:relative;
-      min-height:560px;
-      display:flex;
-      align-items:center;
-      justify-content:center;
-    }
-
-    .halo{
-      position:absolute;
-      width:520px;
-      height:520px;
-      border-radius:50%;
+    .visual-card {
+      position: relative;
+      width: min(100%, 620px);
+      aspect-ratio: 1.1 / 0.82;
+      border-radius: 34px;
       background:
-        radial-gradient(circle, rgba(34,207,255,.16), rgba(111,99,255,.08), transparent 68%);
-      filter:blur(10px);
-      animation:haloPulse 8s ease-in-out infinite;
-      pointer-events:none;
+        linear-gradient(135deg, rgba(108, 126, 255, 0.28), rgba(81, 218, 255, 0.14)),
+        rgba(10, 18, 38, 0.84);
+      border: 1px solid rgba(255,255,255,0.08);
+      box-shadow: 0 30px 90px rgba(0,0,0,0.38);
+      overflow: hidden;
+      backdrop-filter: blur(10px);
     }
 
-    @keyframes haloPulse{
-      0%,100%{transform:scale(1); opacity:.85;}
-      50%{transform:scale(1.06); opacity:1;}
+    .visual-header {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding: 18px 22px;
+      border-bottom: 1px solid rgba(255,255,255,0.06);
     }
 
-    .orbit{
-      position:absolute;
-      width:150px;
-      height:150px;
-      border:1px solid rgba(255,255,255,.09);
-      border-radius:50%;
-      top:10px;
-      right:42px;
-      animation:spinSlow 18s linear infinite;
-      opacity:.65;
+    .dot {
+      width: 14px;
+      height: 14px;
+      border-radius: 50%;
+      background: rgba(255,255,255,0.28);
     }
 
-    .orbit::before,
-    .orbit::after{
-      content:"";
-      position:absolute;
-      border-radius:50%;
+    .visual-body {
+      display: grid;
+      grid-template-columns: 1.15fr 0.85fr;
+      gap: 16px;
+      padding: 22px;
+      height: calc(100% - 67px);
     }
 
-    .orbit::before{
-      width:12px;
-      height:12px;
-      background:var(--accent2);
-      top:10px;
-      left:50%;
-      transform:translateX(-50%);
-      box-shadow:0 0 18px rgba(34,207,255,.55);
+    .panel {
+      background: linear-gradient(180deg, rgba(17, 25, 52, 0.98), rgba(10, 18, 38, 0.92));
+      border: 1px solid rgba(255,255,255,0.06);
+      border-radius: 24px;
+      padding: 18px;
+      min-width: 0;
+      overflow: hidden;
     }
 
-    .orbit::after{
-      width:10px;
-      height:10px;
-      background:var(--accent3);
-      bottom:16px;
-      right:16px;
-      box-shadow:0 0 16px rgba(40,239,176,.5);
+    .stack {
+      display: grid;
+      grid-template-rows: 1fr 1fr;
+      gap: 16px;
+      min-width: 0;
     }
 
-    @keyframes spinSlow{
-      from{transform:rotate(0);}
-      to{transform:rotate(360deg);}
+    .cards-row {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 14px;
+      margin-top: 16px;
     }
 
-    .showcase{
-      position:relative;
-      width:min(100%, 560px);
-      border-radius:32px;
-      padding:28px;
-      background:linear-gradient(180deg, rgba(255,255,255,.12), rgba(255,255,255,.05));
-      border:1px solid rgba(255,255,255,.12);
-      box-shadow:var(--shadow-strong);
-      backdrop-filter:blur(14px);
-      overflow:hidden;
-      animation:cardFloat 7s ease-in-out infinite;
+    .mini-card {
+      min-height: 116px;
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(255,255,255,0.05);
+      border-radius: 22px;
+      padding: 16px;
     }
 
-    .showcase::before{
-      content:"";
-      position:absolute;
-      inset:0;
-      background:
-        radial-gradient(circle at top right, rgba(111,99,255,.25), transparent 34%),
-        linear-gradient(135deg, rgba(34,207,255,.06), transparent 40%, rgba(40,239,176,.06));
-      pointer-events:none;
+    .bar {
+      height: 12px;
+      border-radius: 999px;
+      background: rgba(255,255,255,0.09);
+      overflow: hidden;
+      margin-bottom: 12px;
     }
 
-    .showcase::after{
-      content:"";
-      position:absolute;
-      top:-1px;
-      left:6%;
-      width:42%;
-      height:1px;
-      background:linear-gradient(90deg, rgba(255,255,255,0), rgba(255,255,255,.85), rgba(255,255,255,0));
-      opacity:.75;
+    .bar > span {
+      display: block;
+      height: 100%;
+      border-radius: inherit;
+      background: linear-gradient(90deg, #6f7bff, #39d3ff, #25d8a7);
+      animation: pulseBar 3s ease-in-out infinite;
     }
 
-    @keyframes cardFloat{
-      0%,100%{transform:translateY(0);}
-      50%{transform:translateY(-10px);}
+    .line {
+      height: 10px;
+      border-radius: 999px;
+      background: rgba(255,255,255,0.08);
+      margin-top: 12px;
+      overflow: hidden;
     }
 
-    .mini-dots{
-      display:flex;
-      gap:10px;
-      margin-bottom:18px;
-      position:relative;
-      z-index:1;
+    .line::after {
+      content: "";
+      display: block;
+      height: 100%;
+      width: 62%;
+      border-radius: inherit;
+      background: linear-gradient(90deg, rgba(255,255,255,0.16), rgba(255,255,255,0.04));
     }
 
-    .mini-dots span{
-      width:12px;
-      height:12px;
-      border-radius:50%;
-      background:rgba(255,255,255,.25);
+    .mini-card .line::after {
+      width: 72%;
     }
 
-    .screen{
-      position:relative;
-      z-index:1;
-      background:rgba(7,13,31,.86);
-      border:1px solid rgba(255,255,255,.08);
-      border-radius:24px;
-      padding:22px;
-      box-shadow:inset 0 1px 0 rgba(255,255,255,.04);
+    .mini-card .line:nth-child(3)::after {
+      width: 56%;
     }
 
-    .screen-top{
-      display:grid;
-      grid-template-columns:1.15fr .85fr;
-      gap:16px;
-      margin-bottom:16px;
+    .mini-card .line:nth-child(4)::after {
+      width: 64%;
     }
 
-    .panel{
-      background:rgba(255,255,255,.05);
-      border:1px solid rgba(255,255,255,.08);
-      border-radius:20px;
-      padding:18px;
-      min-height:118px;
-      overflow:hidden;
+    @keyframes pulseBar {
+      0%,100% { width: 54%; }
+      50% { width: 78%; }
     }
 
-    .line{
-      height:10px;
-      border-radius:999px;
-      background:rgba(255,255,255,.10);
-      margin-bottom:12px;
-      overflow:hidden;
-      position:relative;
+    .stats {
+      display: flex;
+      gap: 16px;
+      flex-wrap: wrap;
+      margin-top: 34px;
     }
 
-    .line::after{
-      content:"";
-      position:absolute;
-      inset:0;
-      width:70%;
-      border-radius:999px;
-      background:linear-gradient(90deg, var(--accent), var(--accent2));
-      box-shadow:0 0 16px rgba(34,207,255,.18);
-      animation:lineGlow 4s ease-in-out infinite alternate;
+    .stat {
+      min-width: 170px;
+      padding: 18px 20px;
+      border-radius: 22px;
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(255,255,255,0.08);
+      backdrop-filter: blur(8px);
     }
 
-    .line.short::after{ width:42%; }
-    .line.medium::after{ width:56%; }
-    .line.long::after{ width:78%; }
-
-    @keyframes lineGlow{
-      from{filter:brightness(1);}
-      to{filter:brightness(1.25);}
+    .stat-value {
+      font-size: 28px;
+      font-weight: 900;
+      letter-spacing: -0.03em;
     }
 
-    .small-cards{
-      display:grid;
-      grid-template-columns:repeat(3,1fr);
-      gap:14px;
-      margin-top:12px;
+    .stat-label {
+      margin-top: 8px;
+      color: var(--muted);
+      font-size: 14px;
+      line-height: 1.45;
     }
 
-    .small-card{
-      min-height:118px;
-      border-radius:18px;
-      background:rgba(255,255,255,.04);
-      border:1px solid rgba(255,255,255,.08);
-      padding:14px;
-      transition:.25s ease;
+    .section {
+      position: relative;
+      padding: 34px 0 88px;
     }
 
-    .small-card:hover{
-      transform:translateY(-4px);
-      border-color:rgba(255,255,255,.14);
+    .section-title {
+      margin: 0 0 16px;
+      font-size: clamp(34px, 4vw, 54px);
+      line-height: 1.04;
+      letter-spacing: -0.04em;
+      font-weight: 900;
     }
 
-    .chip{
-      width:52px;
-      height:10px;
-      border-radius:999px;
-      background:linear-gradient(90deg, var(--accent2), var(--accent3));
-      margin-bottom:14px;
-      box-shadow:0 0 18px rgba(34,207,255,.2);
+    .section-text {
+      color: var(--muted);
+      font-size: 18px;
+      line-height: 1.7;
+      max-width: 850px;
+      margin: 0 0 28px;
     }
 
-    .text-row{
-      height:8px;
-      border-radius:999px;
-      background:rgba(255,255,255,.12);
-      margin-bottom:8px;
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 18px;
     }
 
-    .text-row:last-child{
-      width:68%;
+    .service-card {
+      padding: 24px;
+      border-radius: 26px;
+      background: linear-gradient(180deg, rgba(255,255,255,0.05), rgba(255,255,255,0.03));
+      border: 1px solid rgba(255,255,255,0.08);
+      box-shadow: var(--shadow);
+      min-width: 0;
     }
 
-    section{
-      padding:36px 0 84px;
+    .service-icon {
+      width: 52px;
+      height: 52px;
+      border-radius: 16px;
+      display: grid;
+      place-items: center;
+      margin-bottom: 18px;
+      font-size: 24px;
+      background: linear-gradient(135deg, rgba(105,120,255,0.24), rgba(56,208,255,0.18));
+      border: 1px solid rgba(255,255,255,0.08);
     }
 
-    .section-head{
-      margin-bottom:34px;
+    .service-title {
+      margin: 0;
+      font-size: 22px;
+      font-weight: 800;
+      letter-spacing: -0.03em;
     }
 
-    .section-title{
-      font-size:clamp(30px, 3.4vw, 52px);
-      margin-bottom:14px;
-      letter-spacing:-1px;
+    .service-text {
+      margin: 14px 0 0;
+      color: var(--muted);
+      font-size: 16px;
+      line-height: 1.7;
     }
 
-    .section-subtitle{
-      font-size:17px;
-      line-height:1.8;
-      color:var(--muted);
-      max-width:860px;
+    .process-grid {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 18px;
     }
 
-    .services-grid,
-    .process-grid,
-    .tech-grid{
-      display:grid;
-      gap:18px;
+    .process-card {
+      position: relative;
+      padding: 26px;
+      border-radius: 26px;
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(255,255,255,0.08);
+      overflow: hidden;
     }
 
-    .services-grid{
-      grid-template-columns:repeat(3,1fr);
+    .process-number {
+      font-size: 52px;
+      font-weight: 900;
+      line-height: 1;
+      letter-spacing: -0.05em;
+      color: rgba(255,255,255,0.12);
+      margin-bottom: 18px;
     }
 
-    .process-grid{
-      grid-template-columns:repeat(4,1fr);
+    .process-title {
+      margin: 0;
+      font-size: 22px;
+      font-weight: 800;
     }
 
-    .tech-grid{
-      grid-template-columns:repeat(4,1fr);
+    .process-text {
+      margin: 14px 0 0;
+      color: var(--muted);
+      line-height: 1.7;
+      font-size: 16px;
     }
 
-    .card{
-      background:linear-gradient(180deg, rgba(255,255,255,.09), rgba(255,255,255,.05));
-      border:1px solid rgba(255,255,255,.12);
-      border-radius:24px;
-      padding:24px;
-      box-shadow:var(--shadow);
-      backdrop-filter:blur(14px);
-      transition:.25s ease;
+    .tech-wrap {
+      display: grid;
+      grid-template-columns: 1.1fr 0.9fr;
+      gap: 20px;
+      align-items: stretch;
     }
 
-    .card:hover{
-      transform:translateY(-5px);
-      box-shadow:var(--shadow-strong);
-      border-color:rgba(255,255,255,.18);
+    .tech-card,
+    .contact-card {
+      padding: 28px;
+      border-radius: 28px;
+      background: linear-gradient(180deg, rgba(255,255,255,0.05), rgba(255,255,255,0.035));
+      border: 1px solid rgba(255,255,255,0.08);
+      box-shadow: var(--shadow);
     }
 
-    .icon-box{
-      width:56px;
-      height:56px;
-      border-radius:18px;
-      display:flex;
-      align-items:center;
-      justify-content:center;
-      font-size:24px;
-      background:linear-gradient(135deg, rgba(111,99,255,.24), rgba(34,207,255,.18));
-      border:1px solid rgba(255,255,255,.10);
-      margin-bottom:18px;
-      box-shadow:0 10px 28px rgba(0,0,0,.16);
+    .tech-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 18px;
     }
 
-    .card h3{
-      font-size:22px;
-      margin-bottom:12px;
+    .tag {
+      padding: 12px 16px;
+      border-radius: 999px;
+      background: rgba(255,255,255,0.06);
+      border: 1px solid rgba(255,255,255,0.08);
+      color: rgba(255,255,255,0.9);
+      font-size: 15px;
+      font-weight: 700;
     }
 
-    .card p{
-      color:var(--muted);
-      line-height:1.75;
-      font-size:15px;
+    .contact-card h3,
+    .tech-card h3 {
+      margin: 0;
+      font-size: 28px;
+      letter-spacing: -0.03em;
     }
 
-    .process-number{
-      display:inline-block;
-      margin-bottom:12px;
-      color:var(--accent2);
-      font-size:13px;
-      letter-spacing:1.5px;
-      text-transform:uppercase;
-      font-weight:700;
+    .contact-list {
+      display: grid;
+      gap: 14px;
+      margin-top: 20px;
     }
 
-    .tech-pill{
-      display:flex;
-      align-items:center;
-      justify-content:center;
-      text-align:center;
-      min-height:88px;
-      font-weight:700;
-      font-size:16px;
+    .contact-item {
+      padding: 16px 18px;
+      border-radius: 18px;
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(255,255,255,0.07);
+      color: rgba(255,255,255,0.9);
+      font-size: 16px;
+      line-height: 1.6;
+      word-break: break-word;
     }
 
-    .about-strip{
-      margin-top:10px;
-      display:grid;
-      grid-template-columns:1.1fr .9fr;
-      gap:18px;
+    .footer {
+      padding: 0 0 46px;
     }
 
-    .mini-panel{
-      background:linear-gradient(180deg, rgba(255,255,255,.08), rgba(255,255,255,.04));
-      border:1px solid rgba(255,255,255,.10);
-      border-radius:24px;
-      padding:24px;
-      box-shadow:var(--shadow);
+    .footer-box {
+      display: flex;
+      justify-content: space-between;
+      gap: 18px;
+      align-items: center;
+      padding: 24px 26px;
+      border-radius: 24px;
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(255,255,255,0.08);
+      color: rgba(255,255,255,0.76);
+      font-size: 15px;
     }
 
-    .mini-panel h3{
-      font-size:22px;
-      margin-bottom:12px;
+    .fade-up {
+      opacity: 0;
+      transform: translateY(26px);
+      transition: 0.8s ease;
     }
 
-    .mini-panel p{
-      color:var(--muted);
-      line-height:1.8;
-      font-size:15px;
+    .fade-up.show {
+      opacity: 1;
+      transform: translateY(0);
     }
 
-    .metric-row{
-      display:grid;
-      grid-template-columns:repeat(3,1fr);
-      gap:14px;
-      margin-top:18px;
+    .mobile-menu-btn {
+      display: none;
+      width: 52px;
+      height: 52px;
+      border-radius: 16px;
+      border: 1px solid rgba(255,255,255,0.08);
+      background: rgba(255,255,255,0.05);
+      color: #fff;
+      font-size: 22px;
+      cursor: pointer;
+      flex-shrink: 0;
     }
 
-    .metric{
-      padding:18px;
-      border-radius:18px;
-      background:rgba(255,255,255,.04);
-      border:1px solid rgba(255,255,255,.08);
-      text-align:center;
-    }
-
-    .metric strong{
-      display:block;
-      font-size:28px;
-      margin-bottom:6px;
-    }
-
-    .metric span{
-      font-size:13px;
-      color:var(--soft);
-    }
-
-    .cta{
-      padding-bottom:100px;
-    }
-
-    .cta-box{
-      display:grid;
-      grid-template-columns:1.1fr .9fr;
-      gap:24px;
-      align-items:center;
-      padding:44px;
-      border-radius:30px;
-      background:linear-gradient(180deg, rgba(255,255,255,.10), rgba(255,255,255,.05));
-      border:1px solid rgba(255,255,255,.12);
-      box-shadow:var(--shadow-strong);
-      overflow:hidden;
-      backdrop-filter:blur(16px);
-    }
-
-    .cta-box p{
-      font-size:17px;
-      line-height:1.8;
-      color:var(--muted);
-      margin-top:12px;
-    }
-
-    .contact-list{
-      display:grid;
-      gap:14px;
-    }
-
-    .contact-item{
-      background:rgba(255,255,255,.05);
-      border:1px solid rgba(255,255,255,.10);
-      border-radius:18px;
-      padding:18px 20px;
-      transition:.25s ease;
-    }
-
-    .contact-item:hover{
-      transform:translateY(-3px);
-      background:rgba(255,255,255,.07);
-    }
-
-    .contact-item strong{
-      display:block;
-      font-size:13px;
-      color:var(--soft);
-      margin-bottom:7px;
-      text-transform:uppercase;
-      letter-spacing:1px;
-    }
-
-    .contact-item a,
-    .contact-item span{
-      color:#fff;
-      font-size:17px;
-      text-decoration:none;
-      word-break:break-word;
-    }
-
-    footer{
-      border-top:1px solid rgba(255,255,255,.08);
-      padding:26px 0;
-      color:var(--soft);
-      font-size:14px;
-    }
-
-    .footer-row{
-      display:flex;
-      justify-content:space-between;
-      align-items:center;
-      gap:20px;
-      flex-wrap:wrap;
-    }
-
-    .reveal{
-      opacity:0;
-      transform:translateY(24px);
-      transition:.8s ease;
-    }
-
-    .reveal.visible{
-      opacity:1;
-      transform:translateY(0);
-    }
-
-    body[dir="rtl"]{
-      text-align:right;
-    }
-
-    body[dir="rtl"] .brand,
-    body[dir="rtl"] .nav-right,
-    body[dir="rtl"] .hero-actions,
-    body[dir="rtl"] .footer-row{
-      direction:rtl;
-    }
-
-    body[dir="rtl"] nav ul{
-      direction:rtl;
-    }
-
-    @media (max-width:1100px){
-      .hero-grid,
-      .about-strip,
-      .cta-box,
-      .screen-top{
-        grid-template-columns:1fr;
+    @media (max-width: 1180px) {
+      .nav {
+        gap: 18px;
       }
 
-      .services-grid{
-        grid-template-columns:repeat(2,1fr);
+      .hero-inner {
+        grid-template-columns: 1fr;
       }
 
-      .process-grid,
-      .tech-grid{
-        grid-template-columns:repeat(2,1fr);
+      .hero-right {
+        order: 2;
       }
 
-      .hero-visual{
-        min-height:auto;
-      }
-    }
-
-    @media (max-width:900px){
-      .menu-toggle{
-        display:block;
+      .hero-left {
+        order: 1;
       }
 
-      nav{
-        position:fixed;
-        top:86px;
-        left:0;
-        right:0;
-        display:none;
-        background:rgba(4,8,22,.96);
-        border-bottom:1px solid rgba(255,255,255,.08);
-        padding:8px 0;
-      }
-
-      nav.open{
-        display:block;
-      }
-
-      nav ul{
-        flex-direction:column;
-        align-items:flex-start;
-        gap:16px;
-        padding:16px 4%;
-      }
-
-      .desktop-only{
-        display:none;
-      }
-
-      .hero-stats,
       .services-grid,
-      .process-grid,
-      .tech-grid,
-      .small-cards,
-      .metric-row{
-        grid-template-columns:1fr;
+      .process-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
       }
 
-      .hero{
-        padding-top:82px;
-      }
-
-      .brand-title{
-        font-size:18px;
-      }
-
-      .brand-subtitle{
-        font-size:11px;
-      }
-
-      .lang-switch{
-        padding:4px;
-      }
-
-      .lang-btn{
-        padding:8px 10px;
-        font-size:12px;
+      .tech-wrap {
+        grid-template-columns: 1fr;
       }
     }
 
-    @media (max-width:600px){
-      .nav{
-        min-height:78px;
+    @media (max-width: 940px) {
+      .header {
+        flex-wrap: wrap;
+        justify-content: space-between;
       }
 
-      nav{
-        top:78px;
+      .nav {
+        display: none;
+        width: 100%;
+        order: 10;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 14px;
+        padding: 12px 4px 6px;
       }
 
-      .logo-box{
-        width:50px;
-        height:50px;
+      .nav.open {
+        display: flex;
       }
 
-      h1{
-        font-size:clamp(36px, 10vw, 58px);
-        letter-spacing:-1.4px;
+      .header-actions {
+        margin-left: auto;
       }
 
-      .hero p,
-      .section-subtitle,
-      .cta-box p{
-        font-size:16px;
+      .mobile-menu-btn {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+      }
+    }
+
+    @media (max-width: 760px) {
+      :root {
+        --header-h: auto;
       }
 
-      .showcase,
-      .card,
-      .stat-card,
-      .mini-panel,
-      .cta-box{
-        padding:20px;
+      .container,
+      .hero-inner {
+        width: min(var(--container), calc(100% - 20px));
       }
 
-      .btn-top{
-        display:none;
+      .header-wrap {
+        padding-top: 10px;
+      }
+
+      .header {
+        padding: 12px;
+        border-radius: 22px;
+        gap: 12px;
+      }
+
+      .brand-logo {
+        width: 60px;
+        height: 60px;
+        border-radius: 16px;
+        padding: 7px;
+      }
+
+      .brand-title {
+        font-size: 17px;
+      }
+
+      .brand-subtitle {
+        font-size: 11px;
+        white-space: normal;
+      }
+
+      .header-actions {
+        width: 100%;
+        justify-content: space-between;
+      }
+
+      .lang-switch {
+        transform: scale(0.96);
+        transform-origin: left center;
+      }
+
+      .cta-btn {
+        height: 48px;
+        padding: 0 18px;
+        font-size: 14px;
+        border-radius: 16px;
+      }
+
+      .hero {
+        padding: 18px 0 64px;
+      }
+
+      .hero-title {
+        line-height: 0.98;
+      }
+
+      .hero-text {
+        font-size: 17px;
+      }
+
+      .visual-card {
+        border-radius: 26px;
+      }
+
+      .visual-body {
+        grid-template-columns: 1fr;
+      }
+
+      .cards-row {
+        grid-template-columns: 1fr;
+      }
+
+      .services-grid,
+      .process-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .stats {
+        gap: 12px;
+      }
+
+      .stat {
+        min-width: calc(50% - 6px);
+        flex: 1 1 calc(50% - 6px);
+      }
+
+      .footer-box {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+    }
+
+    @media (max-width: 520px) {
+      .brand {
+        width: 100%;
+      }
+
+      .brand-subtitle {
+        display: none;
+      }
+
+      .header-actions {
+        flex-wrap: wrap;
+        gap: 10px;
+      }
+
+      .lang-switch {
+        order: 1;
+      }
+
+      .cta-btn {
+        order: 2;
+        flex: 1 1 auto;
+      }
+
+      .mobile-menu-btn {
+        order: 3;
+      }
+
+      .hero-buttons {
+        flex-direction: column;
+      }
+
+      .btn-primary,
+      .btn-secondary {
+        width: 100%;
+      }
+
+      .stat {
+        min-width: 100%;
       }
     }
   </style>
 </head>
 <body>
-  <div class="bg">
-    <div class="blob one"></div>
-    <div class="blob two"></div>
-    <div class="blob three"></div>
-    <div class="blob four"></div>
+  <div class="bg-grid"></div>
+  <div class="bg-orbs">
+    <div class="orb orb-1"></div>
+    <div class="orb orb-2"></div>
+    <div class="orb orb-3"></div>
   </div>
-  <div class="grid"></div>
-  <canvas id="particles"></canvas>
 
-  <header>
-    <div class="container nav">
-      <a href="#home" class="brand">
-        <div class="logo-box">
-          <img id="siteLogo" src="/logo.png" alt="Luxorion Digital Logo">
-          <div id="logoFallback" class="logo-fallback">LUX<br>ORION</div>
-        </div>
-        <div class="brand-text">
-          <span class="brand-title">Luxorion Digital</span>
-          <span class="brand-subtitle" data-i18n="brand_subtitle">GLOBAL IT SOLUTIONS</span>
-        </div>
-      </a>
+  <div class="site">
+    <div class="header-wrap">
+      <div class="container">
+        <header class="header">
+          <a href="#home" class="brand">
+            <img src="/logo.png" alt="Luxorion Digital Logo" class="brand-logo" />
+            <div class="brand-text">
+              <div class="brand-title">Luxorion Digital</div>
+              <div class="brand-subtitle" data-i18n="tagline">Глобальные IT-решения</div>
+            </div>
+          </a>
 
-      <div class="nav-right">
-        <nav id="mobileNav">
-          <ul>
-            <li><a href="#services" data-i18n="nav_services">Services</a></li>
-            <li><a href="#process" data-i18n="nav_process">Process</a></li>
-            <li><a href="#technology" data-i18n="nav_technology">Technology</a></li>
-            <li><a href="#contact" data-i18n="nav_contact">Contact</a></li>
-          </ul>
-        </nav>
+          <nav class="nav" id="mainNav">
+            <a href="#services" data-i18n="nav_services">Услуги</a>
+            <a href="#process" data-i18n="nav_process">Процесс</a>
+            <a href="#technologies" data-i18n="nav_tech">Технологии</a>
+            <a href="#contacts" data-i18n="nav_contacts">Контакты</a>
+          </nav>
 
-        <div class="lang-switch">
-          <button class="lang-btn active" data-lang="en">EN</button>
-          <button class="lang-btn" data-lang="ru">RU</button>
-          <button class="lang-btn" data-lang="ar">AR</button>
-        </div>
+          <div class="header-actions">
+            <div class="lang-switch">
+              <button class="lang-btn" data-lang="en">EN</button>
+              <button class="lang-btn active" data-lang="ru">RU</button>
+              <button class="lang-btn" data-lang="ar">AR</button>
+            </div>
 
-        <a class="btn-top desktop-only" href="mailto:Luxoriondigital@gmail.com" data-i18n="start_project">Start a Project</a>
-        <button class="menu-toggle" id="menuToggle">☰</button>
+            <a href="#contacts" class="cta-btn" data-i18n="header_cta">Начать проект</a>
+            <button class="mobile-menu-btn" id="menuBtn">☰</button>
+          </div>
+        </header>
       </div>
     </div>
-  </header>
 
-  <main>
-    <section class="hero" id="home">
-      <div class="container hero-grid">
-        <div class="hero-content reveal">
-          <div class="eyebrow" data-i18n="eyebrow">Websites • Mobile Apps • Automation • AI Systems</div>
+    <main>
+      <section class="hero" id="home">
+        <div class="hero-inner">
+          <div class="hero-left fade-up">
+            <div class="eyebrow" data-i18n="eyebrow">Премиальная digital-разработка</div>
 
-          <h1 data-i18n="hero_title">
-            We build <span class="gradient">digital systems</span> that move business forward.
-          </h1>
+            <h1 class="hero-title">
+              <span data-i18n="hero_title_1">Мы создаём</span><br />
+              <span class="accent" data-i18n="hero_title_2">цифровые системы</span><br />
+              <span data-i18n="hero_title_3">которые двигают бизнес вперёд.</span>
+            </h1>
 
-          <p data-i18n="hero_text">
-            Luxorion Digital creates premium websites, scalable mobile applications, intelligent automation, and AI-powered workflows for ambitious companies that want speed, quality, and long-term growth.
-          </p>
+            <p class="hero-text" data-i18n="hero_text">
+              Luxorion Digital разрабатывает премиальные сайты, масштабируемые мобильные приложения, интеллектуальную автоматизацию и AI-решения для амбициозных компаний, которым важны скорость, качество и долгосрочный рост.
+            </p>
 
-          <div class="hero-actions">
-            <a href="#contact" class="btn-primary" data-i18n="hero_btn_1">Discuss Your Project</a>
-            <a href="#services" class="btn-secondary" data-i18n="hero_btn_2">Explore Services</a>
+            <div class="hero-buttons">
+              <a href="#contacts" class="btn-primary" data-i18n="hero_btn_1">Обсудить проект</a>
+              <a href="#services" class="btn-secondary" data-i18n="hero_btn_2">Посмотреть услуги</a>
+            </div>
+
+            <div class="stats">
+              <div class="stat">
+                <div class="stat-value">Web</div>
+                <div class="stat-label" data-i18n="stat_1">Премиальные корпоративные сайты и landing pages</div>
+              </div>
+              <div class="stat">
+                <div class="stat-value">Apps</div>
+                <div class="stat-label" data-i18n="stat_2">iOS / Android / кроссплатформенные решения</div>
+              </div>
+              <div class="stat">
+                <div class="stat-value">AI</div>
+                <div class="stat-label" data-i18n="stat_3">Автоматизация процессов, контент и интеллектуальные сценарии</div>
+              </div>
+            </div>
           </div>
 
-          <div class="hero-stats">
-            <div class="stat-card">
-              <h3 data-i18n="stat1_title">Web</h3>
-              <p data-i18n="stat1_text">Modern corporate websites, landing pages, admin dashboards, and custom platforms.</p>
-            </div>
+          <div class="hero-right fade-up">
+            <div class="visual-card">
+              <div class="visual-header">
+                <span class="dot"></span>
+                <span class="dot"></span>
+                <span class="dot"></span>
+              </div>
 
-            <div class="stat-card">
-              <h3 data-i18n="stat2_title">Apps</h3>
-              <p data-i18n="stat2_text">Powerful mobile solutions designed for performance, usability, and future scaling.</p>
-            </div>
+              <div class="visual-body">
+                <div class="panel">
+                  <div class="bar"><span style="width:72%"></span></div>
+                  <div class="bar"><span style="width:56%"></span></div>
+                  <div class="bar"><span style="width:44%"></span></div>
 
-            <div class="stat-card">
-              <h3 data-i18n="stat3_title">AI + n8n</h3>
-              <p data-i18n="stat3_text">Automation pipelines that save time, reduce manual work, and increase output.</p>
+                  <div class="cards-row">
+                    <div class="mini-card">
+                      <div class="bar"><span style="width:52%"></span></div>
+                      <div class="line"></div>
+                      <div class="line"></div>
+                      <div class="line"></div>
+                    </div>
+                    <div class="mini-card">
+                      <div class="bar"><span style="width:46%"></span></div>
+                      <div class="line"></div>
+                      <div class="line"></div>
+                      <div class="line"></div>
+                    </div>
+                    <div class="mini-card">
+                      <div class="bar"><span style="width:58%"></span></div>
+                      <div class="line"></div>
+                      <div class="line"></div>
+                      <div class="line"></div>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="stack">
+                  <div class="panel">
+                    <div class="bar"><span style="width:65%"></span></div>
+                    <div class="line"></div>
+                    <div class="line"></div>
+                    <div class="line"></div>
+                  </div>
+                  <div class="panel">
+                    <div class="bar"><span style="width:50%"></span></div>
+                    <div class="line"></div>
+                    <div class="line"></div>
+                    <div class="line"></div>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
         </div>
+      </section>
 
-        <div class="hero-visual reveal">
-          <div class="halo"></div>
-          <div class="orbit"></div>
+      <section class="section" id="services">
+        <div class="container">
+          <div class="fade-up">
+            <h2 class="section-title" data-i18n="services_title">Услуги, которые усиливают бизнес</h2>
+            <p class="section-text" data-i18n="services_text">
+              Мы проектируем и внедряем цифровые продукты, которые выглядят премиально, работают быстро и масштабируются вместе с вашей компанией.
+            </p>
+          </div>
 
-          <div class="showcase">
-            <div class="mini-dots">
-              <span></span><span></span><span></span>
+          <div class="services-grid">
+            <div class="service-card fade-up">
+              <div class="service-icon">🌐</div>
+              <h3 class="service-title" data-i18n="service_1_title">Веб-сайты</h3>
+              <p class="service-text" data-i18n="service_1_text">
+                Современные корпоративные сайты, landing pages и многоязычные digital-платформы с сильной визуальной подачей.
+              </p>
             </div>
 
-            <div class="screen">
-              <div class="screen-top">
-                <div class="panel">
-                  <div class="line long"></div>
-                  <div class="line medium"></div>
-                  <div class="line short"></div>
-                </div>
+            <div class="service-card fade-up">
+              <div class="service-icon">📱</div>
+              <h3 class="service-title" data-i18n="service_2_title">Мобильные приложения</h3>
+              <p class="service-text" data-i18n="service_2_text">
+                Надёжные приложения для iOS и Android с продуманной архитектурой, хорошим UX и готовностью к росту.
+              </p>
+            </div>
 
-                <div class="panel">
-                  <div class="line medium"></div>
-                  <div class="line short"></div>
-                </div>
+            <div class="service-card fade-up">
+              <div class="service-icon">⚙️</div>
+              <h3 class="service-title" data-i18n="service_3_title">Автоматизация</h3>
+              <p class="service-text" data-i18n="service_3_text">
+                Интеграции, n8n-сценарии, автоматизация контента, CRM-процессов, лидогенерации и внутренних операций.
+              </p>
+            </div>
+
+            <div class="service-card fade-up">
+              <div class="service-icon">🤖</div>
+              <h3 class="service-title" data-i18n="service_4_title">AI-решения</h3>
+              <p class="service-text" data-i18n="service_4_text">
+                AI-ассистенты, генерация контента, интеллектуальные workflow и кастомные решения на базе современных моделей.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" id="process">
+        <div class="container">
+          <div class="fade-up">
+            <h2 class="section-title" data-i18n="process_title">Понятный процесс, сильный результат</h2>
+            <p class="section-text" data-i18n="process_text">
+              Мы работаем структурно: от идеи и стратегии до запуска и дальнейшего развития продукта.
+            </p>
+          </div>
+
+          <div class="process-grid">
+            <div class="process-card fade-up">
+              <div class="process-number">01</div>
+              <h3 class="process-title" data-i18n="process_1_title">Анализ</h3>
+              <p class="process-text" data-i18n="process_1_text">
+                Изучаем бизнес, задачи, рынок и точки роста, чтобы проект решал реальные цели, а не просто выглядел красиво.
+              </p>
+            </div>
+
+            <div class="process-card fade-up">
+              <div class="process-number">02</div>
+              <h3 class="process-title" data-i18n="process_2_title">Дизайн и структура</h3>
+              <p class="process-text" data-i18n="process_2_text">
+                Формируем архитектуру, интерфейсы, сценарии и визуальную систему, которая подчёркивает уровень бренда.
+              </p>
+            </div>
+
+            <div class="process-card fade-up">
+              <div class="process-number">03</div>
+              <h3 class="process-title" data-i18n="process_3_title">Разработка</h3>
+              <p class="process-text" data-i18n="process_3_text">
+                Собираем быстрый, чистый и масштабируемый продукт с приоритетом качества, безопасности и производительности.
+              </p>
+            </div>
+
+            <div class="process-card fade-up">
+              <div class="process-number">04</div>
+              <h3 class="process-title" data-i18n="process_4_title">Запуск и рост</h3>
+              <p class="process-text" data-i18n="process_4_text">
+                Запускаем проект, подключаем аналитику, автоматизацию и готовим основу для постоянного развития.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" id="technologies">
+        <div class="container">
+          <div class="tech-wrap">
+            <div class="tech-card fade-up">
+              <h3 data-i18n="tech_title">Технологический стек</h3>
+              <p class="section-text" style="margin-top:14px;" data-i18n="tech_text">
+                Мы используем современные инструменты для создания быстрых, устойчивых и масштабируемых digital-продуктов.
+              </p>
+
+              <div class="tech-tags">
+                <span class="tag">HTML / CSS / JS</span>
+                <span class="tag">React / Next.js</span>
+                <span class="tag">Node.js</span>
+                <span class="tag">NestJS</span>
+                <span class="tag">PostgreSQL</span>
+                <span class="tag">Prisma</span>
+                <span class="tag">n8n</span>
+                <span class="tag">OpenAI API</span>
+                <span class="tag">Automation</span>
+                <span class="tag">Netlify / Vercel</span>
+              </div>
+            </div>
+
+            <div class="contact-card fade-up" id="contacts">
+              <h3 data-i18n="contacts_title">Контакты</h3>
+              <p class="section-text" style="margin-top:14px;" data-i18n="contacts_text">
+                Обсудим ваш сайт, приложение, AI-систему или автоматизацию под задачи вашего бизнеса.
+              </p>
+
+              <div class="contact-list">
+                <div class="contact-item">Luxoriondigital@gmail.com</div>
+                <div class="contact-item">+971 55 891 3535</div>
+                <div class="contact-item">Luxoriondigital.com</div>
               </div>
 
-              <div class="small-cards">
-                <div class="small-card">
-                  <div class="chip"></div>
-                  <div class="text-row"></div>
-                  <div class="text-row"></div>
-                  <div class="text-row"></div>
-                </div>
-
-                <div class="small-card">
-                  <div class="chip"></div>
-                  <div class="text-row"></div>
-                  <div class="text-row"></div>
-                  <div class="text-row"></div>
-                </div>
-
-                <div class="small-card">
-                  <div class="chip"></div>
-                  <div class="text-row"></div>
-                  <div class="text-row"></div>
-                  <div class="text-row"></div>
-                </div>
+              <div style="margin-top:22px;">
+                <a href="mailto:Luxoriondigital@gmail.com" class="btn-primary" data-i18n="contacts_btn">Связаться сейчас</a>
               </div>
             </div>
           </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <div class="container">
+        <div class="footer-box fade-up">
+          <div>© 2026 Luxorion Digital</div>
+          <div data-i18n="footer_text">Премиальная разработка цифровых решений для бизнеса.</div>
         </div>
       </div>
-    </section>
-  </main>
+    </footer>
+  </div>
 
   <script>
-    const menuToggle = document.getElementById('menuToggle');
-    const mobileNav = document.getElementById('mobileNav');
-
-    menuToggle.addEventListener('click', () => {
-      mobileNav.classList.toggle('open');
-    });
-
-    document.querySelectorAll('nav a').forEach(link => {
-      link.addEventListener('click', () => mobileNav.classList.remove('open'));
-    });
-
-    const reveals = document.querySelectorAll('.reveal');
-
-    function revealOnScroll() {
-      const triggerBottom = window.innerHeight * 0.88;
-      reveals.forEach(el => {
-        const rect = el.getBoundingClientRect();
-        if (rect.top < triggerBottom) {
-          el.classList.add('visible');
-        }
-      });
-    }
-
-    window.addEventListener('scroll', revealOnScroll);
-    window.addEventListener('load', revealOnScroll);
-    revealOnScroll();
-
-    const logo = document.getElementById('siteLogo');
-    const logoFallback = document.getElementById('logoFallback');
-
-    const logoPaths = [
-      '/logo.png',
-      '/Logo.png',
-      '/assets/logo.png',
-      '/assets/Logo.png',
-      './logo.png',
-      './Logo.png',
-      './assets/logo.png',
-      './assets/Logo.png'
-    ];
-
-    let logoIndex = 0;
-
-    function showLogoFallback() {
-      logo.style.display = 'none';
-      logoFallback.style.display = 'block';
-    }
-
-    function tryNextLogo() {
-      logoIndex++;
-      if (logoIndex >= logoPaths.length) {
-        showLogoFallback();
-        return;
-      }
-      logo.src = logoPaths[logoIndex];
-    }
-
-    logo.addEventListener('error', tryNextLogo);
-    logo.addEventListener('load', () => {
-      logo.style.display = 'block';
-      logoFallback.style.display = 'none';
-    });
-
-    setTimeout(() => {
-      if (!logo.complete || logo.naturalWidth === 0) {
-        tryNextLogo();
-      }
-    }, 800);
-
-    const canvas = document.getElementById('particles');
-    const ctx = canvas.getContext('2d');
-    let particles = [];
-    let particleCount = 80;
-
-    function resizeCanvas() {
-      canvas.width = window.innerWidth;
-      canvas.height = window.innerHeight;
-    }
-
-    function createParticles() {
-      particles = [];
-      const isMobile = window.innerWidth < 768;
-      particleCount = isMobile ? 38 : 80;
-
-      for (let i = 0; i < particleCount; i++) {
-        particles.push({
-          x: Math.random() * canvas.width,
-          y: Math.random() * canvas.height,
-          r: Math.random() * 2 + 1,
-          dx: (Math.random() - 0.5) * 0.28,
-          dy: (Math.random() - 0.5) * 0.28,
-          a: Math.random() * 0.55 + 0.2
-        });
-      }
-    }
-
-    function drawParticles() {
-      ctx.clearRect(0, 0, canvas.width, canvas.height);
-
-      for (let i = 0; i < particles.length; i++) {
-        const p = particles[i];
-
-        ctx.beginPath();
-        ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
-        ctx.fillStyle = `rgba(126, 204, 255, ${p.a})`;
-        ctx.fill();
-
-        p.x += p.dx;
-        p.y += p.dy;
-
-        if (p.x < 0 || p.x > canvas.width) p.dx *= -1;
-        if (p.y < 0 || p.y > canvas.height) p.dy *= -1;
-
-        for (let j = i + 1; j < particles.length; j++) {
-          const p2 = particles[j];
-          const dist = Math.hypot(p.x - p2.x, p.y - p2.y);
-
-          if (dist < 130) {
-            ctx.beginPath();
-            ctx.moveTo(p.x, p.y);
-            ctx.lineTo(p2.x, p2.y);
-            ctx.strokeStyle = `rgba(120, 170, 255, ${0.085 - dist / 1700})`;
-            ctx.lineWidth = 1;
-            ctx.stroke();
-          }
-        }
-      }
-
-      requestAnimationFrame(drawParticles);
-    }
-
-    resizeCanvas();
-    createParticles();
-    drawParticles();
-
-    window.addEventListener('resize', () => {
-      resizeCanvas();
-      createParticles();
-    });
-
     const translations = {
-      en: {
-        brand_subtitle: "GLOBAL IT SOLUTIONS",
-        nav_services: "Services",
-        nav_process: "Process",
-        nav_technology: "Technology",
-        nav_contact: "Contact",
-        start_project: "Start a Project",
-        eyebrow: "Websites • Mobile Apps • Automation • AI Systems",
-        hero_title: 'We build <span class="gradient">digital systems</span> that move business forward.',
-        hero_text: "Luxorion Digital creates premium websites, scalable mobile applications, intelligent automation, and AI-powered workflows for ambitious companies that want speed, quality, and long-term growth.",
-        hero_btn_1: "Discuss Your Project",
-        hero_btn_2: "Explore Services",
-        stat1_title: "Web",
-        stat1_text: "Modern corporate websites, landing pages, admin dashboards, and custom platforms.",
-        stat2_title: "Apps",
-        stat2_text: "Powerful mobile solutions designed for performance, usability, and future scaling.",
-        stat3_title: "AI + n8n",
-        stat3_text: "Automation pipelines that save time, reduce manual work, and increase output."
-      },
       ru: {
-        brand_subtitle: "ГЛОБАЛЬНЫЕ IT-РЕШЕНИЯ",
+        tagline: "Глобальные IT-решения",
         nav_services: "Услуги",
         nav_process: "Процесс",
-        nav_technology: "Технологии",
-        nav_contact: "Контакты",
-        start_project: "Начать проект",
-        eyebrow: "Сайты • Мобильные приложения • Автоматизация • AI-системы",
-        hero_title: 'Мы создаём <span class="gradient">цифровые системы</span>, которые двигают бизнес вперёд.',
-        hero_text: "Luxorion Digital разрабатывает премиальные сайты, масштабируемые мобильные приложения, интеллектуальную автоматизацию и AI-решения для амбициозных компаний, которым важны скорость, качество и долгосрочный рост.",
+        nav_tech: "Технологии",
+        nav_contacts: "Контакты",
+        header_cta: "Начать проект",
+        eyebrow: "Премиальная digital-разработка",
+        hero_title_1: "Мы создаём",
+        hero_title_2: "цифровые системы",
+        hero_title_3: "которые двигают бизнес вперёд.",
+        hero_text:
+          "Luxorion Digital разрабатывает премиальные сайты, масштабируемые мобильные приложения, интеллектуальную автоматизацию и AI-решения для амбициозных компаний, которым важны скорость, качество и долгосрочный рост.",
         hero_btn_1: "Обсудить проект",
-        hero_btn_2: "Наши услуги",
-        stat1_title: "Сайты",
-        stat1_text: "Современные корпоративные сайты, лендинги, панели управления и кастомные платформы.",
-        stat2_title: "Приложения",
-        stat2_text: "Мощные мобильные решения, созданные с упором на производительность, удобство и масштабирование.",
-        stat3_title: "AI + n8n",
-        stat3_text: "Автоматизация процессов, которая экономит время, снижает ручную работу и увеличивает результат."
+        hero_btn_2: "Посмотреть услуги",
+        stat_1: "Премиальные корпоративные сайты и landing pages",
+        stat_2: "iOS / Android / кроссплатформенные решения",
+        stat_3: "Автоматизация процессов, контент и интеллектуальные сценарии",
+        services_title: "Услуги, которые усиливают бизнес",
+        services_text:
+          "Мы проектируем и внедряем цифровые продукты, которые выглядят премиально, работают быстро и масштабируются вместе с вашей компанией.",
+        service_1_title: "Веб-сайты",
+        service_1_text:
+          "Современные корпоративные сайты, landing pages и многоязычные digital-платформы с сильной визуальной подачей.",
+        service_2_title: "Мобильные приложения",
+        service_2_text:
+          "Надёжные приложения для iOS и Android с продуманной архитектурой, хорошим UX и готовностью к росту.",
+        service_3_title: "Автоматизация",
+        service_3_text:
+          "Интеграции, n8n-сценарии, автоматизация контента, CRM-процессов, лидогенерации и внутренних операций.",
+        service_4_title: "AI-решения",
+        service_4_text:
+          "AI-ассистенты, генерация контента, интеллектуальные workflow и кастомные решения на базе современных моделей.",
+        process_title: "Понятный процесс, сильный результат",
+        process_text:
+          "Мы работаем структурно: от идеи и стратегии до запуска и дальнейшего развития продукта.",
+        process_1_title: "Анализ",
+        process_1_text:
+          "Изучаем бизнес, задачи, рынок и точки роста, чтобы проект решал реальные цели, а не просто выглядел красиво.",
+        process_2_title: "Дизайн и структура",
+        process_2_text:
+          "Формируем архитектуру, интерфейсы, сценарии и визуальную систему, которая подчёркивает уровень бренда.",
+        process_3_title: "Разработка",
+        process_3_text:
+          "Собираем быстрый, чистый и масштабируемый продукт с приоритетом качества, безопасности и производительности.",
+        process_4_title: "Запуск и рост",
+        process_4_text:
+          "Запускаем проект, подключаем аналитику, автоматизацию и готовим основу для постоянного развития.",
+        tech_title: "Технологический стек",
+        tech_text:
+          "Мы используем современные инструменты для создания быстрых, устойчивых и масштабируемых digital-продуктов.",
+        contacts_title: "Контакты",
+        contacts_text:
+          "Обсудим ваш сайт, приложение, AI-систему или автоматизацию под задачи вашего бизнеса.",
+        contacts_btn: "Связаться сейчас",
+        footer_text: "Премиальная разработка цифровых решений для бизнеса."
       },
+
+      en: {
+        tagline: "Global IT solutions",
+        nav_services: "Services",
+        nav_process: "Process",
+        nav_tech: "Technologies",
+        nav_contacts: "Contacts",
+        header_cta: "Start a project",
+        eyebrow: "Premium digital development",
+        hero_title_1: "We build",
+        hero_title_2: "digital systems",
+        hero_title_3: "that move business forward.",
+        hero_text:
+          "Luxorion Digital creates premium websites, scalable mobile applications, intelligent automation, and AI solutions for ambitious companies that value speed, quality, and long-term growth.",
+        hero_btn_1: "Discuss project",
+        hero_btn_2: "View services",
+        stat_1: "Premium corporate websites and landing pages",
+        stat_2: "iOS / Android / cross-platform solutions",
+        stat_3: "Process automation, content, and intelligent workflows",
+        services_title: "Services that strengthen business",
+        services_text:
+          "We design and implement digital products that look premium, work fast, and scale together with your company.",
+        service_1_title: "Websites",
+        service_1_text:
+          "Modern corporate websites, landing pages, and multilingual digital platforms with strong visual presentation.",
+        service_2_title: "Mobile applications",
+        service_2_text:
+          "Reliable iOS and Android apps with thoughtful architecture, strong UX, and readiness for growth.",
+        service_3_title: "Automation",
+        service_3_text:
+          "Integrations, n8n workflows, content automation, CRM processes, lead generation, and internal operations.",
+        service_4_title: "AI solutions",
+        service_4_text:
+          "AI assistants, content generation, intelligent workflows, and custom solutions powered by modern models.",
+        process_title: "Clear process, strong result",
+        process_text:
+          "We work in a structured way: from idea and strategy to launch and ongoing product growth.",
+        process_1_title: "Analysis",
+        process_1_text:
+          "We study the business, goals, market, and growth points so the project solves real objectives, not just looks attractive.",
+        process_2_title: "Design & structure",
+        process_2_text:
+          "We build architecture, interfaces, user flows, and a visual system that reflects a premium brand level.",
+        process_3_title: "Development",
+        process_3_text:
+          "We deliver a fast, clean, and scalable product with a strong focus on quality, security, and performance.",
+        process_4_title: "Launch & growth",
+        process_4_text:
+          "We launch the project, connect analytics and automation, and prepare the foundation for long-term growth.",
+        tech_title: "Technology stack",
+        tech_text:
+          "We use modern tools to build fast, stable, and scalable digital products.",
+        contacts_title: "Contacts",
+        contacts_text:
+          "Let’s discuss your website, app, AI system, or automation based on your business goals.",
+        contacts_btn: "Contact now",
+        footer_text: "Premium digital product development for business."
+      },
+
       ar: {
-        brand_subtitle: "حلول تقنية عالمية",
+        tagline: "حلول تقنية عالمية",
         nav_services: "الخدمات",
         nav_process: "العملية",
-        nav_technology: "التقنيات",
-        nav_contact: "التواصل",
-        start_project: "ابدأ مشروعك",
-        eyebrow: "مواقع إلكترونية • تطبيقات جوال • أتمتة • أنظمة ذكاء اصطناعي",
-        hero_title: 'نحن نبني <span class="gradient">أنظمة رقمية</span> تدفع الأعمال إلى الأمام.',
-        hero_text: "تقوم Luxorion Digital بإنشاء مواقع إلكترونية متميزة، وتطبيقات جوال قابلة للتوسع، وأتمتة ذكية، وأنظمة مدعومة بالذكاء الاصطناعي للشركات الطموحة التي تريد السرعة والجودة والنمو طويل المدى.",
-        hero_btn_1: "ناقش مشروعك",
-        hero_btn_2: "استكشف الخدمات",
-        stat1_title: "الويب",
-        stat1_text: "مواقع شركات حديثة وصفحات هبوط ولوحات تحكم ومنصات مخصصة.",
-        stat2_title: "التطبيقات",
-        stat2_text: "حلول جوال قوية مصممة للأداء وسهولة الاستخدام والتوسع المستقبلي.",
-        stat3_title: "AI + n8n",
-        stat3_text: "مسارات أتمتة توفر الوقت وتقلل العمل اليدوي وتزيد الإنتاجية."
+        nav_tech: "التقنيات",
+        nav_contacts: "التواصل",
+        header_cta: "ابدأ مشروعك",
+        eyebrow: "تطوير رقمي فاخر",
+        hero_title_1: "نحن نبني",
+        hero_title_2: "أنظمة رقمية",
+        hero_title_3: "تدفع الأعمال إلى الأمام.",
+        hero_text:
+          "تقوم Luxorion Digital بتطوير مواقع إلكترونية متميزة، وتطبيقات جوال قابلة للتوسع، وأتمتة ذكية، وحلول ذكاء اصطناعي للشركات الطموحة التي تبحث عن السرعة والجودة والنمو طويل المدى.",
+        hero_btn_1: "ناقش المشروع",
+        hero_btn_2: "عرض الخدمات",
+        stat_1: "مواقع شركات وصفحات هبوط بمستوى فاخر",
+        stat_2: "حلول iOS / Android / متعددة المنصات",
+        stat_3: "أتمتة العمليات والمحتوى وسيناريوهات ذكية",
+        services_title: "خدمات تعزز نمو الأعمال",
+        services_text:
+          "نحن نصمم وننفذ منتجات رقمية تبدو احترافية، تعمل بسرعة، وتتوسع مع شركتكم.",
+        service_1_title: "المواقع الإلكترونية",
+        service_1_text:
+          "مواقع شركات حديثة وصفحات هبوط ومنصات رقمية متعددة اللغات بتقديم بصري قوي.",
+        service_2_title: "تطبيقات الجوال",
+        service_2_text:
+          "تطبيقات موثوقة لنظامي iOS وAndroid مع بنية مدروسة وتجربة مستخدم قوية وجاهزية للنمو.",
+        service_3_title: "الأتمتة",
+        service_3_text:
+          "تكاملات وعمليات n8n وأتمتة المحتوى وعمليات CRM وتوليد العملاء والعمليات الداخلية.",
+        service_4_title: "حلول الذكاء الاصطناعي",
+        service_4_text:
+          "مساعدون ذكيون وتوليد محتوى وسير عمل ذكي وحلول مخصصة باستخدام النماذج الحديثة.",
+        process_title: "عملية واضحة ونتيجة قوية",
+        process_text:
+          "نعمل بشكل منظم من الفكرة والاستراتيجية حتى الإطلاق والنمو المستمر للمنتج.",
+        process_1_title: "التحليل",
+        process_1_text:
+          "نقوم بدراسة النشاط التجاري والأهداف والسوق وفرص النمو لضمان أن المشروع يحقق أهدافاً حقيقية.",
+        process_2_title: "التصميم والهيكلة",
+        process_2_text:
+          "نضع الهيكلية والواجهات وتدفقات الاستخدام والنظام البصري الذي يعكس مستوى العلامة التجارية.",
+        process_3_title: "التطوير",
+        process_3_text:
+          "نقوم ببناء منتج سريع ونظيف وقابل للتوسع مع تركيز كبير على الجودة والأمان والأداء.",
+        process_4_title: "الإطلاق والنمو",
+        process_4_text:
+          "نطلق المشروع ونربط التحليلات والأتمتة ونؤسس قاعدة للنمو طويل المدى.",
+        tech_title: "التقنيات المستخدمة",
+        tech_text:
+          "نستخدم أدوات حديثة لبناء منتجات رقمية سريعة ومستقرة وقابلة للتوسع.",
+        contacts_title: "التواصل",
+        contacts_text:
+          "دعنا نناقش موقعك أو تطبيقك أو نظام الذكاء الاصطناعي أو الأتمتة حسب أهداف عملك.",
+        contacts_btn: "تواصل الآن",
+        footer_text: "تطوير رقمي متميز للأعمال."
       }
     };
 
     function setLanguage(lang) {
-      const dict = translations[lang];
-      if (!dict) return;
+      const dict = translations[lang] || translations.ru;
+
+      document.querySelectorAll("[data-i18n]").forEach((el) => {
+        const key = el.getAttribute("data-i18n");
+        if (dict[key]) el.textContent = dict[key];
+      });
 
       document.documentElement.lang = lang;
-      document.body.dir = lang === 'ar' ? 'rtl' : 'ltr';
 
-      document.querySelectorAll('[data-i18n]').forEach(el => {
-        const key = el.getAttribute('data-i18n');
-        if (dict[key]) el.innerHTML = dict[key];
+      if (lang === "ar") {
+        document.documentElement.dir = "rtl";
+      } else {
+        document.documentElement.dir = "ltr";
+      }
+
+      document.querySelectorAll(".lang-btn").forEach((btn) => {
+        btn.classList.toggle("active", btn.dataset.lang === lang);
       });
 
-      document.querySelectorAll('.lang-btn').forEach(btn => {
-        btn.classList.toggle('active', btn.dataset.lang === lang);
-      });
-
-      localStorage.setItem('luxorion_lang', lang);
+      localStorage.setItem("luxorion_lang", lang);
     }
 
-    document.querySelectorAll('.lang-btn').forEach(btn => {
-      btn.addEventListener('click', () => setLanguage(btn.dataset.lang));
+    document.querySelectorAll(".lang-btn").forEach((btn) => {
+      btn.addEventListener("click", () => {
+        setLanguage(btn.dataset.lang);
+      });
     });
 
-    setLanguage(localStorage.getItem('luxorion_lang') || 'en');
+    const savedLang = localStorage.getItem("luxorion_lang") || "ru";
+    setLanguage(savedLang);
+
+    const menuBtn = document.getElementById("menuBtn");
+    const mainNav = document.getElementById("mainNav");
+
+    menuBtn.addEventListener("click", () => {
+      mainNav.classList.toggle("open");
+    });
+
+    document.querySelectorAll('.nav a').forEach(link => {
+      link.addEventListener('click', () => {
+        mainNav.classList.remove('open');
+      });
+    });
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("show");
+        }
+      });
+    }, { threshold: 0.14 });
+
+    document.querySelectorAll(".fade-up").forEach((el) => observer.observe(el));
   </script>
 </body>
 </html>
