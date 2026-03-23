@@ -2,1463 +2,696 @@
 <html lang="ru">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Luxorion Digital</title>
-  <meta
-    name="description"
-    content="Luxorion Digital — premium websites, mobile apps, AI automation and scalable digital solutions for modern business."
-  />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <title>Luxorion Digital | Создание сайтов, мобильных приложений и AI-автоматизация</title>
+  <meta name="description" content="Luxorion Digital — премиальная разработка сайтов, мобильных приложений, AI-автоматизация и системы для бизнеса." />
+  <meta name="keywords" content="разработка сайтов, создание мобильных приложений, AI автоматизация, n8n" />
+  <meta name="theme-color" content="#071124" />
+  
+  <!-- Open Graph -->
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Luxorion Digital | Премиальная разработка" />
+  <meta property="og:description" content="Создаем современные сайты, мобильные приложения и системы автоматизации для бизнеса." />
+  
+  <link rel="canonical" href="https://luxoriondigital.com" />
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ccircle cx='50' cy='50' r='45' fill='%236c63ff'/%3E%3C/svg%3E" />
+  
   <style>
     :root {
-      --bg: #06101d;
-      --bg-2: #0a1730;
-      --panel: rgba(10, 20, 40, 0.62);
-      --panel-2: rgba(255, 255, 255, 0.06);
-      --stroke: rgba(255, 255, 255, 0.08);
-      --text: #f5f8ff;
-      --muted: rgba(255, 255, 255, 0.72);
-      --accent: #56d7ff;
-      --accent-2: #6b7cff;
-      --accent-3: #1ad1a5;
-      --shadow: 0 20px 80px rgba(0, 0, 0, 0.35);
-      --radius-xl: 28px;
-      --radius-lg: 22px;
-      --radius-md: 18px;
-      --container: 1280px;
-      --header-h: 92px;
+      --bg: #040816;
+      --bg2: #08152d;
+      --text: #ffffff;
+      --muted: rgba(255,255,255,0.75);
+      --soft: rgba(255,255,255,0.55);
+      --accent: #6c63ff;
+      --accent2: #1dcfff;
+      --accent3: #2df3b2;
+      --shadow: 0 20px 60px rgba(0,0,0,0.35);
+      --container: 1240px;
+      --success: #25D366;
+      --telegram: #26A5E4;
     }
 
-    * {
-      box-sizing: border-box;
-    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
 
-    html {
-      scroll-behavior: smooth;
-    }
-
-    html,
     body {
-      margin: 0;
-      padding: 0;
-      max-width: 100%;
-      overflow-x: hidden;
-      background:
-        radial-gradient(circle at 15% 20%, rgba(96, 74, 255, 0.22), transparent 28%),
-        radial-gradient(circle at 75% 18%, rgba(40, 180, 255, 0.18), transparent 24%),
-        radial-gradient(circle at 50% 85%, rgba(10, 210, 160, 0.14), transparent 28%),
-        linear-gradient(180deg, #07111f 0%, #071325 38%, #08101b 100%);
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Arial, sans-serif;
+      background: radial-gradient(circle at 15% 20%, rgba(108,99,255,0.18), transparent 28%),
+                  radial-gradient(circle at 82% 18%, rgba(29,207,255,0.16), transparent 30%),
+                  linear-gradient(135deg, var(--bg), var(--bg2));
       color: var(--text);
-      font-family: Inter, Arial, Helvetica, sans-serif;
+      min-height: 100vh;
+      overflow-x: hidden;
     }
 
-    body {
-      position: relative;
-    }
+    .animated-bg { position: fixed; inset: 0; z-index: -3; overflow: hidden; pointer-events: none; }
+    .blob { position: absolute; border-radius: 50%; filter: blur(70px); opacity: 0.42; animation: floatBlob 18s infinite alternate; }
+    .blob.b1 { width: 430px; height: 430px; background: #6c63ff; top: 6%; left: -120px; animation-duration: 20s; }
+    .blob.b2 { width: 380px; height: 380px; background: #14cfff; top: 12%; right: -120px; animation-duration: 16s; }
+    .blob.b3 { width: 420px; height: 420px; background: #23d8a3; bottom: -160px; left: 24%; animation-duration: 22s; }
+    @keyframes floatBlob { 0% { transform: translate(0,0) scale(1); } 50% { transform: translate(35px,-28px) scale(1.08); } 100% { transform: translate(-30px,42px) scale(0.92); } }
 
-    a {
-      color: inherit;
-      text-decoration: none;
-    }
-
-    img {
-      display: block;
-      max-width: 100%;
-    }
-
-    .bg-grid {
-      position: fixed;
-      inset: 0;
+    .grid-overlay {
+      position: fixed; inset: 0; z-index: -2;
+      background-image: linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px),
+                        linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px);
+      background-size: 42px 42px;
+      mask-image: radial-gradient(circle at center, black 42%, transparent 95%);
+      opacity: 0.9;
+      animation: gridShift 20s linear infinite;
       pointer-events: none;
-      z-index: 0;
-      opacity: 0.5;
-      background-image:
-        linear-gradient(rgba(255,255,255,0.05) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(255,255,255,0.05) 1px, transparent 1px);
-      background-size: 48px 48px;
-      mask-image: radial-gradient(circle at center, black 35%, transparent 92%);
-      -webkit-mask-image: radial-gradient(circle at center, black 35%, transparent 92%);
     }
-
-    .bg-orbs {
-      position: fixed;
-      inset: 0;
-      pointer-events: none;
-      z-index: 0;
-      overflow: hidden;
-    }
-
-    .orb {
-      position: absolute;
-      border-radius: 50%;
-      filter: blur(18px);
-      opacity: 0.45;
-      animation: floatOrb linear infinite;
-    }
-
-    .orb-1 {
-      width: 340px;
-      height: 340px;
-      left: -60px;
-      top: 140px;
-      background: radial-gradient(circle, rgba(111,92,255,0.55), transparent 70%);
-      animation-duration: 16s;
-    }
-
-    .orb-2 {
-      width: 420px;
-      height: 420px;
-      right: -120px;
-      top: 120px;
-      background: radial-gradient(circle, rgba(54,186,255,0.42), transparent 68%);
-      animation-duration: 18s;
-    }
-
-    .orb-3 {
-      width: 380px;
-      height: 380px;
-      left: 24%;
-      bottom: -140px;
-      background: radial-gradient(circle, rgba(18,208,168,0.36), transparent 70%);
-      animation-duration: 20s;
-    }
-
-    @keyframes floatOrb {
-      0% { transform: translate3d(0,0,0) scale(1); }
-      25% { transform: translate3d(24px,-20px,0) scale(1.04); }
-      50% { transform: translate3d(-16px,26px,0) scale(0.98); }
-      75% { transform: translate3d(18px,12px,0) scale(1.03); }
-      100% { transform: translate3d(0,0,0) scale(1); }
-    }
-
-    .site {
-      position: relative;
-      z-index: 1;
-      width: 100%;
-      max-width: 100%;
-      overflow-x: clip;
-    }
-
-    .container {
-      width: min(var(--container), calc(100% - 32px));
-      margin: 0 auto;
-    }
-
-    .header-wrap {
-      position: sticky;
-      top: 0;
-      z-index: 50;
-      padding: 16px 0 0;
-      backdrop-filter: blur(0px);
-    }
-
-    .header {
-      min-height: var(--header-h);
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 18px;
-      padding: 14px 18px;
-      border-radius: 26px;
-      background: linear-gradient(180deg, rgba(10, 20, 42, 0.88), rgba(8, 18, 36, 0.82));
-      border: 1px solid rgba(255, 255, 255, 0.08);
-      box-shadow: 0 20px 50px rgba(0,0,0,0.24);
-      width: 100%;
-      max-width: 100%;
-      overflow: hidden;
-    }
-
-    .brand {
-      display: flex;
-      align-items: center;
-      gap: 16px;
-      min-width: 0;
-      flex: 0 1 auto;
-    }
-
-    .brand-logo {
-      width: 72px;
-      height: 72px;
-      border-radius: 20px;
-      object-fit: contain;
-      flex-shrink: 0;
-      background: rgba(255,255,255,0.04);
-      border: 1px solid rgba(255,255,255,0.08);
-      padding: 9px;
-      box-shadow: 0 12px 34px rgba(0,0,0,0.28);
-    }
-
-    .brand-text {
-      display: flex;
-      flex-direction: column;
-      min-width: 0;
-    }
-
-    .brand-title {
-      font-size: 18px;
-      font-weight: 800;
-      line-height: 1.05;
-      letter-spacing: -0.02em;
-      white-space: nowrap;
-    }
-
-    .brand-subtitle {
-      margin-top: 4px;
-      font-size: 12px;
-      color: var(--muted);
-      letter-spacing: 0.02em;
-      text-transform: uppercase;
-      white-space: nowrap;
-    }
-
-    .nav {
-      display: flex;
-      align-items: center;
-      gap: 28px;
-      min-width: 0;
-      flex: 1 1 auto;
-      justify-content: center;
-    }
-
-    .nav a {
-      color: rgba(255,255,255,0.82);
-      font-size: 16px;
-      font-weight: 500;
-      transition: 0.25s ease;
-      white-space: nowrap;
-    }
-
-    .nav a:hover {
-      color: #ffffff;
-      transform: translateY(-1px);
-    }
-
-    .header-actions {
-      display: flex;
-      align-items: center;
-      gap: 16px;
-      flex-shrink: 0;
-    }
-
-    .lang-switch {
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-      padding: 6px;
-      border-radius: 999px;
-      background: rgba(255,255,255,0.05);
-      border: 1px solid rgba(255,255,255,0.08);
-      box-shadow: inset 0 1px 0 rgba(255,255,255,0.04);
-    }
-
-    .lang-btn {
-      border: 0;
-      background: transparent;
-      color: rgba(255,255,255,0.72);
-      font-size: 15px;
-      font-weight: 700;
-      min-width: 46px;
-      height: 44px;
-      border-radius: 999px;
-      cursor: pointer;
-      transition: 0.25s ease;
-      padding: 0 14px;
-    }
-
-    .lang-btn.active {
-      color: #fff;
-      background: linear-gradient(135deg, var(--accent-2), #40d8ff);
-      box-shadow: 0 8px 22px rgba(77, 137, 255, 0.35);
-    }
-
-    .cta-btn {
-      height: 54px;
-      padding: 0 28px;
-      border: 0;
-      border-radius: 18px;
-      cursor: pointer;
-      font-size: 15px;
-      font-weight: 800;
-      color: #fff;
-      background: linear-gradient(135deg, var(--accent-2), #36c9ff);
-      box-shadow: 0 18px 30px rgba(54, 120, 255, 0.28);
-      transition: 0.25s ease;
-      white-space: nowrap;
-    }
-
-    .cta-btn:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 24px 36px rgba(54, 120, 255, 0.34);
-    }
-
-    .hero {
-      position: relative;
-      overflow: hidden;
-      padding: 26px 0 88px;
-      width: 100%;
-      max-width: 100%;
-    }
-
-    .hero-inner {
-      width: min(var(--container), calc(100% - 32px));
-      margin: 0 auto;
-      display: grid;
-      grid-template-columns: minmax(0, 1.05fr) minmax(0, 0.95fr);
-      align-items: center;
-      gap: 42px;
-      min-width: 0;
-    }
-
-    .hero-left,
-    .hero-right {
-      min-width: 0;
-      width: 100%;
-    }
-
-    .eyebrow {
-      display: inline-flex;
-      align-items: center;
-      gap: 10px;
-      padding: 10px 16px;
-      border-radius: 999px;
-      background: rgba(255,255,255,0.06);
-      border: 1px solid rgba(255,255,255,0.08);
-      color: rgba(255,255,255,0.82);
-      font-size: 14px;
-      font-weight: 600;
-      margin-bottom: 22px;
-      backdrop-filter: blur(8px);
-    }
-
-    .eyebrow::before {
-      content: "";
-      width: 9px;
-      height: 9px;
-      border-radius: 50%;
-      background: linear-gradient(135deg, var(--accent), var(--accent-3));
-      box-shadow: 0 0 14px rgba(69, 220, 255, 0.7);
-    }
-
-    .hero-title {
-      margin: 0;
-      font-size: clamp(48px, 7vw, 98px);
-      line-height: 0.96;
-      letter-spacing: -0.045em;
-      font-weight: 900;
-      max-width: 800px;
-    }
-
-    .accent {
-      background: linear-gradient(135deg, #b9e4ff 0%, #79dcff 30%, #9e9eff 75%, #d8d4ff 100%);
-      -webkit-background-clip: text;
-      background-clip: text;
-      color: transparent;
-    }
-
-    .hero-text {
-      margin: 28px 0 0;
-      color: var(--muted);
-      font-size: clamp(18px, 2vw, 22px);
-      line-height: 1.72;
-      max-width: 760px;
-    }
-
-    .hero-buttons {
-      display: flex;
-      gap: 16px;
-      flex-wrap: wrap;
-      margin-top: 34px;
-    }
-
-    .btn-primary,
-    .btn-secondary {
-      min-height: 58px;
-      padding: 0 28px;
-      border-radius: 18px;
-      font-weight: 800;
-      font-size: 16px;
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      transition: 0.25s ease;
-    }
-
-    .btn-primary {
-      color: #fff;
-      background: linear-gradient(135deg, var(--accent-2), #39d0ff);
-      box-shadow: 0 18px 32px rgba(76, 115, 255, 0.3);
-    }
-
-    .btn-primary:hover {
-      transform: translateY(-2px);
-    }
-
-    .btn-secondary {
-      color: #fff;
-      background: rgba(255,255,255,0.06);
-      border: 1px solid rgba(255,255,255,0.09);
-      backdrop-filter: blur(10px);
-    }
-
-    .btn-secondary:hover {
-      background: rgba(255,255,255,0.1);
-    }
-
-    .hero-right {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-    }
-
-    .visual-card {
-      position: relative;
-      width: min(100%, 620px);
-      aspect-ratio: 1.1 / 0.82;
-      border-radius: 34px;
-      background:
-        linear-gradient(135deg, rgba(108, 126, 255, 0.28), rgba(81, 218, 255, 0.14)),
-        rgba(10, 18, 38, 0.84);
-      border: 1px solid rgba(255,255,255,0.08);
-      box-shadow: 0 30px 90px rgba(0,0,0,0.38);
-      overflow: hidden;
-      backdrop-filter: blur(10px);
-    }
-
-    .visual-header {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-      padding: 18px 22px;
-      border-bottom: 1px solid rgba(255,255,255,0.06);
-    }
-
-    .dot {
-      width: 14px;
-      height: 14px;
-      border-radius: 50%;
-      background: rgba(255,255,255,0.28);
-    }
-
-    .visual-body {
-      display: grid;
-      grid-template-columns: 1.15fr 0.85fr;
-      gap: 16px;
-      padding: 22px;
-      height: calc(100% - 67px);
-    }
-
-    .panel {
-      background: linear-gradient(180deg, rgba(17, 25, 52, 0.98), rgba(10, 18, 38, 0.92));
-      border: 1px solid rgba(255,255,255,0.06);
-      border-radius: 24px;
-      padding: 18px;
-      min-width: 0;
-      overflow: hidden;
-    }
-
-    .stack {
-      display: grid;
-      grid-template-rows: 1fr 1fr;
-      gap: 16px;
-      min-width: 0;
-    }
-
-    .cards-row {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 14px;
-      margin-top: 16px;
-    }
-
-    .mini-card {
-      min-height: 116px;
-      background: rgba(255,255,255,0.04);
-      border: 1px solid rgba(255,255,255,0.05);
-      border-radius: 22px;
-      padding: 16px;
-    }
-
-    .bar {
-      height: 12px;
-      border-radius: 999px;
-      background: rgba(255,255,255,0.09);
-      overflow: hidden;
-      margin-bottom: 12px;
-    }
-
-    .bar > span {
-      display: block;
-      height: 100%;
-      border-radius: inherit;
-      background: linear-gradient(90deg, #6f7bff, #39d3ff, #25d8a7);
-      animation: pulseBar 3s ease-in-out infinite;
-    }
-
-    .line {
-      height: 10px;
-      border-radius: 999px;
-      background: rgba(255,255,255,0.08);
-      margin-top: 12px;
-      overflow: hidden;
-    }
-
-    .line::after {
-      content: "";
-      display: block;
-      height: 100%;
-      width: 62%;
-      border-radius: inherit;
-      background: linear-gradient(90deg, rgba(255,255,255,0.16), rgba(255,255,255,0.04));
-    }
-
-    .mini-card .line::after {
-      width: 72%;
-    }
-
-    .mini-card .line:nth-child(3)::after {
-      width: 56%;
-    }
-
-    .mini-card .line:nth-child(4)::after {
-      width: 64%;
-    }
-
-    @keyframes pulseBar {
-      0%,100% { width: 54%; }
-      50% { width: 78%; }
-    }
-
-    .stats {
-      display: flex;
-      gap: 16px;
-      flex-wrap: wrap;
-      margin-top: 34px;
-    }
-
-    .stat {
-      min-width: 170px;
-      padding: 18px 20px;
-      border-radius: 22px;
-      background: rgba(255,255,255,0.04);
-      border: 1px solid rgba(255,255,255,0.08);
-      backdrop-filter: blur(8px);
-    }
-
-    .stat-value {
-      font-size: 28px;
-      font-weight: 900;
-      letter-spacing: -0.03em;
-    }
-
-    .stat-label {
-      margin-top: 8px;
-      color: var(--muted);
-      font-size: 14px;
-      line-height: 1.45;
-    }
-
-    .section {
-      position: relative;
-      padding: 34px 0 88px;
-    }
-
-    .section-title {
-      margin: 0 0 16px;
-      font-size: clamp(34px, 4vw, 54px);
-      line-height: 1.04;
-      letter-spacing: -0.04em;
-      font-weight: 900;
-    }
-
-    .section-text {
-      color: var(--muted);
-      font-size: 18px;
-      line-height: 1.7;
-      max-width: 850px;
-      margin: 0 0 28px;
-    }
-
-    .services-grid {
-      display: grid;
-      grid-template-columns: repeat(4, minmax(0, 1fr));
-      gap: 18px;
-    }
-
-    .service-card {
-      padding: 24px;
-      border-radius: 26px;
-      background: linear-gradient(180deg, rgba(255,255,255,0.05), rgba(255,255,255,0.03));
-      border: 1px solid rgba(255,255,255,0.08);
-      box-shadow: var(--shadow);
-      min-width: 0;
-    }
-
-    .service-icon {
-      width: 52px;
-      height: 52px;
-      border-radius: 16px;
-      display: grid;
-      place-items: center;
-      margin-bottom: 18px;
-      font-size: 24px;
-      background: linear-gradient(135deg, rgba(105,120,255,0.24), rgba(56,208,255,0.18));
-      border: 1px solid rgba(255,255,255,0.08);
-    }
-
-    .service-title {
-      margin: 0;
-      font-size: 22px;
-      font-weight: 800;
-      letter-spacing: -0.03em;
-    }
-
-    .service-text {
-      margin: 14px 0 0;
-      color: var(--muted);
-      font-size: 16px;
-      line-height: 1.7;
-    }
-
-    .process-grid {
-      display: grid;
-      grid-template-columns: repeat(4, minmax(0, 1fr));
-      gap: 18px;
-    }
-
-    .process-card {
-      position: relative;
-      padding: 26px;
-      border-radius: 26px;
-      background: rgba(255,255,255,0.04);
-      border: 1px solid rgba(255,255,255,0.08);
-      overflow: hidden;
-    }
-
-    .process-number {
-      font-size: 52px;
-      font-weight: 900;
-      line-height: 1;
-      letter-spacing: -0.05em;
-      color: rgba(255,255,255,0.12);
-      margin-bottom: 18px;
-    }
-
-    .process-title {
-      margin: 0;
-      font-size: 22px;
-      font-weight: 800;
-    }
-
-    .process-text {
-      margin: 14px 0 0;
-      color: var(--muted);
-      line-height: 1.7;
-      font-size: 16px;
-    }
-
-    .tech-wrap {
-      display: grid;
-      grid-template-columns: 1.1fr 0.9fr;
-      gap: 20px;
-      align-items: stretch;
-    }
-
-    .tech-card,
-    .contact-card {
-      padding: 28px;
-      border-radius: 28px;
-      background: linear-gradient(180deg, rgba(255,255,255,0.05), rgba(255,255,255,0.035));
-      border: 1px solid rgba(255,255,255,0.08);
-      box-shadow: var(--shadow);
-    }
-
-    .tech-tags {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 12px;
-      margin-top: 18px;
-    }
-
-    .tag {
-      padding: 12px 16px;
-      border-radius: 999px;
-      background: rgba(255,255,255,0.06);
-      border: 1px solid rgba(255,255,255,0.08);
-      color: rgba(255,255,255,0.9);
-      font-size: 15px;
-      font-weight: 700;
-    }
-
-    .contact-card h3,
-    .tech-card h3 {
-      margin: 0;
-      font-size: 28px;
-      letter-spacing: -0.03em;
-    }
-
-    .contact-list {
-      display: grid;
-      gap: 14px;
-      margin-top: 20px;
-    }
-
-    .contact-item {
-      padding: 16px 18px;
-      border-radius: 18px;
-      background: rgba(255,255,255,0.04);
-      border: 1px solid rgba(255,255,255,0.07);
-      color: rgba(255,255,255,0.9);
-      font-size: 16px;
-      line-height: 1.6;
-      word-break: break-word;
-    }
-
-    .footer {
-      padding: 0 0 46px;
-    }
-
-    .footer-box {
-      display: flex;
-      justify-content: space-between;
-      gap: 18px;
-      align-items: center;
-      padding: 24px 26px;
-      border-radius: 24px;
-      background: rgba(255,255,255,0.04);
-      border: 1px solid rgba(255,255,255,0.08);
-      color: rgba(255,255,255,0.76);
-      font-size: 15px;
-    }
-
-    .fade-up {
-      opacity: 0;
-      transform: translateY(26px);
-      transition: 0.8s ease;
-    }
-
-    .fade-up.show {
-      opacity: 1;
-      transform: translateY(0);
-    }
-
-    .mobile-menu-btn {
-      display: none;
-      width: 52px;
-      height: 52px;
-      border-radius: 16px;
-      border: 1px solid rgba(255,255,255,0.08);
-      background: rgba(255,255,255,0.05);
-      color: #fff;
-      font-size: 22px;
-      cursor: pointer;
-      flex-shrink: 0;
-    }
-
-    @media (max-width: 1180px) {
-      .nav {
-        gap: 18px;
-      }
-
-      .hero-inner {
-        grid-template-columns: 1fr;
-      }
-
-      .hero-right {
-        order: 2;
-      }
-
-      .hero-left {
-        order: 1;
-      }
-
-      .services-grid,
-      .process-grid {
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-      }
-
-      .tech-wrap {
-        grid-template-columns: 1fr;
-      }
-    }
-
-    @media (max-width: 940px) {
-      .header {
-        flex-wrap: wrap;
-        justify-content: space-between;
-      }
-
-      .nav {
-        display: none;
-        width: 100%;
-        order: 10;
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 14px;
-        padding: 12px 4px 6px;
-      }
-
-      .nav.open {
-        display: flex;
-      }
-
-      .header-actions {
-        margin-left: auto;
-      }
-
-      .mobile-menu-btn {
-        display: inline-flex;
-        align-items: center;
-        justify-content: center;
-      }
-    }
-
-    @media (max-width: 760px) {
-      :root {
-        --header-h: auto;
-      }
-
-      .container,
-      .hero-inner {
-        width: min(var(--container), calc(100% - 20px));
-      }
-
-      .header-wrap {
-        padding-top: 10px;
-      }
-
-      .header {
-        padding: 12px;
-        border-radius: 22px;
-        gap: 12px;
-      }
-
-      .brand-logo {
-        width: 60px;
-        height: 60px;
-        border-radius: 16px;
-        padding: 7px;
-      }
-
-      .brand-title {
-        font-size: 17px;
-      }
-
-      .brand-subtitle {
-        font-size: 11px;
-        white-space: normal;
-      }
-
-      .header-actions {
-        width: 100%;
-        justify-content: space-between;
-      }
-
-      .lang-switch {
-        transform: scale(0.96);
-        transform-origin: left center;
-      }
-
-      .cta-btn {
-        height: 48px;
-        padding: 0 18px;
-        font-size: 14px;
-        border-radius: 16px;
-      }
-
-      .hero {
-        padding: 18px 0 64px;
-      }
-
-      .hero-title {
-        line-height: 0.98;
-      }
-
-      .hero-text {
-        font-size: 17px;
-      }
-
-      .visual-card {
-        border-radius: 26px;
-      }
-
-      .visual-body {
-        grid-template-columns: 1fr;
-      }
-
-      .cards-row {
-        grid-template-columns: 1fr;
-      }
-
-      .services-grid,
-      .process-grid {
-        grid-template-columns: 1fr;
-      }
-
-      .stats {
-        gap: 12px;
-      }
-
-      .stat {
-        min-width: calc(50% - 6px);
-        flex: 1 1 calc(50% - 6px);
-      }
-
-      .footer-box {
-        flex-direction: column;
-        align-items: flex-start;
-      }
-    }
-
-    @media (max-width: 520px) {
-      .brand {
-        width: 100%;
-      }
-
-      .brand-subtitle {
-        display: none;
-      }
-
-      .header-actions {
-        flex-wrap: wrap;
-        gap: 10px;
-      }
-
-      .lang-switch {
-        order: 1;
-      }
-
-      .cta-btn {
-        order: 2;
-        flex: 1 1 auto;
-      }
-
-      .mobile-menu-btn {
-        order: 3;
-      }
-
-      .hero-buttons {
-        flex-direction: column;
-      }
-
-      .btn-primary,
-      .btn-secondary {
-        width: 100%;
-      }
-
-      .stat {
-        min-width: 100%;
-      }
+    @keyframes gridShift { 0% { transform: translateY(0); } 50% { transform: translateY(-18px); } 100% { transform: translateY(0); } }
+
+    #particles { position: fixed; inset: 0; z-index: -1; pointer-events: none; opacity: 0.9; }
+    .container { width: min(92%, var(--container)); margin: 0 auto; }
+
+    header { position: sticky; top: 0; z-index: 1000; backdrop-filter: blur(16px); background: rgba(4,8,22,0.58); border-bottom: 1px solid rgba(255,255,255,0.08); }
+    .nav { min-height: 86px; display: flex; align-items: center; justify-content: space-between; gap: 18px; padding: 10px 0; }
+    .brand { display: flex; align-items: center; gap: 14px; text-decoration: none; color: #fff; }
+    .logo-box { width: 58px; height: 58px; border-radius: 16px; background: linear-gradient(135deg, rgba(108,99,255,0.3), rgba(29,207,255,0.2)); border: 1px solid rgba(255,255,255,0.2); display: flex; align-items: center; justify-content: center; }
+    .logo-svg { width: 42px; height: 42px; }
+    .brand-text { display: flex; flex-direction: column; }
+    .brand-title { font-size: 20px; font-weight: 700; }
+    .brand-subtitle { font-size: 11px; letter-spacing: 1.5px; color: var(--soft); }
+    nav ul { list-style: none; display: flex; gap: 28px; }
+    nav a { text-decoration: none; color: var(--muted); transition: 0.25s; font-size: 15px; }
+    nav a:hover { color: #fff; }
+    .lang-switch { display: flex; gap: 8px; background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.1); padding: 6px; border-radius: 999px; }
+    .lang-btn { border: none; background: transparent; color: var(--muted); padding: 8px 12px; border-radius: 999px; cursor: pointer; font-weight: 700; transition: 0.25s; }
+    .lang-btn.active { color: #fff; background: linear-gradient(135deg, var(--accent), var(--accent2)); }
+    .menu-toggle { display: none; background: none; border: none; color: #fff; font-size: 28px; cursor: pointer; }
+    .social-buttons { display: flex; gap: 12px; }
+    .social-icon { width: 44px; height: 44px; border-radius: 50%; display: flex; align-items: center; justify-content: center; text-decoration: none; transition: 0.25s; font-size: 20px; }
+    .social-icon.whatsapp { background: var(--success); }
+    .social-icon.telegram { background: var(--telegram); }
+    .social-icon.instagram { background: linear-gradient(135deg, #f09433, #bc1888); }
+    .social-icon:hover { transform: translateY(-3px); filter: brightness(1.1); }
+
+    .hero { padding: 80px 0 60px; }
+    .hero-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; align-items: center; }
+    .eyebrow { display: inline-flex; align-items: center; gap: 10px; padding: 10px 18px; border-radius: 999px; background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.1); font-size: 13px; margin-bottom: 24px; }
+    .eyebrow::before { content: ""; width: 8px; height: 8px; border-radius: 50%; background: var(--accent2); }
+    h1 { font-size: clamp(40px, 5vw, 70px); line-height: 1.05; letter-spacing: -1px; margin-bottom: 20px; }
+    .gradient { background: linear-gradient(135deg, #fff, var(--accent2), var(--accent3)); -webkit-background-clip: text; background-clip: text; color: transparent; }
+    .hero p { font-size: 18px; color: var(--muted); line-height: 1.7; margin-bottom: 30px; }
+    .hero-actions { display: flex; gap: 16px; flex-wrap: wrap; margin-bottom: 40px; }
+    .btn-primary, .btn-secondary { padding: 14px 28px; border-radius: 14px; text-decoration: none; font-weight: 700; transition: 0.25s; display: inline-flex; align-items: center; gap: 8px; cursor: pointer; border: none; font-family: inherit; }
+    .btn-primary { background: linear-gradient(135deg, var(--accent), var(--accent2)); color: #fff; }
+    .btn-primary:hover { transform: translateY(-2px); }
+    .btn-secondary { background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.15); color: #fff; }
+    .btn-secondary:hover { background: rgba(255,255,255,0.1); }
+    .hero-stats { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+    .stat-card { background: rgba(255,255,255,0.07); border: 1px solid rgba(255,255,255,0.1); border-radius: 20px; padding: 20px; }
+    .stat-card h3 { font-size: 28px; margin-bottom: 8px; }
+    .stat-card p { font-size: 13px; color: var(--soft); margin: 0; }
+
+    section { padding: 60px 0; }
+    .section-header { text-align: center; margin-bottom: 50px; }
+    .section-tag { display: inline-block; padding: 6px 14px; background: rgba(108,99,255,0.15); border-radius: 999px; font-size: 12px; color: var(--accent2); margin-bottom: 16px; }
+    .section-title { font-size: clamp(32px, 4vw, 48px); margin-bottom: 16px; }
+    .section-subtitle { color: var(--muted); max-width: 700px; margin: 0 auto; line-height: 1.6; }
+
+    .services-grid, .portfolio-grid, .blog-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+    .card { background: rgba(255,255,255,0.07); border: 1px solid rgba(255,255,255,0.1); border-radius: 24px; padding: 28px; transition: 0.3s; }
+    .card:hover { transform: translateY(-5px); border-color: rgba(108,99,255,0.4); }
+    .card-icon { width: 54px; height: 54px; background: linear-gradient(135deg, rgba(108,99,255,0.2), rgba(29,207,255,0.2)); border-radius: 16px; display: flex; align-items: center; justify-content: center; font-size: 26px; margin-bottom: 20px; }
+    .card h3 { font-size: 22px; margin-bottom: 12px; }
+    .card p { color: var(--muted); line-height: 1.6; font-size: 14px; }
+
+    .portfolio-item { position: relative; overflow: hidden; border-radius: 24px; cursor: pointer; }
+    .portfolio-image { width: 100%; height: 250px; background: linear-gradient(135deg, rgba(108,99,255,0.3), rgba(29,207,255,0.2)); border-radius: 24px; display: flex; align-items: center; justify-content: center; font-size: 48px; transition: 0.3s; }
+    .portfolio-overlay { position: absolute; inset: 0; background: linear-gradient(135deg, rgba(108,99,255,0.9), rgba(29,207,255,0.9)); border-radius: 24px; display: flex; flex-direction: column; align-items: center; justify-content: center; opacity: 0; transition: 0.3s; padding: 20px; text-align: center; }
+    .portfolio-item:hover .portfolio-overlay { opacity: 1; }
+    .portfolio-overlay h4 { font-size: 20px; margin-bottom: 8px; }
+    .portfolio-overlay p { font-size: 13px; color: rgba(255,255,255,0.8); }
+
+    .testimonials-slider { position: relative; overflow: hidden; padding: 20px 0; }
+    .testimonials-track { display: flex; transition: transform 0.5s ease; gap: 24px; }
+    .testimonial-card { min-width: calc(33.333% - 16px); background: rgba(255,255,255,0.07); border: 1px solid rgba(255,255,255,0.1); border-radius: 24px; padding: 28px; }
+    .testimonial-text { font-size: 16px; line-height: 1.7; color: var(--muted); margin-bottom: 20px; font-style: italic; }
+    .testimonial-author { display: flex; align-items: center; gap: 12px; }
+    .author-avatar { width: 48px; height: 48px; border-radius: 50%; background: linear-gradient(135deg, var(--accent), var(--accent2)); display: flex; align-items: center; justify-content: center; font-weight: 700; }
+    .author-info h4 { font-size: 16px; margin-bottom: 4px; }
+    .author-info p { font-size: 12px; color: var(--soft); }
+    .slider-controls { display: flex; justify-content: center; gap: 16px; margin-top: 30px; }
+    .slider-btn { width: 44px; height: 44px; border-radius: 50%; background: rgba(255,255,255,0.1); border: 1px solid rgba(255,255,255,0.2); color: #fff; cursor: pointer; transition: 0.25s; font-size: 20px; }
+    .slider-btn:hover { background: var(--accent); }
+
+    .blog-card { background: rgba(255,255,255,0.07); border: 1px solid rgba(255,255,255,0.1); border-radius: 24px; overflow: hidden; transition: 0.3s; }
+    .blog-card:hover { transform: translateY(-5px); }
+    .blog-image { height: 180px; background: linear-gradient(135deg, rgba(108,99,255,0.3), rgba(29,207,255,0.2)); display: flex; align-items: center; justify-content: center; font-size: 40px; }
+    .blog-content { padding: 20px; }
+    .blog-date { font-size: 12px; color: var(--soft); margin-bottom: 8px; display: block; }
+    .blog-card h4 { font-size: 18px; margin-bottom: 12px; }
+    .blog-card p { color: var(--muted); font-size: 14px; line-height: 1.6; margin-bottom: 16px; }
+    .read-more { color: var(--accent2); text-decoration: none; font-weight: 600; font-size: 14px; }
+
+    .contact-form-section { background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1); border-radius: 32px; padding: 48px; }
+    .form-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 32px; }
+    .form-group { margin-bottom: 20px; }
+    .form-group input, .form-group textarea, .form-group select { width: 100%; padding: 14px 18px; background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.15); border-radius: 14px; color: #fff; font-size: 15px; transition: 0.25s; font-family: inherit; }
+    .form-group input:focus, .form-group textarea:focus, .form-group select:focus { outline: none; border-color: var(--accent2); }
+    .form-group textarea { resize: vertical; min-height: 100px; }
+    .submit-btn { background: linear-gradient(135deg, var(--accent), var(--accent2)); border: none; padding: 14px 32px; border-radius: 14px; color: #fff; font-weight: 700; cursor: pointer; transition: 0.25s; }
+    .submit-btn:hover { transform: translateY(-2px); }
+    .form-status { margin-top: 16px; padding: 12px; border-radius: 12px; display: none; }
+    .form-status.success { background: rgba(45,243,178,0.2); border: 1px solid var(--accent3); display: block; }
+    .form-status.error { background: rgba(255,80,80,0.2); border: 1px solid #ff5050; display: block; }
+
+    .contact-info { display: flex; flex-direction: column; gap: 20px; }
+    .contact-item { display: flex; align-items: center; gap: 16px; padding: 16px; background: rgba(255,255,255,0.05); border-radius: 16px; text-decoration: none; color: #fff; transition: 0.25s; }
+    .contact-item:hover { background: rgba(255,255,255,0.1); }
+    .contact-icon { width: 48px; height: 48px; background: rgba(108,99,255,0.2); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 22px; }
+    .contact-item strong { display: block; font-size: 14px; color: var(--soft); }
+    .contact-item span { font-size: 16px; }
+
+    footer { border-top: 1px solid rgba(255,255,255,0.08); padding: 30px 0; margin-top: 40px; }
+    .footer-content { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 20px; }
+    .footer-social { display: flex; gap: 20px; }
+    .footer-social a { color: var(--soft); text-decoration: none; transition: 0.25s; }
+    .footer-social a:hover { color: #fff; }
+
+    .reveal { opacity: 0; transform: translateY(25px); transition: 0.7s; }
+    .reveal.visible { opacity: 1; transform: translateY(0); }
+
+    body[dir="rtl"] { text-align: right; }
+    body[dir="rtl"] .eyebrow::before { margin-left: 10px; margin-right: 0; }
+
+    @media (max-width: 1000px) {
+      .services-grid, .portfolio-grid, .blog-grid { grid-template-columns: repeat(2, 1fr); }
+      .hero-grid, .form-grid { grid-template-columns: 1fr; }
+      .testimonial-card { min-width: calc(50% - 12px); }
+      nav ul { display: none; }
+      .menu-toggle { display: block; }
+      nav.open ul { display: flex; flex-direction: column; position: absolute; top: 86px; left: 0; right: 0; background: rgba(4,8,22,0.98); padding: 20px; backdrop-filter: blur(20px); }
+      .social-buttons { display: none; }
+    }
+    @media (max-width: 700px) {
+      .services-grid, .portfolio-grid, .blog-grid { grid-template-columns: 1fr; }
+      .testimonial-card { min-width: 100%; }
+      .hero-stats { grid-template-columns: 1fr; }
+      .contact-form-section { padding: 28px; }
     }
   </style>
 </head>
 <body>
-  <div class="bg-grid"></div>
-  <div class="bg-orbs">
-    <div class="orb orb-1"></div>
-    <div class="orb orb-2"></div>
-    <div class="orb orb-3"></div>
+  <div class="animated-bg">
+    <div class="blob b1"></div>
+    <div class="blob b2"></div>
+    <div class="blob b3"></div>
   </div>
+  <div class="grid-overlay"></div>
+  <canvas id="particles"></canvas>
 
-  <div class="site">
-    <div class="header-wrap">
-      <div class="container">
-        <header class="header">
-          <a href="#home" class="brand">
-            <img src="/logo.png" alt="Luxorion Digital Logo" class="brand-logo" />
-            <div class="brand-text">
-              <div class="brand-title">Luxorion Digital</div>
-              <div class="brand-subtitle" data-i18n="tagline">Глобальные IT-решения</div>
-            </div>
-          </a>
+  <header>
+    <div class="container nav">
+      <a href="#home" class="brand">
+        <div class="logo-box">
+          <svg class="logo-svg" viewBox="0 0 100 100" fill="none">
+            <circle cx="50" cy="50" r="45" stroke="url(#grad)" stroke-width="2" fill="none"/>
+            <path d="M35 50 L45 65 L65 35" stroke="url(#grad)" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+            <defs><linearGradient id="grad"><stop offset="0%" stop-color="#1dcfff"/><stop offset="100%" stop-color="#6c63ff"/></linearGradient></defs>
+          </svg>
+        </div>
+        <div class="brand-text">
+          <span class="brand-title">Luxorion Digital</span>
+          <span class="brand-subtitle" id="brandSubtitle">IT SOLUTIONS</span>
+        </div>
+      </a>
+      <nav id="mobileNav">
+        <ul>
+          <li><a href="#services" id="navServices">Услуги</a></li>
+          <li><a href="#portfolio" id="navPortfolio">Портфолио</a></li>
+          <li><a href="#testimonials" id="navTestimonials">Отзывы</a></li>
+          <li><a href="#blog" id="navBlog">Блог</a></li>
+          <li><a href="#contact" id="navContact">Контакты</a></li>
+        </ul>
+      </nav>
+      <div class="social-buttons">
+        <a href="https://wa.me/971558913535" class="social-icon whatsapp" target="_blank">💬</a>
+        <a href="https://t.me/luxoriondigital" class="social-icon telegram" target="_blank">📱</a>
+        <a href="https://instagram.com/luxoriondigital" class="social-icon instagram" target="_blank">📷</a>
+      </div>
+      <div class="lang-switch">
+        <button class="lang-btn" data-lang="ru">RU</button>
+        <button class="lang-btn" data-lang="en">EN</button>
+        <button class="lang-btn" data-lang="ar">AR</button>
+      </div>
+      <button class="menu-toggle" id="menuToggle">☰</button>
+    </div>
+  </header>
 
-          <nav class="nav" id="mainNav">
-            <a href="#services" data-i18n="nav_services">Услуги</a>
-            <a href="#process" data-i18n="nav_process">Процесс</a>
-            <a href="#technologies" data-i18n="nav_tech">Технологии</a>
-            <a href="#contacts" data-i18n="nav_contacts">Контакты</a>
-          </nav>
-
-          <div class="header-actions">
-            <div class="lang-switch">
-              <button class="lang-btn" data-lang="en">EN</button>
-              <button class="lang-btn active" data-lang="ru">RU</button>
-              <button class="lang-btn" data-lang="ar">AR</button>
-            </div>
-
-            <a href="#contacts" class="cta-btn" data-i18n="header_cta">Начать проект</a>
-            <button class="mobile-menu-btn" id="menuBtn">☰</button>
+  <main>
+    <section class="hero" id="home">
+      <div class="container hero-grid">
+        <div class="reveal">
+          <div class="eyebrow" id="eyebrowText">Премиум разработка • AI • Автоматизация</div>
+          <h1 id="heroTitle">Создаём <span class="gradient">цифровые системы</span>, которые двигают бизнес вперёд</h1>
+          <p id="heroText">Разработка сайтов, мобильных приложений, AI-автоматизация и бизнес-решения для компаний, которые ценят качество, скорость и результат.</p>
+          <div class="hero-actions">
+            <a href="#contact" class="btn-primary" id="heroBtnPrimary">Обсудить проект</a>
+            <a href="#portfolio" class="btn-secondary" id="heroBtnSecondary">Наши работы</a>
           </div>
-        </header>
+          <div class="hero-stats">
+            <div class="stat-card"><h3>50+</h3><p id="stat1Text">Успешных проектов</p></div>
+            <div class="stat-card"><h3>24/7</h3><p id="stat2Text">Автоматизация</p></div>
+            <div class="stat-card"><h3>3</h3><p id="stat3Text">Языка поддержки</p></div>
+          </div>
+        </div>
+        <div class="reveal">
+          <div class="stat-card" style="text-align:center; padding:40px;">
+            <div style="font-size:64px;">🚀</div>
+            <h3 style="margin-top:20px;" id="ctaCardTitle">Готовы к росту?</h3>
+            <p id="ctaCardText">Запустите свой проект уже сегодня</p>
+            <a href="https://wa.me/971558913535" class="btn-primary" style="display:inline-block; margin-top:20px;" target="_blank" id="ctaCardBtn">WhatsApp</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="services">
+      <div class="container">
+        <div class="section-header reveal">
+          <span class="section-tag" id="servicesTag">Что мы делаем</span>
+          <h2 class="section-title" id="servicesTitle">Наши услуги</h2>
+          <p class="section-subtitle" id="servicesSubtitle">Полный цикл разработки digital-продуктов под ключ</p>
+        </div>
+        <div class="services-grid">
+          <div class="card reveal"><div class="card-icon">🌐</div><h3 id="service1Title">Веб-разработка</h3><p id="service1Text">Современные сайты, лендинги, интернет-магазины и корпоративные порталы.</p></div>
+          <div class="card reveal"><div class="card-icon">📱</div><h3 id="service2Title">Мобильные приложения</h3><p id="service2Text">Нативные и кроссплатформенные приложения для iOS и Android.</p></div>
+          <div class="card reveal"><div class="card-icon">⚙️</div><h3 id="service3Title">AI автоматизация</h3><p id="service3Text">n8n, AI-агенты, интеграции, умные бизнес-процессы.</p></div>
+          <div class="card reveal"><div class="card-icon">🎨</div><h3 id="service4Title">UI/UX дизайн</h3><p id="service4Text">Современный дизайн, прототипирование, пользовательские сценарии.</p></div>
+          <div class="card reveal"><div class="card-icon">📊</div><h3 id="service5Title">CRM интеграции</h3><p id="service5Text">Подключение к AmoCRM, Bitrix24, HubSpot и другим системам.</p></div>
+          <div class="card reveal"><div class="card-icon">🚀</div><h3 id="service6Title">Техподдержка</h3><p id="service6Text">Обслуживание, доработки, хостинг, сопровождение проектов.</p></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="portfolio">
+      <div class="container">
+        <div class="section-header reveal">
+          <span class="section-tag" id="portfolioTag">Наши работы</span>
+          <h2 class="section-title" id="portfolioTitle">Портфолио проектов</h2>
+          <p class="section-subtitle" id="portfolioSubtitle">Реальные кейсы и результаты, которыми мы гордимся</p>
+        </div>
+        <div class="portfolio-grid">
+          <div class="portfolio-item reveal"><div class="portfolio-image">🏢</div><div class="portfolio-overlay"><h4 id="portfolio1Title">Корпоративный портал</h4><p id="portfolio1Text">Сайт для международной компании с AI-чат-ботом</p></div></div>
+          <div class="portfolio-item reveal"><div class="portfolio-image">📱</div><div class="portfolio-overlay"><h4 id="portfolio2Title">Мобильное приложение</h4><p id="portfolio2Text">Доставка еды с интеграцией карт и оплат</p></div></div>
+          <div class="portfolio-item reveal"><div class="portfolio-image">🤖</div><div class="portfolio-overlay"><h4 id="portfolio3Title">AI-автоматизация</h4><p id="portfolio3Text">n8n workflow для обработки 1000+ лидов в день</p></div></div>
+          <div class="portfolio-item reveal"><div class="portfolio-image">🛍️</div><div class="portfolio-overlay"><h4 id="portfolio4Title">Интернет-магазин</h4><p id="portfolio4Text">Полноценная e-commerce платформа с админ-панелью</p></div></div>
+          <div class="portfolio-item reveal"><div class="portfolio-image">📊</div><div class="portfolio-overlay"><h4 id="portfolio5Title">CRM система</h4><p id="portfolio5Text">Кастомизированная CRM для управления проектами</p></div></div>
+          <div class="portfolio-item reveal"><div class="portfolio-image">🎯</div><div class="portfolio-overlay"><h4 id="portfolio6Title">Лендинг + автоматизация</h4><p id="portfolio6Text">Продающий лендинг с автоворонкой в WhatsApp</p></div></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="testimonials">
+      <div class="container">
+        <div class="section-header reveal">
+          <span class="section-tag" id="testimonialsTag">Отзывы клиентов</span>
+          <h2 class="section-title" id="testimonialsTitle">Что говорят о нас</h2>
+          <p class="section-subtitle" id="testimonialsSubtitle">Мнение тех, кто уже доверил нам свой бизнес</p>
+        </div>
+        <div class="testimonials-slider">
+          <div class="testimonials-track" id="testimonialsTrack">
+            <div class="testimonial-card"><div class="testimonial-text" id="testimonial1Text">"Отличная команда! Сделали сайт за 2 недели, автоматизировали обработку заявок. Результат превзошёл ожидания."</div><div class="testimonial-author"><div class="author-avatar">А</div><div class="author-info"><h4 id="author1Name">Алексей Иванов</h4><p id="author1Role">CEO, TechStart</p></div></div></div>
+            <div class="testimonial-card"><div class="testimonial-text" id="testimonial2Text">"Профессиональный подход к разработке мобильного приложения. Клиенты довольны, продажи выросли на 40%."</div><div class="testimonial-author"><div class="author-avatar">М</div><div class="author-info"><h4 id="author2Name">Мария Соколова</h4><p id="author2Role">Основатель, FitApp</p></div></div></div>
+            <div class="testimonial-card"><div class="testimonial-text" id="testimonial3Text">"AI-автоматизация от Luxorion Digital сэкономила нам 20+ часов в неделю. Лучшее решение для нашего бизнеса!"</div><div class="testimonial-author"><div class="author-avatar">Д</div><div class="author-info"><h4 id="author3Name">Дмитрий Петров</h4><p id="author3Role">Директор, LogiTech</p></div></div></div>
+            <div class="testimonial-card"><div class="testimonial-text" id="testimonial4Text">"Красивый дизайн, быстрая разработка, отличная поддержка. Рекомендую!"</div><div class="testimonial-author"><div class="author-avatar">Е</div><div class="author-info"><h4 id="author4Name">Елена Волкова</h4><p id="author4Role">Маркетолог, BeautyBrand</p></div></div></div>
+            <div class="testimonial-card"><div class="testimonial-text" id="testimonial5Text">"Работаем с Luxorion Digital второй год. Автоматизация процессов принесла реальную экономию ресурсов."</div><div class="testimonial-author"><div class="author-avatar">С</div><div class="author-info"><h4 id="author5Name">Сергей Михайлов</h4><p id="author5Role">COO, FinTech Group</p></div></div></div>
+          </div>
+          <div class="slider-controls">
+            <button class="slider-btn" id="prevSlide">←</button>
+            <button class="slider-btn" id="nextSlide">→</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="blog">
+      <div class="container">
+        <div class="section-header reveal">
+          <span class="section-tag" id="blogTag">Блог</span>
+          <h2 class="section-title" id="blogTitle">Полезные статьи</h2>
+          <p class="section-subtitle" id="blogSubtitle">Новости, кейсы и инсайты из мира IT</p>
+        </div>
+        <div class="blog-grid">
+          <div class="blog-card reveal"><div class="blog-image">🤖</div><div class="blog-content"><span class="blog-date" id="blogDate1">15 марта 2026</span><h4 id="blogTitle1">Как AI меняет бизнес-процессы</h4><p id="blogText1">Рассказываем о реальных кейсах внедрения искусственного интеллекта в компании.</p><a href="#" class="read-more" id="blogLink1">Читать →</a></div></div>
+          <div class="blog-card reveal"><div class="blog-image">⚙️</div><div class="blog-content"><span class="blog-date" id="blogDate2">5 марта 2026</span><h4 id="blogTitle2">n8n: автоматизация без кода</h4><p id="blogText2">Обзор возможностей и примеры workflow для бизнеса.</p><a href="#" class="read-more" id="blogLink2">Читать →</a></div></div>
+          <div class="blog-card reveal"><div class="blog-image">📱</div><div class="blog-content"><span class="blog-date" id="blogDate3">20 февраля 2026</span><h4 id="blogTitle3">Тренды мобильной разработки 2026</h4><p id="blogText3">Что важно знать перед запуском приложения: AI, AR, кроссплатформа.</p><a href="#" class="read-more" id="blogLink3">Читать →</a></div></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact">
+      <div class="container">
+        <div class="contact-form-section reveal">
+          <div class="form-grid">
+            <div>
+              <h2 class="section-title" style="text-align:left;" id="contactTitle">Свяжитесь с нами</h2>
+              <p style="color:var(--muted); margin-bottom:30px;" id="contactText">Оставьте заявку, и мы обсудим ваш проект в течение 24 часов</p>
+              <div class="contact-info">
+                <a href="https://wa.me/971558913535" class="contact-item" target="_blank"><div class="contact-icon">💬</div><div><strong id="whatsappLabel">WhatsApp</strong><span>+971 55 891 3535</span></div></a>
+                <a href="https://t.me/luxoriondigital" class="contact-item" target="_blank"><div class="contact-icon">📱</div><div><strong id="telegramLabel">Telegram</strong><span>@luxoriondigital</span></div></a>
+                <a href="mailto:luxoriondigital@gmail.com" class="contact-item"><div class="contact-icon">✉️</div><div><strong id="emailLabel">Email</strong><span>luxoriondigital@gmail.com</span></div></a>
+                <div class="contact-item"><div class="contact-icon">📍</div><div><strong id="officeLabel">Офис</strong><span id="officeText">Dubai, UAE</span></div></div>
+              </div>
+            </div>
+            <div>
+              <form id="contactForm">
+                <div class="form-group"><input type="text" name="name" id="inputName" placeholder="Ваше имя" required></div>
+                <div class="form-group"><input type="email" name="email" id="inputEmail" placeholder="Email" required></div>
+                <div class="form-group"><input type="tel" name="phone" id="inputPhone" placeholder="Телефон"></div>
+                <div class="form-group">
+                  <select name="service" id="inputService">
+                    <option value="">Выберите услугу</option>
+                    <option>Веб-разработка</option>
+                    <option>Мобильное приложение</option>
+                    <option>AI автоматизация</option>
+                    <option>UI/UX дизайн</option>
+                    <option>CRM интеграция</option>
+                    <option>Техподдержка</option>
+                  </select>
+                </div>
+                <div class="form-group"><textarea name="message" id="inputMessage" placeholder="Опишите ваш проект" required></textarea></div>
+                <button type="submit" class="submit-btn" id="submitBtn">Отправить заявку</button>
+                <div id="formStatus" class="form-status"></div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container footer-content">
+      <div id="footerCopyright">© 2026 Luxorion Digital. Все права защищены.</div>
+      <div class="footer-social">
+        <a href="https://wa.me/971558913535" target="_blank" id="footerWhatsapp">WhatsApp</a>
+        <a href="https://t.me/luxoriondigital" target="_blank" id="footerTelegram">Telegram</a>
+        <a href="https://instagram.com/luxoriondigital" target="_blank" id="footerInstagram">Instagram</a>
       </div>
     </div>
-
-    <main>
-      <section class="hero" id="home">
-        <div class="hero-inner">
-          <div class="hero-left fade-up">
-            <div class="eyebrow" data-i18n="eyebrow">Премиальная digital-разработка</div>
-
-            <h1 class="hero-title">
-              <span data-i18n="hero_title_1">Мы создаём</span><br />
-              <span class="accent" data-i18n="hero_title_2">цифровые системы</span><br />
-              <span data-i18n="hero_title_3">которые двигают бизнес вперёд.</span>
-            </h1>
-
-            <p class="hero-text" data-i18n="hero_text">
-              Luxorion Digital разрабатывает премиальные сайты, масштабируемые мобильные приложения, интеллектуальную автоматизацию и AI-решения для амбициозных компаний, которым важны скорость, качество и долгосрочный рост.
-            </p>
-
-            <div class="hero-buttons">
-              <a href="#contacts" class="btn-primary" data-i18n="hero_btn_1">Обсудить проект</a>
-              <a href="#services" class="btn-secondary" data-i18n="hero_btn_2">Посмотреть услуги</a>
-            </div>
-
-            <div class="stats">
-              <div class="stat">
-                <div class="stat-value">Web</div>
-                <div class="stat-label" data-i18n="stat_1">Премиальные корпоративные сайты и landing pages</div>
-              </div>
-              <div class="stat">
-                <div class="stat-value">Apps</div>
-                <div class="stat-label" data-i18n="stat_2">iOS / Android / кроссплатформенные решения</div>
-              </div>
-              <div class="stat">
-                <div class="stat-value">AI</div>
-                <div class="stat-label" data-i18n="stat_3">Автоматизация процессов, контент и интеллектуальные сценарии</div>
-              </div>
-            </div>
-          </div>
-
-          <div class="hero-right fade-up">
-            <div class="visual-card">
-              <div class="visual-header">
-                <span class="dot"></span>
-                <span class="dot"></span>
-                <span class="dot"></span>
-              </div>
-
-              <div class="visual-body">
-                <div class="panel">
-                  <div class="bar"><span style="width:72%"></span></div>
-                  <div class="bar"><span style="width:56%"></span></div>
-                  <div class="bar"><span style="width:44%"></span></div>
-
-                  <div class="cards-row">
-                    <div class="mini-card">
-                      <div class="bar"><span style="width:52%"></span></div>
-                      <div class="line"></div>
-                      <div class="line"></div>
-                      <div class="line"></div>
-                    </div>
-                    <div class="mini-card">
-                      <div class="bar"><span style="width:46%"></span></div>
-                      <div class="line"></div>
-                      <div class="line"></div>
-                      <div class="line"></div>
-                    </div>
-                    <div class="mini-card">
-                      <div class="bar"><span style="width:58%"></span></div>
-                      <div class="line"></div>
-                      <div class="line"></div>
-                      <div class="line"></div>
-                    </div>
-                  </div>
-                </div>
-
-                <div class="stack">
-                  <div class="panel">
-                    <div class="bar"><span style="width:65%"></span></div>
-                    <div class="line"></div>
-                    <div class="line"></div>
-                    <div class="line"></div>
-                  </div>
-                  <div class="panel">
-                    <div class="bar"><span style="width:50%"></span></div>
-                    <div class="line"></div>
-                    <div class="line"></div>
-                    <div class="line"></div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section class="section" id="services">
-        <div class="container">
-          <div class="fade-up">
-            <h2 class="section-title" data-i18n="services_title">Услуги, которые усиливают бизнес</h2>
-            <p class="section-text" data-i18n="services_text">
-              Мы проектируем и внедряем цифровые продукты, которые выглядят премиально, работают быстро и масштабируются вместе с вашей компанией.
-            </p>
-          </div>
-
-          <div class="services-grid">
-            <div class="service-card fade-up">
-              <div class="service-icon">🌐</div>
-              <h3 class="service-title" data-i18n="service_1_title">Веб-сайты</h3>
-              <p class="service-text" data-i18n="service_1_text">
-                Современные корпоративные сайты, landing pages и многоязычные digital-платформы с сильной визуальной подачей.
-              </p>
-            </div>
-
-            <div class="service-card fade-up">
-              <div class="service-icon">📱</div>
-              <h3 class="service-title" data-i18n="service_2_title">Мобильные приложения</h3>
-              <p class="service-text" data-i18n="service_2_text">
-                Надёжные приложения для iOS и Android с продуманной архитектурой, хорошим UX и готовностью к росту.
-              </p>
-            </div>
-
-            <div class="service-card fade-up">
-              <div class="service-icon">⚙️</div>
-              <h3 class="service-title" data-i18n="service_3_title">Автоматизация</h3>
-              <p class="service-text" data-i18n="service_3_text">
-                Интеграции, n8n-сценарии, автоматизация контента, CRM-процессов, лидогенерации и внутренних операций.
-              </p>
-            </div>
-
-            <div class="service-card fade-up">
-              <div class="service-icon">🤖</div>
-              <h3 class="service-title" data-i18n="service_4_title">AI-решения</h3>
-              <p class="service-text" data-i18n="service_4_text">
-                AI-ассистенты, генерация контента, интеллектуальные workflow и кастомные решения на базе современных моделей.
-              </p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section class="section" id="process">
-        <div class="container">
-          <div class="fade-up">
-            <h2 class="section-title" data-i18n="process_title">Понятный процесс, сильный результат</h2>
-            <p class="section-text" data-i18n="process_text">
-              Мы работаем структурно: от идеи и стратегии до запуска и дальнейшего развития продукта.
-            </p>
-          </div>
-
-          <div class="process-grid">
-            <div class="process-card fade-up">
-              <div class="process-number">01</div>
-              <h3 class="process-title" data-i18n="process_1_title">Анализ</h3>
-              <p class="process-text" data-i18n="process_1_text">
-                Изучаем бизнес, задачи, рынок и точки роста, чтобы проект решал реальные цели, а не просто выглядел красиво.
-              </p>
-            </div>
-
-            <div class="process-card fade-up">
-              <div class="process-number">02</div>
-              <h3 class="process-title" data-i18n="process_2_title">Дизайн и структура</h3>
-              <p class="process-text" data-i18n="process_2_text">
-                Формируем архитектуру, интерфейсы, сценарии и визуальную систему, которая подчёркивает уровень бренда.
-              </p>
-            </div>
-
-            <div class="process-card fade-up">
-              <div class="process-number">03</div>
-              <h3 class="process-title" data-i18n="process_3_title">Разработка</h3>
-              <p class="process-text" data-i18n="process_3_text">
-                Собираем быстрый, чистый и масштабируемый продукт с приоритетом качества, безопасности и производительности.
-              </p>
-            </div>
-
-            <div class="process-card fade-up">
-              <div class="process-number">04</div>
-              <h3 class="process-title" data-i18n="process_4_title">Запуск и рост</h3>
-              <p class="process-text" data-i18n="process_4_text">
-                Запускаем проект, подключаем аналитику, автоматизацию и готовим основу для постоянного развития.
-              </p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section class="section" id="technologies">
-        <div class="container">
-          <div class="tech-wrap">
-            <div class="tech-card fade-up">
-              <h3 data-i18n="tech_title">Технологический стек</h3>
-              <p class="section-text" style="margin-top:14px;" data-i18n="tech_text">
-                Мы используем современные инструменты для создания быстрых, устойчивых и масштабируемых digital-продуктов.
-              </p>
-
-              <div class="tech-tags">
-                <span class="tag">HTML / CSS / JS</span>
-                <span class="tag">React / Next.js</span>
-                <span class="tag">Node.js</span>
-                <span class="tag">NestJS</span>
-                <span class="tag">PostgreSQL</span>
-                <span class="tag">Prisma</span>
-                <span class="tag">n8n</span>
-                <span class="tag">OpenAI API</span>
-                <span class="tag">Automation</span>
-                <span class="tag">Netlify / Vercel</span>
-              </div>
-            </div>
-
-            <div class="contact-card fade-up" id="contacts">
-              <h3 data-i18n="contacts_title">Контакты</h3>
-              <p class="section-text" style="margin-top:14px;" data-i18n="contacts_text">
-                Обсудим ваш сайт, приложение, AI-систему или автоматизацию под задачи вашего бизнеса.
-              </p>
-
-              <div class="contact-list">
-                <div class="contact-item">Luxoriondigital@gmail.com</div>
-                <div class="contact-item">+971 55 891 3535</div>
-                <div class="contact-item">Luxoriondigital.com</div>
-              </div>
-
-              <div style="margin-top:22px;">
-                <a href="mailto:Luxoriondigital@gmail.com" class="btn-primary" data-i18n="contacts_btn">Связаться сейчас</a>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-    </main>
-
-    <footer class="footer">
-      <div class="container">
-        <div class="footer-box fade-up">
-          <div>© 2026 Luxorion Digital</div>
-          <div data-i18n="footer_text">Премиальная разработка цифровых решений для бизнеса.</div>
-        </div>
-      </div>
-    </footer>
-  </div>
+  </footer>
 
   <script>
+    // ==================== ПЕРЕВОДЫ НА 3 ЯЗЫКА ====================
     const translations = {
       ru: {
-        tagline: "Глобальные IT-решения",
-        nav_services: "Услуги",
-        nav_process: "Процесс",
-        nav_tech: "Технологии",
-        nav_contacts: "Контакты",
-        header_cta: "Начать проект",
-        eyebrow: "Премиальная digital-разработка",
-        hero_title_1: "Мы создаём",
-        hero_title_2: "цифровые системы",
-        hero_title_3: "которые двигают бизнес вперёд.",
-        hero_text:
-          "Luxorion Digital разрабатывает премиальные сайты, масштабируемые мобильные приложения, интеллектуальную автоматизацию и AI-решения для амбициозных компаний, которым важны скорость, качество и долгосрочный рост.",
-        hero_btn_1: "Обсудить проект",
-        hero_btn_2: "Посмотреть услуги",
-        stat_1: "Премиальные корпоративные сайты и landing pages",
-        stat_2: "iOS / Android / кроссплатформенные решения",
-        stat_3: "Автоматизация процессов, контент и интеллектуальные сценарии",
-        services_title: "Услуги, которые усиливают бизнес",
-        services_text:
-          "Мы проектируем и внедряем цифровые продукты, которые выглядят премиально, работают быстро и масштабируются вместе с вашей компанией.",
-        service_1_title: "Веб-сайты",
-        service_1_text:
-          "Современные корпоративные сайты, landing pages и многоязычные digital-платформы с сильной визуальной подачей.",
-        service_2_title: "Мобильные приложения",
-        service_2_text:
-          "Надёжные приложения для iOS и Android с продуманной архитектурой, хорошим UX и готовностью к росту.",
-        service_3_title: "Автоматизация",
-        service_3_text:
-          "Интеграции, n8n-сценарии, автоматизация контента, CRM-процессов, лидогенерации и внутренних операций.",
-        service_4_title: "AI-решения",
-        service_4_text:
-          "AI-ассистенты, генерация контента, интеллектуальные workflow и кастомные решения на базе современных моделей.",
-        process_title: "Понятный процесс, сильный результат",
-        process_text:
-          "Мы работаем структурно: от идеи и стратегии до запуска и дальнейшего развития продукта.",
-        process_1_title: "Анализ",
-        process_1_text:
-          "Изучаем бизнес, задачи, рынок и точки роста, чтобы проект решал реальные цели, а не просто выглядел красиво.",
-        process_2_title: "Дизайн и структура",
-        process_2_text:
-          "Формируем архитектуру, интерфейсы, сценарии и визуальную систему, которая подчёркивает уровень бренда.",
-        process_3_title: "Разработка",
-        process_3_text:
-          "Собираем быстрый, чистый и масштабируемый продукт с приоритетом качества, безопасности и производительности.",
-        process_4_title: "Запуск и рост",
-        process_4_text:
-          "Запускаем проект, подключаем аналитику, автоматизацию и готовим основу для постоянного развития.",
-        tech_title: "Технологический стек",
-        tech_text:
-          "Мы используем современные инструменты для создания быстрых, устойчивых и масштабируемых digital-продуктов.",
-        contacts_title: "Контакты",
-        contacts_text:
-          "Обсудим ваш сайт, приложение, AI-систему или автоматизацию под задачи вашего бизнеса.",
-        contacts_btn: "Связаться сейчас",
-        footer_text: "Премиальная разработка цифровых решений для бизнеса."
+        brandSubtitle: "IT SOLUTIONS",
+        navServices: "Услуги", navPortfolio: "Портфолио", navTestimonials: "Отзывы", navBlog: "Блог", navContact: "Контакты",
+        eyebrowText: "Премиум разработка • AI • Автоматизация",
+        heroTitle: 'Создаём <span class="gradient">цифровые системы</span>, которые двигают бизнес вперёд',
+        heroText: "Разработка сайтов, мобильных приложений, AI-автоматизация и бизнес-решения для компаний, которые ценят качество, скорость и результат.",
+        heroBtnPrimary: "Обсудить проект", heroBtnSecondary: "Наши работы",
+        stat1Text: "Успешных проектов", stat2Text: "Автоматизация", stat3Text: "Языка поддержки",
+        ctaCardTitle: "Готовы к росту?", ctaCardText: "Запустите свой проект уже сегодня", ctaCardBtn: "WhatsApp",
+        servicesTag: "Что мы делаем", servicesTitle: "Наши услуги", servicesSubtitle: "Полный цикл разработки digital-продуктов под ключ",
+        service1Title: "Веб-разработка", service1Text: "Современные сайты, лендинги, интернет-магазины и корпоративные порталы.",
+        service2Title: "Мобильные приложения", service2Text: "Нативные и кроссплатформенные приложения для iOS и Android.",
+        service3Title: "AI автоматизация", service3Text: "n8n, AI-агенты, интеграции, умные бизнес-процессы.",
+        service4Title: "UI/UX дизайн", service4Text: "Современный дизайн, прототипирование, пользовательские сценарии.",
+        service5Title: "CRM интеграции", service5Text: "Подключение к AmoCRM, Bitrix24, HubSpot и другим системам.",
+        service6Title: "Техподдержка", service6Text: "Обслуживание, доработки, хостинг, сопровождение проектов.",
+        portfolioTag: "Наши работы", portfolioTitle: "Портфолио проектов", portfolioSubtitle: "Реальные кейсы и результаты, которыми мы гордимся",
+        portfolio1Title: "Корпоративный портал", portfolio1Text: "Сайт для международной компании с AI-чат-ботом",
+        portfolio2Title: "Мобильное приложение", portfolio2Text: "Доставка еды с интеграцией карт и оплат",
+        portfolio3Title: "AI-автоматизация", portfolio3Text: "n8n workflow для обработки 1000+ лидов в день",
+        portfolio4Title: "Интернет-магазин", portfolio4Text: "Полноценная e-commerce платформа с админ-панелью",
+        portfolio5Title: "CRM система", portfolio5Text: "Кастомизированная CRM для управления проектами",
+        portfolio6Title: "Лендинг + автоматизация", portfolio6Text: "Продающий лендинг с автоворонкой в WhatsApp",
+        testimonialsTag: "Отзывы клиентов", testimonialsTitle: "Что говорят о нас", testimonialsSubtitle: "Мнение тех, кто уже доверил нам свой бизнес",
+        testimonial1Text: "Отличная команда! Сделали сайт за 2 недели, автоматизировали обработку заявок. Результат превзошёл ожидания.",
+        author1Name: "Алексей Иванов", author1Role: "CEO, TechStart",
+        testimonial2Text: "Профессиональный подход к разработке мобильного приложения. Клиенты довольны, продажи выросли на 40%.",
+        author2Name: "Мария Соколова", author2Role: "Основатель, FitApp",
+        testimonial3Text: "AI-автоматизация от Luxorion Digital сэкономила нам 20+ часов в неделю. Лучшее решение для нашего бизнеса!",
+        author3Name: "Дмитрий Петров", author3Role: "Директор, LogiTech",
+        testimonial4Text: "Красивый дизайн, быстрая разработка, отличная поддержка. Рекомендую!",
+        author4Name: "Елена Волкова", author4Role: "Маркетолог, BeautyBrand",
+        testimonial5Text: "Работаем с Luxorion Digital второй год. Автоматизация процессов принесла реальную экономию ресурсов.",
+        author5Name: "Сергей Михайлов", author5Role: "COO, FinTech Group",
+        blogTag: "Блог", blogTitle: "Полезные статьи", blogSubtitle: "Новости, кейсы и инсайты из мира IT",
+        blogDate1: "15 марта 2026", blogTitle1: "Как AI меняет бизнес-процессы", blogText1: "Рассказываем о реальных кейсах внедрения искусственного интеллекта в компании.", blogLink1: "Читать →",
+        blogDate2: "5 марта 2026", blogTitle2: "n8n: автоматизация без кода", blogText2: "Обзор возможностей и примеры workflow для бизнеса.", blogLink2: "Читать →",
+        blogDate3: "20 февраля 2026", blogTitle3: "Тренды мобильной разработки 2026", blogText3: "Что важно знать перед запуском приложения: AI, AR, кроссплатформа.", blogLink3: "Читать →",
+        contactTitle: "Свяжитесь с нами", contactText: "Оставьте заявку, и мы обсудим ваш проект в течение 24 часов",
+        whatsappLabel: "WhatsApp", telegramLabel: "Telegram", emailLabel: "Email", officeLabel: "Офис", officeText: "Dubai, UAE",
+        inputNamePlaceholder: "Ваше имя", inputEmailPlaceholder: "Email", inputPhonePlaceholder: "Телефон",
+        inputServicePlaceholder: "Выберите услугу", inputServiceWeb: "Веб-разработка", inputServiceApp: "Мобильное приложение",
+        inputServiceAI: "AI автоматизация", inputServiceDesign: "UI/UX дизайн", inputServiceCRM: "CRM интеграция", inputServiceSupport: "Техподдержка",
+        inputMessagePlaceholder: "Опишите ваш проект", submitBtn: "Отправить заявку",
+        footerCopyright: "© 2026 Luxorion Digital. Все права защищены.",
+        footerWhatsapp: "WhatsApp", footerTelegram: "Telegram", footerInstagram: "Instagram"
       },
-
       en: {
-        tagline: "Global IT solutions",
-        nav_services: "Services",
-        nav_process: "Process",
-        nav_tech: "Technologies",
-        nav_contacts: "Contacts",
-        header_cta: "Start a project",
-        eyebrow: "Premium digital development",
-        hero_title_1: "We build",
-        hero_title_2: "digital systems",
-        hero_title_3: "that move business forward.",
-        hero_text:
-          "Luxorion Digital creates premium websites, scalable mobile applications, intelligent automation, and AI solutions for ambitious companies that value speed, quality, and long-term growth.",
-        hero_btn_1: "Discuss project",
-        hero_btn_2: "View services",
-        stat_1: "Premium corporate websites and landing pages",
-        stat_2: "iOS / Android / cross-platform solutions",
-        stat_3: "Process automation, content, and intelligent workflows",
-        services_title: "Services that strengthen business",
-        services_text:
-          "We design and implement digital products that look premium, work fast, and scale together with your company.",
-        service_1_title: "Websites",
-        service_1_text:
-          "Modern corporate websites, landing pages, and multilingual digital platforms with strong visual presentation.",
-        service_2_title: "Mobile applications",
-        service_2_text:
-          "Reliable iOS and Android apps with thoughtful architecture, strong UX, and readiness for growth.",
-        service_3_title: "Automation",
-        service_3_text:
-          "Integrations, n8n workflows, content automation, CRM processes, lead generation, and internal operations.",
-        service_4_title: "AI solutions",
-        service_4_text:
-          "AI assistants, content generation, intelligent workflows, and custom solutions powered by modern models.",
-        process_title: "Clear process, strong result",
-        process_text:
-          "We work in a structured way: from idea and strategy to launch and ongoing product growth.",
-        process_1_title: "Analysis",
-        process_1_text:
-          "We study the business, goals, market, and growth points so the project solves real objectives, not just looks attractive.",
-        process_2_title: "Design & structure",
-        process_2_text:
-          "We build architecture, interfaces, user flows, and a visual system that reflects a premium brand level.",
-        process_3_title: "Development",
-        process_3_text:
-          "We deliver a fast, clean, and scalable product with a strong focus on quality, security, and performance.",
-        process_4_title: "Launch & growth",
-        process_4_text:
-          "We launch the project, connect analytics and automation, and prepare the foundation for long-term growth.",
-        tech_title: "Technology stack",
-        tech_text:
-          "We use modern tools to build fast, stable, and scalable digital products.",
-        contacts_title: "Contacts",
-        contacts_text:
-          "Let’s discuss your website, app, AI system, or automation based on your business goals.",
-        contacts_btn: "Contact now",
-        footer_text: "Premium digital product development for business."
+        brandSubtitle: "IT SOLUTIONS",
+        navServices: "Services", navPortfolio: "Portfolio", navTestimonials: "Testimonials", navBlog: "Blog", navContact: "Contact",
+        eyebrowText: "Premium development • AI • Automation",
+        heroTitle: 'We build <span class="gradient">digital systems</span> that move business forward',
+        heroText: "Website development, mobile apps, AI automation and business solutions for companies that value quality, speed and results.",
+        heroBtnPrimary: "Discuss Project", heroBtnSecondary: "Our Work",
+        stat1Text: "Successful Projects", stat2Text: "Automation", stat3Text: "Languages Support",
+        ctaCardTitle: "Ready to grow?", ctaCardText: "Launch your project today", ctaCardBtn: "WhatsApp",
+        servicesTag: "What we do", servicesTitle: "Our Services", servicesSubtitle: "Full-cycle digital product development",
+        service1Title: "Web Development", service1Text: "Modern websites, landing pages, e-commerce and corporate portals.",
+        service2Title: "Mobile Apps", service2Text: "Native and cross-platform apps for iOS and Android.",
+        service3Title: "AI Automation", service3Text: "n8n, AI agents, integrations, smart business processes.",
+        service4Title: "UI/UX Design", service4Text: "Modern design, prototyping, user scenarios.",
+        service5Title: "CRM Integrations", service5Text: "Integration with AmoCRM, Bitrix24, HubSpot and other systems.",
+        service6Title: "Tech Support", service6Text: "Maintenance, updates, hosting, project support.",
+        portfolioTag: "Our Work", portfolioTitle: "Portfolio", portfolioSubtitle: "Real cases and results we are proud of",
+        portfolio1Title: "Corporate Portal", portfolio1Text: "Website for international company with AI chatbot",
+        portfolio2Title: "Mobile App", portfolio2Text: "Food delivery with maps and payment integration",
+        portfolio3Title: "AI Automation", portfolio3Text: "n8n workflow for processing 1000+ leads per day",
+        portfolio4Title: "E-commerce", portfolio4Text: "Full-featured e-commerce platform with admin panel",
+        portfolio5Title: "CRM System", portfolio5Text: "Custom CRM for project management",
+        portfolio6Title: "Landing + Automation", portfolio6Text: "Sales landing with WhatsApp auto-funnel",
+        testimonialsTag: "Testimonials", testimonialsTitle: "What clients say", testimonialsSubtitle: "Opinions of those who trusted us with their business",
+        testimonial1Text: "Great team! They built the website in 2 weeks and automated lead processing. The result exceeded expectations.",
+        author1Name: "Alexey Ivanov", author1Role: "CEO, TechStart",
+        testimonial2Text: "Professional approach to mobile app development. Clients are satisfied, sales increased by 40%.",
+        author2Name: "Maria Sokolova", author2Role: "Founder, FitApp",
+        testimonial3Text: "AI automation from Luxorion Digital saved us 20+ hours per week. Best solution for our business!",
+        author3Name: "Dmitry Petrov", author3Role: "Director, LogiTech",
+        testimonial4Text: "Beautiful design, fast development, great support. I recommend!",
+        author4Name: "Elena Volkova", author4Role: "Marketer, BeautyBrand",
+        testimonial5Text: "Working with Luxorion Digital for the second year. Process automation has brought real resource savings.",
+        author5Name: "Sergey Mikhailov", author5Role: "COO, FinTech Group",
+        blogTag: "Blog", blogTitle: "Useful Articles", blogSubtitle: "News, cases and insights from the IT world",
+        blogDate1: "March 15, 2026", blogTitle1: "How AI is Changing Business Processes", blogText1: "Real cases of implementing artificial intelligence in companies.", blogLink1: "Read →",
+        blogDate2: "March 5, 2026", blogTitle2: "n8n: No-Code Automation", blogText2: "Overview of capabilities and workflow examples for business.", blogLink2: "Read →",
+        blogDate3: "February 20, 2026", blogTitle3: "Mobile Development Trends 2026", blogText3: "What you need to know before launching an app: AI, AR, cross-platform.", blogLink3: "Read →",
+        contactTitle: "Contact Us", contactText: "Leave a request and we will discuss your project within 24 hours",
+        whatsappLabel: "WhatsApp", telegramLabel: "Telegram", emailLabel: "Email", officeLabel: "Office", officeText: "Dubai, UAE",
+        inputNamePlaceholder: "Your name", inputEmailPlaceholder: "Email", inputPhonePlaceholder: "Phone",
+        inputServicePlaceholder: "Select service", inputServiceWeb: "Web Development", inputServiceApp: "Mobile App",
+        inputServiceAI: "AI Automation", inputServiceDesign: "UI/UX Design", inputServiceCRM: "CRM Integration", inputServiceSupport: "Tech Support",
+        inputMessagePlaceholder: "Describe your project", submitBtn: "Send Request",
+        footerCopyright: "© 2026 Luxorion Digital. All rights reserved.",
+        footerWhatsapp: "WhatsApp", footerTelegram: "Telegram", footerInstagram: "Instagram"
       },
-
       ar: {
-        tagline: "حلول تقنية عالمية",
-        nav_services: "الخدمات",
-        nav_process: "العملية",
-        nav_tech: "التقنيات",
-        nav_contacts: "التواصل",
-        header_cta: "ابدأ مشروعك",
-        eyebrow: "تطوير رقمي فاخر",
-        hero_title_1: "نحن نبني",
-        hero_title_2: "أنظمة رقمية",
-        hero_title_3: "تدفع الأعمال إلى الأمام.",
-        hero_text:
-          "تقوم Luxorion Digital بتطوير مواقع إلكترونية متميزة، وتطبيقات جوال قابلة للتوسع، وأتمتة ذكية، وحلول ذكاء اصطناعي للشركات الطموحة التي تبحث عن السرعة والجودة والنمو طويل المدى.",
-        hero_btn_1: "ناقش المشروع",
-        hero_btn_2: "عرض الخدمات",
-        stat_1: "مواقع شركات وصفحات هبوط بمستوى فاخر",
-        stat_2: "حلول iOS / Android / متعددة المنصات",
-        stat_3: "أتمتة العمليات والمحتوى وسيناريوهات ذكية",
-        services_title: "خدمات تعزز نمو الأعمال",
-        services_text:
-          "نحن نصمم وننفذ منتجات رقمية تبدو احترافية، تعمل بسرعة، وتتوسع مع شركتكم.",
-        service_1_title: "المواقع الإلكترونية",
-        service_1_text:
-          "مواقع شركات حديثة وصفحات هبوط ومنصات رقمية متعددة اللغات بتقديم بصري قوي.",
-        service_2_title: "تطبيقات الجوال",
-        service_2_text:
-          "تطبيقات موثوقة لنظامي iOS وAndroid مع بنية مدروسة وتجربة مستخدم قوية وجاهزية للنمو.",
-        service_3_title: "الأتمتة",
-        service_3_text:
-          "تكاملات وعمليات n8n وأتمتة المحتوى وعمليات CRM وتوليد العملاء والعمليات الداخلية.",
-        service_4_title: "حلول الذكاء الاصطناعي",
-        service_4_text:
-          "مساعدون ذكيون وتوليد محتوى وسير عمل ذكي وحلول مخصصة باستخدام النماذج الحديثة.",
-        process_title: "عملية واضحة ونتيجة قوية",
-        process_text:
-          "نعمل بشكل منظم من الفكرة والاستراتيجية حتى الإطلاق والنمو المستمر للمنتج.",
-        process_1_title: "التحليل",
-        process_1_text:
-          "نقوم بدراسة النشاط التجاري والأهداف والسوق وفرص النمو لضمان أن المشروع يحقق أهدافاً حقيقية.",
-        process_2_title: "التصميم والهيكلة",
-        process_2_text:
-          "نضع الهيكلية والواجهات وتدفقات الاستخدام والنظام البصري الذي يعكس مستوى العلامة التجارية.",
-        process_3_title: "التطوير",
-        process_3_text:
-          "نقوم ببناء منتج سريع ونظيف وقابل للتوسع مع تركيز كبير على الجودة والأمان والأداء.",
-        process_4_title: "الإطلاق والنمو",
-        process_4_text:
-          "نطلق المشروع ونربط التحليلات والأتمتة ونؤسس قاعدة للنمو طويل المدى.",
-        tech_title: "التقنيات المستخدمة",
-        tech_text:
-          "نستخدم أدوات حديثة لبناء منتجات رقمية سريعة ومستقرة وقابلة للتوسع.",
-        contacts_title: "التواصل",
-        contacts_text:
-          "دعنا نناقش موقعك أو تطبيقك أو نظام الذكاء الاصطناعي أو الأتمتة حسب أهداف عملك.",
-        contacts_btn: "تواصل الآن",
-        footer_text: "تطوير رقمي متميز للأعمال."
+        brandSubtitle: "حلول تقنية",
+        navServices: "الخدمات", navPortfolio: "أعمالنا", navTestimonials: "آراء العملاء", navBlog: "المدونة", navContact: "اتصل بنا",
+        eyebrowText: "تطوير متميز • ذكاء اصطناعي • أتمتة",
+        heroTitle: 'نبني <span class="gradient">أنظمة رقمية</span> تدفع الأعمال إلى الأمام',
+        heroText: "تطوير المواقع الإلكترونية وتطبيقات الجوال والأتمتة بالذكاء الاصطناعي للشركات التي تقدر الجودة والسرعة والنتائج.",
+        heroBtnPrimary: "ناقش مشروعك", heroBtnSecondary: "أعمالنا",
+        stat1Text: "مشروع ناجح", stat2Text: "أتمتة", stat3Text: "لغات الدعم",
+        ctaCardTitle: "هل أنت مستعد للنمو؟", ctaCardText: "أطلق مشروعك اليوم", ctaCardBtn: "واتساب",
+        servicesTag: "ماذا نقدم", servicesTitle: "خدماتنا", servicesSubtitle: "تطوير متكامل للمنتجات الرقمية",
+        service1Title: "تطوير المواقع", service1Text: "مواقع حديثة، صفحات هبوط، متاجر إلكترونية وبوابات الشركات.",
+        service2Title: "تطبيقات الجوال", service2Text: "تطبيقات أصلية ومتعددة المنصات لنظامي iOS و Android.",
+        service3Title: "أتمتة الذكاء الاصطناعي", service3Text: "n8n، وكلاء الذكاء الاصطناعي، التكاملات، العمليات الذكية.",
+        service4Title: "تصميم واجهات المستخدم", service4Text: "تصميم حديث، نماذج أولية، سيناريوهات المستخدم.",
+        service5Title: "تكامل نظم CRM", service5Text: "التكامل مع AmoCRM و Bitrix24 و HubSpot والأنظمة الأخرى.",
+        service6Title: "الدعم الفني", service6Text: "الصيانة والتحديثات والاستضافة ودعم المشاريع.",
+        portfolioTag: "أعمالنا", portfolioTitle: "محفظة المشاريع", portfolioSubtitle: "حالات ونتائج حقيقية نفخر بها",
+        portfolio1Title: "بوابة الشركات", portfolio1Text: "موقع لشركة دولية مع دردشة ذكاء اصطناعي",
+        portfolio2Title: "تطبيق جوال", portfolio2Text: "توصيل الطعام مع تكامل الخرائط والدفع",
+        portfolio3Title: "أتمتة الذكاء الاصطناعي", portfolio3Text: "سير عمل n8n لمعالجة 1000+ عميل محتمل يومياً",
+        portfolio4Title: "متجر إلكتروني", portfolio4Text: "منصة تجارة إلكترونية متكاملة مع لوحة تحكم",
+        portfolio5Title: "نظام CRM", portfolio5Text: "نظام CRM مخصص لإدارة المشاريع",
+        portfolio6Title: "صفحة هبوط + أتمتة", portfolio6Text: "صفحة مبيعات مع مسار آلي على واتساب",
+        testimonialsTag: "آراء العملاء", testimonialsTitle: "ماذا يقولون عنا", testimonialsSubtitle: "آراء من وثقوا بنا في أعمالهم",
+        testimonial1Text: "فريق رائع! قاموا ببناء الموقع في أسبوعين وأتمتة معالجة العملاء المحتملين. النتيجة تجاوزت التوقعات.",
+        author1Name: "أليكسي إيفانوف", author1Role: "الرئيس التنفيذي، TechStart",
+        testimonial2Text: "نهج احترافي في تطوير تطبيقات الجوال. العملاء سعداء، وزادت المبيعات بنسبة 40٪.",
+        author2Name: "ماريا سوكولوفا", author2Role: "المؤسس، FitApp",
+        testimonial3Text: "الأتمتة بالذكاء الاصطناعي من Luxorion Digital وفرت لنا أكثر من 20 ساعة أسبوعياً. أفضل حل لأعمالنا!",
+        author3Name: "دميتري بيتروف", author3Role: "المدير، LogiTech",
+        testimonial4Text: "تصميم جميل، تطوير سريع، دعم ممتاز. أنصح به!",
+        author4Name: "إيلينا فولكوفا", author4Role: "مسوق، BeautyBrand",
+        testimonial5Text: "نعمل مع Luxorion Digital للسنة الثانية. أتمتة العمليات حققت توفيراً حقيقياً في الموارد.",
+        author5Name: "سيرجي ميخائيلوف", author5Role: "مدير العمليات، FinTech Group",
+        blogTag: "المدونة", blogTitle: "مقالات مفيدة", blogSubtitle: "أخبار وحالات ورؤى من عالم التكنولوجيا",
+        blogDate1: "15 مارس 2026", blogTitle1: "كيف يغير الذكاء الاصطناعي عمليات الأعمال", blogText1: "حالات حقيقية لتطبيق الذكاء الاصطناعي في الشركات.", blogLink1: "اقرأ ←",
+        blogDate2: "5 مارس 2026", blogTitle2: "n8n: أتمتة بدون برمجة", blogText2: "نظرة عامة على الإمكانيات وأمثلة سير العمل للأعمال.", blogLink2: "اقرأ ←",
+        blogDate3: "20 فبراير 2026", blogTitle3: "اتجاهات تطوير تطبيقات الجوال 2026", blogText3: "ما تحتاج معرفته قبل إطلاق التطبيق: الذكاء الاصطناعي، الواقع المعزز، المنصات المتعددة.", blogLink3: "اقرأ ←",
+        contactTitle: "اتصل بنا", contactText: "اترك طلباً وسنناقش مشروعك خلال 24 ساعة",
+        whatsappLabel: "واتساب", telegramLabel: "تيليغرام", emailLabel: "البريد الإلكتروني", officeLabel: "المكتب", officeText: "دبي، الإمارات العربية المتحدة",
+        inputNamePlaceholder: "اسمك", inputEmailPlaceholder: "البريد الإلكتروني", inputPhonePlaceholder: "الهاتف",
+        inputServicePlaceholder: "اختر الخدمة", inputServiceWeb: "تطوير المواقع", inputServiceApp: "تطبيقات الجوال",
+        inputServiceAI: "أتمتة الذكاء الاصطناعي", inputServiceDesign: "تصميم واجهات المستخدم", inputServiceCRM: "تكامل نظم CRM", inputServiceSupport: "الدعم الفني",
+        inputMessagePlaceholder: "صف مشروعك", submitBtn: "إرسال الطلب",
+        footerCopyright: "© 2026 Luxorion Digital. جميع الحقوق محفوظة.",
+        footerWhatsapp: "واتساب", footerTelegram: "تيليغرام", footerInstagram: "إنستغرام"
       }
     };
 
+    // Применение выбранного языка
     function setLanguage(lang) {
-      const dict = translations[lang] || translations.ru;
-
-      document.querySelectorAll("[data-i18n]").forEach((el) => {
-        const key = el.getAttribute("data-i18n");
-        if (dict[key]) el.textContent = dict[key];
-      });
-
+      const t = translations[lang];
+      if (!t) return;
+      
+      document.body.dir = lang === 'ar' ? 'rtl' : 'ltr';
       document.documentElement.lang = lang;
-
-      if (lang === "ar") {
-        document.documentElement.dir = "rtl";
-      } else {
-        document.documentElement.dir = "ltr";
+      
+      // Обновляем все текстовые элементы
+      for (const [key, value] of Object.entries(t)) {
+        const element = document.getElementById(key);
+        if (element) {
+          if (key === 'heroTitle') {
+            element.innerHTML = value;
+          } else {
+            element.textContent = value;
+          }
+        }
       }
-
-      document.querySelectorAll(".lang-btn").forEach((btn) => {
-        btn.classList.toggle("active", btn.dataset.lang === lang);
+      
+      // Обновляем плейсхолдеры формы
+      const nameInput = document.getElementById('inputName');
+      const emailInput = document.getElementById('inputEmail');
+      const phoneInput = document.getElementById('inputPhone');
+      const msgInput = document.getElementById('inputMessage');
+      const serviceSelect = document.getElementById('inputService');
+      const submitBtn = document.getElementById('submitBtn');
+      
+      if (nameInput) nameInput.placeholder = t.inputNamePlaceholder;
+      if (emailInput) emailInput.placeholder = t.inputEmailPlaceholder;
+      if (phoneInput) phoneInput.placeholder = t.inputPhonePlaceholder;
+      if (msgInput) msgInput.placeholder = t.inputMessagePlaceholder;
+      if (submitBtn) submitBtn.textContent = t.submitBtn;
+      
+      if (serviceSelect && serviceSelect.options) {
+        serviceSelect.options[0].textContent = t.inputServicePlaceholder;
+        if (serviceSelect.options[1]) serviceSelect.options[1].textContent = t.inputServiceWeb;
+        if (serviceSelect.options[2]) serviceSelect.options[2].textContent = t.inputServiceApp;
+        if (serviceSelect.options[3]) serviceSelect.options[3].textContent = t.inputServiceAI;
+        if (serviceSelect.options[4]) serviceSelect.options[4].textContent = t.inputServiceDesign;
+        if (serviceSelect.options[5]) serviceSelect.options[5].textContent = t.inputServiceCRM;
+        if (serviceSelect.options[6]) serviceSelect.options[6].textContent = t.inputServiceSupport;
+      }
+      
+      // Обновляем активную кнопку
+      document.querySelectorAll('.lang-btn').forEach(btn => {
+        btn.classList.toggle('active', btn.dataset.lang === lang);
       });
-
-      localStorage.setItem("luxorion_lang", lang);
+      
+      localStorage.setItem('luxorion_lang', lang);
     }
-
-    document.querySelectorAll(".lang-btn").forEach((btn) => {
-      btn.addEventListener("click", () => {
-        setLanguage(btn.dataset.lang);
-      });
+    
+    // Инициализация переключателей
+    document.querySelectorAll('.lang-btn').forEach(btn => {
+      btn.addEventListener('click', () => setLanguage(btn.dataset.lang));
     });
-
-    const savedLang = localStorage.getItem("luxorion_lang") || "ru";
+    
+    // Загрузка сохраненного языка
+    const savedLang = localStorage.getItem('luxorion_lang') || 'ru';
     setLanguage(savedLang);
-
-    const menuBtn = document.getElementById("menuBtn");
-    const mainNav = document.getElementById("mainNav");
-
-    menuBtn.addEventListener("click", () => {
-      mainNav.classList.toggle("open");
+    
+    // ==================== ОСТАЛЬНОЙ JS ====================
+    // Мобильное меню
+    const menuToggle = document.getElementById('menuToggle');
+    const mobileNav = document.getElementById('mobileNav');
+    if (menuToggle) {
+      menuToggle.addEventListener('click', () => mobileNav.classList.toggle('open'));
+    }
+    document.querySelectorAll('nav a').forEach(link => {
+      link.addEventListener('click', () => mobileNav.classList.remove('open'));
     });
-
-    document.querySelectorAll('.nav a').forEach(link => {
-      link.addEventListener('click', () => {
-        mainNav.classList.remove('open');
+    
+    // Анимация появления
+    const reveals = document.querySelectorAll('.reveal');
+    function checkReveal() {
+      const trigger = window.innerHeight * 0.85;
+      reveals.forEach(el => {
+        if (el.getBoundingClientRect().top < trigger) el.classList.add('visible');
       });
-    });
-
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add("show");
+    }
+    window.addEventListener('scroll', checkReveal);
+    window.addEventListener('load', checkReveal);
+    checkReveal();
+    
+    // Слайдер отзывов
+    const track = document.getElementById('testimonialsTrack');
+    const prevBtn = document.getElementById('prevSlide');
+    const nextBtn = document.getElementById('nextSlide');
+    let slideIndex = 0;
+    let slideWidth = 0;
+    let visible = 3;
+    
+    function updateVisible() {
+      if (window.innerWidth < 700) visible = 1;
+      else if (window.innerWidth < 1000) visible = 2;
+      else visible = 3;
+    }
+    
+    function updateSlide() {
+      if (!track) return;
+      const card = track.querySelector('.testimonial-card');
+      if (!card) return;
+      slideWidth = card.offsetWidth + 24;
+      const max = track.children.length - visible;
+      if (slideIndex > max) slideIndex = Math.max(0, max);
+      track.style.transform = `translateX(-${slideIndex * slideWidth}px)`;
+    }
+    
+    if (prevBtn) prevBtn.addEventListener('click', () => { if (slideIndex > 0) { slideIndex--; updateSlide(); } });
+    if (nextBtn) nextBtn.addEventListener('click', () => { const max = track.children.length - visible; if (slideIndex < max) { slideIndex++; updateSlide(); } });
+    window.addEventListener('resize', () => { updateVisible(); slideIndex = 0; updateSlide(); });
+    setTimeout(() => { updateVisible(); updateSlide(); }, 100);
+    
+    // Форма обратной связи
+    const contactForm = document.getElementById('contactForm');
+    const formStatus = document.getElementById('formStatus');
+    if (contactForm) {
+      contactForm.addEventListener('submit', async (e) => {
+        e.preventDefault();
+        const formData = new FormData(contactForm);
+        formStatus.className = 'form-status';
+        formStatus.textContent = 'Отправка...';
+        formStatus.style.display = 'block';
+        try {
+          await new Promise(resolve => setTimeout(resolve, 1000));
+          formStatus.className = 'form-status success';
+          const currentLang = localStorage.getItem('luxorion_lang') || 'ru';
+          formStatus.textContent = currentLang === 'ru' ? '✅ Заявка отправлена!' : (currentLang === 'en' ? '✅ Request sent!' : '✅ تم إرسال الطلب!');
+          contactForm.reset();
+          setTimeout(() => formStatus.style.display = 'none', 5000);
+        } catch (error) {
+          formStatus.className = 'form-status error';
+          formStatus.textContent = '❌ Ошибка';
         }
       });
-    }, { threshold: 0.14 });
-
-    document.querySelectorAll(".fade-up").forEach((el) => observer.observe(el));
+    }
+    
+    // Частицы
+    const canvas = document.getElementById('particles');
+    let ctx = canvas?.getContext('2d');
+    let particles = [];
+    let animId = null;
+    
+    function resizeCanvas() { if (canvas) { canvas.width = window.innerWidth; canvas.height = window.innerHeight; initParticles(); } }
+    function initParticles() { if (!canvas) return; particles = []; const count = window.innerWidth < 768 ? 40 : 80; for (let i = 0; i < count; i++) { particles.push({ x: Math.random() * canvas.width, y: Math.random() * canvas.height, r: Math.random() * 2 + 1, dx: (Math.random() - 0.5) * 0.3, dy: (Math.random() - 0.5) * 0.3, a: Math.random() * 0.5 + 0.2 }); } }
+    function drawParticles() { if (!ctx || !canvas) return; ctx.clearRect(0, 0, canvas.width, canvas.height); for (let i = 0; i < particles.length; i++) { const p = particles[i]; ctx.beginPath(); ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2); ctx.fillStyle = `rgba(120, 210, 255, ${p.a})`; ctx.fill(); p.x += p.dx; p.y += p.dy; if (p.x < 0 || p.x > canvas.width) p.dx *= -1; if (p.y < 0 || p.y > canvas.height) p.dy *= -1; for (let j = i + 1; j < particles.length && j < i + 30; j++) { const p2 = particles[j]; const d = Math.hypot(p.x - p2.x, p.y - p2.y); if (d < 120) { ctx.beginPath(); ctx.moveTo(p.x, p.y); ctx.lineTo(p2.x, p2.y); ctx.strokeStyle = `rgba(120, 170, 255, ${0.08 - d / 1800})`; ctx.lineWidth = 0.8; ctx.stroke(); } } } animId = requestAnimationFrame(drawParticles); }
+    if (canvas) { resizeCanvas(); initParticles(); drawParticles(); }
+    window.addEventListener('resize', () => { if (canvas) { resizeCanvas(); initParticles(); } });
+    window.addEventListener('beforeunload', () => { if (animId) cancelAnimationFrame(animId); });
   </script>
 </body>
 </html>
