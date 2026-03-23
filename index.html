@@ -8,13 +8,11 @@
   <meta name="keywords" content="разработка сайтов, создание мобильных приложений, AI автоматизация, n8n" />
   <meta name="theme-color" content="#071124" />
   
-  <!-- Open Graph -->
   <meta property="og:type" content="website" />
   <meta property="og:title" content="Luxorion Digital | Премиальная разработка" />
   <meta property="og:description" content="Создаем современные сайты, мобильные приложения и системы автоматизации для бизнеса." />
   
   <link rel="canonical" href="https://luxoriondigital.com" />
-  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ccircle cx='50' cy='50' r='45' fill='%236c63ff'/%3E%3C/svg%3E" />
   
   <style>
     :root {
@@ -70,10 +68,10 @@
     header { position: sticky; top: 0; z-index: 1000; backdrop-filter: blur(16px); background: rgba(4,8,22,0.58); border-bottom: 1px solid rgba(255,255,255,0.08); }
     .nav { min-height: 86px; display: flex; align-items: center; justify-content: space-between; gap: 18px; padding: 10px 0; }
     .brand { display: flex; align-items: center; gap: 14px; text-decoration: none; color: #fff; }
-    .logo-box { width: 58px; height: 58px; border-radius: 16px; background: linear-gradient(135deg, rgba(108,99,255,0.3), rgba(29,207,255,0.2)); border: 1px solid rgba(255,255,255,0.2); display: flex; align-items: center; justify-content: center; }
-    .logo-svg { width: 42px; height: 42px; }
+    .logo-box { width: 58px; height: 58px; border-radius: 16px; background: linear-gradient(135deg, var(--accent), var(--accent2)); display: flex; align-items: center; justify-content: center; box-shadow: 0 0 20px rgba(108,99,255,0.4); }
+    .logo-svg { width: 38px; height: 38px; filter: drop-shadow(0 0 5px rgba(255,255,255,0.3)); }
     .brand-text { display: flex; flex-direction: column; }
-    .brand-title { font-size: 20px; font-weight: 700; }
+    .brand-title { font-size: 20px; font-weight: 700; background: linear-gradient(135deg, #fff, var(--accent2)); -webkit-background-clip: text; background-clip: text; color: transparent; }
     .brand-subtitle { font-size: 11px; letter-spacing: 1.5px; color: var(--soft); }
     nav ul { list-style: none; display: flex; gap: 28px; }
     nav a { text-decoration: none; color: var(--muted); transition: 0.25s; font-size: 15px; }
@@ -113,6 +111,14 @@
     .section-title { font-size: clamp(32px, 4vw, 48px); margin-bottom: 16px; }
     .section-subtitle { color: var(--muted); max-width: 700px; margin: 0 auto; line-height: 1.6; }
 
+    /* Блок "Почему выбирают нас" */
+    .why-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px; }
+    .why-card { background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1); border-radius: 24px; padding: 32px 24px; text-align: center; transition: 0.3s; }
+    .why-card:hover { transform: translateY(-8px); border-color: var(--accent2); background: rgba(255,255,255,0.08); }
+    .why-icon { font-size: 48px; margin-bottom: 20px; display: inline-block; }
+    .why-card h3 { font-size: 22px; margin-bottom: 12px; }
+    .why-card p { color: var(--muted); font-size: 14px; line-height: 1.6; }
+
     .services-grid, .portfolio-grid, .blog-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
     .card { background: rgba(255,255,255,0.07); border: 1px solid rgba(255,255,255,0.1); border-radius: 24px; padding: 28px; transition: 0.3s; }
     .card:hover { transform: translateY(-5px); border-color: rgba(108,99,255,0.4); }
@@ -132,7 +138,7 @@
     .testimonial-card { min-width: calc(33.333% - 16px); background: rgba(255,255,255,0.07); border: 1px solid rgba(255,255,255,0.1); border-radius: 24px; padding: 28px; }
     .testimonial-text { font-size: 16px; line-height: 1.7; color: var(--muted); margin-bottom: 20px; font-style: italic; }
     .testimonial-author { display: flex; align-items: center; gap: 12px; }
-    .author-avatar { width: 48px; height: 48px; border-radius: 50%; background: linear-gradient(135deg, var(--accent), var(--accent2)); display: flex; align-items: center; justify-content: center; font-weight: 700; }
+    .author-avatar { width: 48px; height: 48px; border-radius: 50%; background: linear-gradient(135deg, var(--accent), var(--accent2)); display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 18px; }
     .author-info h4 { font-size: 16px; margin-bottom: 4px; }
     .author-info p { font-size: 12px; color: var(--soft); }
     .slider-controls { display: flex; justify-content: center; gap: 16px; margin-top: 30px; }
@@ -180,16 +186,16 @@
     body[dir="rtl"] .eyebrow::before { margin-left: 10px; margin-right: 0; }
 
     @media (max-width: 1000px) {
-      .services-grid, .portfolio-grid, .blog-grid { grid-template-columns: repeat(2, 1fr); }
+      .services-grid, .portfolio-grid, .blog-grid, .why-grid { grid-template-columns: repeat(2, 1fr); }
       .hero-grid, .form-grid { grid-template-columns: 1fr; }
       .testimonial-card { min-width: calc(50% - 12px); }
       nav ul { display: none; }
       .menu-toggle { display: block; }
-      nav.open ul { display: flex; flex-direction: column; position: absolute; top: 86px; left: 0; right: 0; background: rgba(4,8,22,0.98); padding: 20px; backdrop-filter: blur(20px); }
+      nav.open ul { display: flex; flex-direction: column; position: absolute; top: 86px; left: 0; right: 0; background: rgba(4,8,22,0.98); padding: 20px; backdrop-filter: blur(20px); z-index: 1000; }
       .social-buttons { display: none; }
     }
     @media (max-width: 700px) {
-      .services-grid, .portfolio-grid, .blog-grid { grid-template-columns: 1fr; }
+      .services-grid, .portfolio-grid, .blog-grid, .why-grid { grid-template-columns: 1fr; }
       .testimonial-card { min-width: 100%; }
       .hero-stats { grid-template-columns: 1fr; }
       .contact-form-section { padding: 28px; }
@@ -210,9 +216,9 @@
       <a href="#home" class="brand">
         <div class="logo-box">
           <svg class="logo-svg" viewBox="0 0 100 100" fill="none">
-            <circle cx="50" cy="50" r="45" stroke="url(#grad)" stroke-width="2" fill="none"/>
-            <path d="M35 50 L45 65 L65 35" stroke="url(#grad)" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
-            <defs><linearGradient id="grad"><stop offset="0%" stop-color="#1dcfff"/><stop offset="100%" stop-color="#6c63ff"/></linearGradient></defs>
+            <circle cx="50" cy="50" r="42" stroke="white" stroke-width="2" fill="none"/>
+            <path d="M35 50 L45 65 L65 35" stroke="white" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+            <circle cx="50" cy="50" r="8" fill="white"/>
           </svg>
         </div>
         <div class="brand-text">
@@ -223,9 +229,9 @@
       <nav id="mobileNav">
         <ul>
           <li><a href="#services" id="navServices">Услуги</a></li>
+          <li><a href="#why" id="navWhy">Почему мы</a></li>
           <li><a href="#portfolio" id="navPortfolio">Портфолио</a></li>
           <li><a href="#testimonials" id="navTestimonials">Отзывы</a></li>
-          <li><a href="#blog" id="navBlog">Блог</a></li>
           <li><a href="#contact" id="navContact">Контакты</a></li>
         </ul>
       </nav>
@@ -267,6 +273,23 @@
             <p id="ctaCardText">Запустите свой проект уже сегодня</p>
             <a href="https://wa.me/971558913535" class="btn-primary" style="display:inline-block; margin-top:20px;" target="_blank" id="ctaCardBtn">WhatsApp</a>
           </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Блок "Почему выбирают нас" -->
+    <section id="why">
+      <div class="container">
+        <div class="section-header reveal">
+          <span class="section-tag" id="whyTag">Почему мы</span>
+          <h2 class="section-title" id="whyTitle">Почему выбирают Luxorion Digital</h2>
+          <p class="section-subtitle" id="whySubtitle">Наши клиенты доверяют нам, потому что мы гарантируем результат</p>
+        </div>
+        <div class="why-grid">
+          <div class="why-card reveal"><div class="why-icon">⚡</div><h3 id="why1Title">Быстрая разработка</h3><p id="why1Text">Средний срок запуска проекта — от 2 до 4 недель без потери качества.</p></div>
+          <div class="why-card reveal"><div class="why-icon">💎</div><h3 id="why2Title">Премиум качество</h3><p id="why2Text">Современный дизайн, чистая архитектура и внимание к деталям.</p></div>
+          <div class="why-card reveal"><div class="why-icon">🤖</div><h3 id="why3Title">AI-интеграции</h3><p id="why3Text">Внедряем искусственный интеллект и автоматизацию в любой проект.</p></div>
+          <div class="why-card reveal"><div class="why-icon">🌍</div><h3 id="why4Title">Глобальная поддержка</h3><p id="why4Text">Работаем с клиентами по всему миру, поддерживаем 3 языка.</p></div>
         </div>
       </div>
     </section>
@@ -330,21 +353,6 @@
       </div>
     </section>
 
-    <section id="blog">
-      <div class="container">
-        <div class="section-header reveal">
-          <span class="section-tag" id="blogTag">Блог</span>
-          <h2 class="section-title" id="blogTitle">Полезные статьи</h2>
-          <p class="section-subtitle" id="blogSubtitle">Новости, кейсы и инсайты из мира IT</p>
-        </div>
-        <div class="blog-grid">
-          <div class="blog-card reveal"><div class="blog-image">🤖</div><div class="blog-content"><span class="blog-date" id="blogDate1">15 марта 2026</span><h4 id="blogTitle1">Как AI меняет бизнес-процессы</h4><p id="blogText1">Рассказываем о реальных кейсах внедрения искусственного интеллекта в компании.</p><a href="#" class="read-more" id="blogLink1">Читать →</a></div></div>
-          <div class="blog-card reveal"><div class="blog-image">⚙️</div><div class="blog-content"><span class="blog-date" id="blogDate2">5 марта 2026</span><h4 id="blogTitle2">n8n: автоматизация без кода</h4><p id="blogText2">Обзор возможностей и примеры workflow для бизнеса.</p><a href="#" class="read-more" id="blogLink2">Читать →</a></div></div>
-          <div class="blog-card reveal"><div class="blog-image">📱</div><div class="blog-content"><span class="blog-date" id="blogDate3">20 февраля 2026</span><h4 id="blogTitle3">Тренды мобильной разработки 2026</h4><p id="blogText3">Что важно знать перед запуском приложения: AI, AR, кроссплатформа.</p><a href="#" class="read-more" id="blogLink3">Читать →</a></div></div>
-        </div>
-      </div>
-    </section>
-
     <section id="contact">
       <div class="container">
         <div class="contact-form-section reveal">
@@ -402,13 +410,18 @@
     const translations = {
       ru: {
         brandSubtitle: "IT SOLUTIONS",
-        navServices: "Услуги", navPortfolio: "Портфолио", navTestimonials: "Отзывы", navBlog: "Блог", navContact: "Контакты",
+        navServices: "Услуги", navWhy: "Почему мы", navPortfolio: "Портфолио", navTestimonials: "Отзывы", navContact: "Контакты",
         eyebrowText: "Премиум разработка • AI • Автоматизация",
         heroTitle: 'Создаём <span class="gradient">цифровые системы</span>, которые двигают бизнес вперёд',
         heroText: "Разработка сайтов, мобильных приложений, AI-автоматизация и бизнес-решения для компаний, которые ценят качество, скорость и результат.",
         heroBtnPrimary: "Обсудить проект", heroBtnSecondary: "Наши работы",
         stat1Text: "Успешных проектов", stat2Text: "Автоматизация", stat3Text: "Языка поддержки",
         ctaCardTitle: "Готовы к росту?", ctaCardText: "Запустите свой проект уже сегодня", ctaCardBtn: "WhatsApp",
+        whyTag: "Почему мы", whyTitle: "Почему выбирают Luxorion Digital", whySubtitle: "Наши клиенты доверяют нам, потому что мы гарантируем результат",
+        why1Title: "Быстрая разработка", why1Text: "Средний срок запуска проекта — от 2 до 4 недель без потери качества.",
+        why2Title: "Премиум качество", why2Text: "Современный дизайн, чистая архитектура и внимание к деталям.",
+        why3Title: "AI-интеграции", why3Text: "Внедряем искусственный интеллект и автоматизацию в любой проект.",
+        why4Title: "Глобальная поддержка", why4Text: "Работаем с клиентами по всему миру, поддерживаем 3 языка.",
         servicesTag: "Что мы делаем", servicesTitle: "Наши услуги", servicesSubtitle: "Полный цикл разработки digital-продуктов под ключ",
         service1Title: "Веб-разработка", service1Text: "Современные сайты, лендинги, интернет-магазины и корпоративные порталы.",
         service2Title: "Мобильные приложения", service2Text: "Нативные и кроссплатформенные приложения для iOS и Android.",
@@ -434,10 +447,6 @@
         author4Name: "Елена Волкова", author4Role: "Маркетолог, BeautyBrand",
         testimonial5Text: "Работаем с Luxorion Digital второй год. Автоматизация процессов принесла реальную экономию ресурсов.",
         author5Name: "Сергей Михайлов", author5Role: "COO, FinTech Group",
-        blogTag: "Блог", blogTitle: "Полезные статьи", blogSubtitle: "Новости, кейсы и инсайты из мира IT",
-        blogDate1: "15 марта 2026", blogTitle1: "Как AI меняет бизнес-процессы", blogText1: "Рассказываем о реальных кейсах внедрения искусственного интеллекта в компании.", blogLink1: "Читать →",
-        blogDate2: "5 марта 2026", blogTitle2: "n8n: автоматизация без кода", blogText2: "Обзор возможностей и примеры workflow для бизнеса.", blogLink2: "Читать →",
-        blogDate3: "20 февраля 2026", blogTitle3: "Тренды мобильной разработки 2026", blogText3: "Что важно знать перед запуском приложения: AI, AR, кроссплатформа.", blogLink3: "Читать →",
         contactTitle: "Свяжитесь с нами", contactText: "Оставьте заявку, и мы обсудим ваш проект в течение 24 часов",
         whatsappLabel: "WhatsApp", telegramLabel: "Telegram", emailLabel: "Email", officeLabel: "Офис", officeText: "Dubai, UAE",
         inputNamePlaceholder: "Ваше имя", inputEmailPlaceholder: "Email", inputPhonePlaceholder: "Телефон",
@@ -449,13 +458,18 @@
       },
       en: {
         brandSubtitle: "IT SOLUTIONS",
-        navServices: "Services", navPortfolio: "Portfolio", navTestimonials: "Testimonials", navBlog: "Blog", navContact: "Contact",
+        navServices: "Services", navWhy: "Why Us", navPortfolio: "Portfolio", navTestimonials: "Testimonials", navContact: "Contact",
         eyebrowText: "Premium development • AI • Automation",
         heroTitle: 'We build <span class="gradient">digital systems</span> that move business forward',
         heroText: "Website development, mobile apps, AI automation and business solutions for companies that value quality, speed and results.",
         heroBtnPrimary: "Discuss Project", heroBtnSecondary: "Our Work",
         stat1Text: "Successful Projects", stat2Text: "Automation", stat3Text: "Languages Support",
         ctaCardTitle: "Ready to grow?", ctaCardText: "Launch your project today", ctaCardBtn: "WhatsApp",
+        whyTag: "Why Us", whyTitle: "Why choose Luxorion Digital", whySubtitle: "Our clients trust us because we guarantee results",
+        why1Title: "Fast Development", why1Text: "Average project launch time is 2 to 4 weeks without quality loss.",
+        why2Title: "Premium Quality", why2Text: "Modern design, clean architecture and attention to detail.",
+        why3Title: "AI Integrations", why3Text: "We implement artificial intelligence and automation in any project.",
+        why4Title: "Global Support", why4Text: "We work with clients worldwide, support 3 languages.",
         servicesTag: "What we do", servicesTitle: "Our Services", servicesSubtitle: "Full-cycle digital product development",
         service1Title: "Web Development", service1Text: "Modern websites, landing pages, e-commerce and corporate portals.",
         service2Title: "Mobile Apps", service2Text: "Native and cross-platform apps for iOS and Android.",
@@ -481,10 +495,6 @@
         author4Name: "Elena Volkova", author4Role: "Marketer, BeautyBrand",
         testimonial5Text: "Working with Luxorion Digital for the second year. Process automation has brought real resource savings.",
         author5Name: "Sergey Mikhailov", author5Role: "COO, FinTech Group",
-        blogTag: "Blog", blogTitle: "Useful Articles", blogSubtitle: "News, cases and insights from the IT world",
-        blogDate1: "March 15, 2026", blogTitle1: "How AI is Changing Business Processes", blogText1: "Real cases of implementing artificial intelligence in companies.", blogLink1: "Read →",
-        blogDate2: "March 5, 2026", blogTitle2: "n8n: No-Code Automation", blogText2: "Overview of capabilities and workflow examples for business.", blogLink2: "Read →",
-        blogDate3: "February 20, 2026", blogTitle3: "Mobile Development Trends 2026", blogText3: "What you need to know before launching an app: AI, AR, cross-platform.", blogLink3: "Read →",
         contactTitle: "Contact Us", contactText: "Leave a request and we will discuss your project within 24 hours",
         whatsappLabel: "WhatsApp", telegramLabel: "Telegram", emailLabel: "Email", officeLabel: "Office", officeText: "Dubai, UAE",
         inputNamePlaceholder: "Your name", inputEmailPlaceholder: "Email", inputPhonePlaceholder: "Phone",
@@ -496,13 +506,18 @@
       },
       ar: {
         brandSubtitle: "حلول تقنية",
-        navServices: "الخدمات", navPortfolio: "أعمالنا", navTestimonials: "آراء العملاء", navBlog: "المدونة", navContact: "اتصل بنا",
+        navServices: "الخدمات", navWhy: "لماذا نحن", navPortfolio: "أعمالنا", navTestimonials: "آراء العملاء", navContact: "اتصل بنا",
         eyebrowText: "تطوير متميز • ذكاء اصطناعي • أتمتة",
         heroTitle: 'نبني <span class="gradient">أنظمة رقمية</span> تدفع الأعمال إلى الأمام',
         heroText: "تطوير المواقع الإلكترونية وتطبيقات الجوال والأتمتة بالذكاء الاصطناعي للشركات التي تقدر الجودة والسرعة والنتائج.",
         heroBtnPrimary: "ناقش مشروعك", heroBtnSecondary: "أعمالنا",
         stat1Text: "مشروع ناجح", stat2Text: "أتمتة", stat3Text: "لغات الدعم",
         ctaCardTitle: "هل أنت مستعد للنمو؟", ctaCardText: "أطلق مشروعك اليوم", ctaCardBtn: "واتساب",
+        whyTag: "لماذا نحن", whyTitle: "لماذا يختارون Luxorion Digital", whySubtitle: "عملاؤنا يثقون بنا لأننا نضمن النتائج",
+        why1Title: "تطوير سريع", why1Text: "متوسط وقت إطلاق المشروع من 2 إلى 4 أسابيع دون فقدان الجودة.",
+        why2Title: "جودة متميزة", why2Text: "تصميم حديث وهندسة نظيفة واهتمام بالتفاصيل.",
+        why3Title: "تكاملات الذكاء الاصطناعي", why3Text: "نقوم بتنفيذ الذكاء الاصطناعي والأتمتة في أي مشروع.",
+        why4Title: "دعم عالمي", why4Text: "نعمل مع العملاء حول العالم وندعم 3 لغات.",
         servicesTag: "ماذا نقدم", servicesTitle: "خدماتنا", servicesSubtitle: "تطوير متكامل للمنتجات الرقمية",
         service1Title: "تطوير المواقع", service1Text: "مواقع حديثة، صفحات هبوط، متاجر إلكترونية وبوابات الشركات.",
         service2Title: "تطبيقات الجوال", service2Text: "تطبيقات أصلية ومتعددة المنصات لنظامي iOS و Android.",
@@ -528,10 +543,6 @@
         author4Name: "إيلينا فولكوفا", author4Role: "مسوق، BeautyBrand",
         testimonial5Text: "نعمل مع Luxorion Digital للسنة الثانية. أتمتة العمليات حققت توفيراً حقيقياً في الموارد.",
         author5Name: "سيرجي ميخائيلوف", author5Role: "مدير العمليات، FinTech Group",
-        blogTag: "المدونة", blogTitle: "مقالات مفيدة", blogSubtitle: "أخبار وحالات ورؤى من عالم التكنولوجيا",
-        blogDate1: "15 مارس 2026", blogTitle1: "كيف يغير الذكاء الاصطناعي عمليات الأعمال", blogText1: "حالات حقيقية لتطبيق الذكاء الاصطناعي في الشركات.", blogLink1: "اقرأ ←",
-        blogDate2: "5 مارس 2026", blogTitle2: "n8n: أتمتة بدون برمجة", blogText2: "نظرة عامة على الإمكانيات وأمثلة سير العمل للأعمال.", blogLink2: "اقرأ ←",
-        blogDate3: "20 فبراير 2026", blogTitle3: "اتجاهات تطوير تطبيقات الجوال 2026", blogText3: "ما تحتاج معرفته قبل إطلاق التطبيق: الذكاء الاصطناعي، الواقع المعزز، المنصات المتعددة.", blogLink3: "اقرأ ←",
         contactTitle: "اتصل بنا", contactText: "اترك طلباً وسنناقش مشروعك خلال 24 ساعة",
         whatsappLabel: "واتساب", telegramLabel: "تيليغرام", emailLabel: "البريد الإلكتروني", officeLabel: "المكتب", officeText: "دبي، الإمارات العربية المتحدة",
         inputNamePlaceholder: "اسمك", inputEmailPlaceholder: "البريد الإلكتروني", inputPhonePlaceholder: "الهاتف",
@@ -543,7 +554,6 @@
       }
     };
 
-    // Применение выбранного языка
     function setLanguage(lang) {
       const t = translations[lang];
       if (!t) return;
@@ -551,43 +561,31 @@
       document.body.dir = lang === 'ar' ? 'rtl' : 'ltr';
       document.documentElement.lang = lang;
       
-      // Обновляем все текстовые элементы
       for (const [key, value] of Object.entries(t)) {
         const element = document.getElementById(key);
         if (element) {
-          if (key === 'heroTitle') {
-            element.innerHTML = value;
-          } else {
-            element.textContent = value;
-          }
+          if (key === 'heroTitle') element.innerHTML = value;
+          else element.textContent = value;
         }
       }
       
-      // Обновляем плейсхолдеры формы
-      const nameInput = document.getElementById('inputName');
-      const emailInput = document.getElementById('inputEmail');
-      const phoneInput = document.getElementById('inputPhone');
-      const msgInput = document.getElementById('inputMessage');
-      const serviceSelect = document.getElementById('inputService');
-      const submitBtn = document.getElementById('submitBtn');
+      const inputs = ['inputName', 'inputEmail', 'inputPhone', 'inputMessage'];
+      inputs.forEach(id => { const el = document.getElementById(id); if(el) el.placeholder = t[id + 'Placeholder']; });
       
-      if (nameInput) nameInput.placeholder = t.inputNamePlaceholder;
-      if (emailInput) emailInput.placeholder = t.inputEmailPlaceholder;
-      if (phoneInput) phoneInput.placeholder = t.inputPhonePlaceholder;
-      if (msgInput) msgInput.placeholder = t.inputMessagePlaceholder;
-      if (submitBtn) submitBtn.textContent = t.submitBtn;
-      
-      if (serviceSelect && serviceSelect.options) {
-        serviceSelect.options[0].textContent = t.inputServicePlaceholder;
-        if (serviceSelect.options[1]) serviceSelect.options[1].textContent = t.inputServiceWeb;
-        if (serviceSelect.options[2]) serviceSelect.options[2].textContent = t.inputServiceApp;
-        if (serviceSelect.options[3]) serviceSelect.options[3].textContent = t.inputServiceAI;
-        if (serviceSelect.options[4]) serviceSelect.options[4].textContent = t.inputServiceDesign;
-        if (serviceSelect.options[5]) serviceSelect.options[5].textContent = t.inputServiceCRM;
-        if (serviceSelect.options[6]) serviceSelect.options[6].textContent = t.inputServiceSupport;
+      const select = document.getElementById('inputService');
+      if(select && select.options) {
+        select.options[0].textContent = t.inputServicePlaceholder;
+        if(select.options[1]) select.options[1].textContent = t.inputServiceWeb;
+        if(select.options[2]) select.options[2].textContent = t.inputServiceApp;
+        if(select.options[3]) select.options[3].textContent = t.inputServiceAI;
+        if(select.options[4]) select.options[4].textContent = t.inputServiceDesign;
+        if(select.options[5]) select.options[5].textContent = t.inputServiceCRM;
+        if(select.options[6]) select.options[6].textContent = t.inputServiceSupport;
       }
       
-      // Обновляем активную кнопку
+      const submitBtn = document.getElementById('submitBtn');
+      if(submitBtn) submitBtn.textContent = t.submitBtn;
+      
       document.querySelectorAll('.lang-btn').forEach(btn => {
         btn.classList.toggle('active', btn.dataset.lang === lang);
       });
@@ -595,103 +593,67 @@
       localStorage.setItem('luxorion_lang', lang);
     }
     
-    // Инициализация переключателей
     document.querySelectorAll('.lang-btn').forEach(btn => {
       btn.addEventListener('click', () => setLanguage(btn.dataset.lang));
     });
     
-    // Загрузка сохраненного языка
     const savedLang = localStorage.getItem('luxorion_lang') || 'ru';
     setLanguage(savedLang);
     
-    // ==================== ОСТАЛЬНОЙ JS ====================
     // Мобильное меню
     const menuToggle = document.getElementById('menuToggle');
     const mobileNav = document.getElementById('mobileNav');
-    if (menuToggle) {
-      menuToggle.addEventListener('click', () => mobileNav.classList.toggle('open'));
-    }
-    document.querySelectorAll('nav a').forEach(link => {
-      link.addEventListener('click', () => mobileNav.classList.remove('open'));
-    });
+    if(menuToggle) menuToggle.addEventListener('click', () => mobileNav.classList.toggle('open'));
+    document.querySelectorAll('nav a').forEach(link => link.addEventListener('click', () => mobileNav.classList.remove('open')));
     
-    // Анимация появления
+    // Анимация
     const reveals = document.querySelectorAll('.reveal');
-    function checkReveal() {
-      const trigger = window.innerHeight * 0.85;
-      reveals.forEach(el => {
-        if (el.getBoundingClientRect().top < trigger) el.classList.add('visible');
-      });
-    }
+    function checkReveal() { const trigger = window.innerHeight * 0.85; reveals.forEach(el => { if(el.getBoundingClientRect().top < trigger) el.classList.add('visible'); }); }
     window.addEventListener('scroll', checkReveal);
     window.addEventListener('load', checkReveal);
     checkReveal();
     
-    // Слайдер отзывов
+    // Слайдер
     const track = document.getElementById('testimonialsTrack');
     const prevBtn = document.getElementById('prevSlide');
     const nextBtn = document.getElementById('nextSlide');
-    let slideIndex = 0;
-    let slideWidth = 0;
-    let visible = 3;
-    
-    function updateVisible() {
-      if (window.innerWidth < 700) visible = 1;
-      else if (window.innerWidth < 1000) visible = 2;
-      else visible = 3;
-    }
-    
-    function updateSlide() {
-      if (!track) return;
-      const card = track.querySelector('.testimonial-card');
-      if (!card) return;
-      slideWidth = card.offsetWidth + 24;
-      const max = track.children.length - visible;
-      if (slideIndex > max) slideIndex = Math.max(0, max);
-      track.style.transform = `translateX(-${slideIndex * slideWidth}px)`;
-    }
-    
-    if (prevBtn) prevBtn.addEventListener('click', () => { if (slideIndex > 0) { slideIndex--; updateSlide(); } });
-    if (nextBtn) nextBtn.addEventListener('click', () => { const max = track.children.length - visible; if (slideIndex < max) { slideIndex++; updateSlide(); } });
+    let slideIndex = 0, slideWidth = 0, visible = 3;
+    function updateVisible() { visible = window.innerWidth < 700 ? 1 : window.innerWidth < 1000 ? 2 : 3; }
+    function updateSlide() { if(!track) return; const card = track.querySelector('.testimonial-card'); if(card) { slideWidth = card.offsetWidth + 24; const max = track.children.length - visible; if(slideIndex > max) slideIndex = Math.max(0, max); track.style.transform = `translateX(-${slideIndex * slideWidth}px)`; } }
+    if(prevBtn) prevBtn.addEventListener('click', () => { if(slideIndex > 0) { slideIndex--; updateSlide(); } });
+    if(nextBtn) nextBtn.addEventListener('click', () => { const max = track.children.length - visible; if(slideIndex < max) { slideIndex++; updateSlide(); } });
     window.addEventListener('resize', () => { updateVisible(); slideIndex = 0; updateSlide(); });
     setTimeout(() => { updateVisible(); updateSlide(); }, 100);
     
-    // Форма обратной связи
+    // Форма
     const contactForm = document.getElementById('contactForm');
     const formStatus = document.getElementById('formStatus');
-    if (contactForm) {
+    if(contactForm) {
       contactForm.addEventListener('submit', async (e) => {
         e.preventDefault();
-        const formData = new FormData(contactForm);
         formStatus.className = 'form-status';
         formStatus.textContent = 'Отправка...';
         formStatus.style.display = 'block';
         try {
           await new Promise(resolve => setTimeout(resolve, 1000));
           formStatus.className = 'form-status success';
-          const currentLang = localStorage.getItem('luxorion_lang') || 'ru';
-          formStatus.textContent = currentLang === 'ru' ? '✅ Заявка отправлена!' : (currentLang === 'en' ? '✅ Request sent!' : '✅ تم إرسال الطلب!');
+          const lang = localStorage.getItem('luxorion_lang') || 'ru';
+          formStatus.textContent = lang === 'ru' ? '✅ Заявка отправлена!' : (lang === 'en' ? '✅ Request sent!' : '✅ تم إرسال الطلب!');
           contactForm.reset();
           setTimeout(() => formStatus.style.display = 'none', 5000);
-        } catch (error) {
-          formStatus.className = 'form-status error';
-          formStatus.textContent = '❌ Ошибка';
-        }
+        } catch(error) { formStatus.className = 'form-status error'; formStatus.textContent = '❌ Ошибка'; }
       });
     }
     
     // Частицы
     const canvas = document.getElementById('particles');
-    let ctx = canvas?.getContext('2d');
-    let particles = [];
-    let animId = null;
-    
-    function resizeCanvas() { if (canvas) { canvas.width = window.innerWidth; canvas.height = window.innerHeight; initParticles(); } }
-    function initParticles() { if (!canvas) return; particles = []; const count = window.innerWidth < 768 ? 40 : 80; for (let i = 0; i < count; i++) { particles.push({ x: Math.random() * canvas.width, y: Math.random() * canvas.height, r: Math.random() * 2 + 1, dx: (Math.random() - 0.5) * 0.3, dy: (Math.random() - 0.5) * 0.3, a: Math.random() * 0.5 + 0.2 }); } }
-    function drawParticles() { if (!ctx || !canvas) return; ctx.clearRect(0, 0, canvas.width, canvas.height); for (let i = 0; i < particles.length; i++) { const p = particles[i]; ctx.beginPath(); ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2); ctx.fillStyle = `rgba(120, 210, 255, ${p.a})`; ctx.fill(); p.x += p.dx; p.y += p.dy; if (p.x < 0 || p.x > canvas.width) p.dx *= -1; if (p.y < 0 || p.y > canvas.height) p.dy *= -1; for (let j = i + 1; j < particles.length && j < i + 30; j++) { const p2 = particles[j]; const d = Math.hypot(p.x - p2.x, p.y - p2.y); if (d < 120) { ctx.beginPath(); ctx.moveTo(p.x, p.y); ctx.lineTo(p2.x, p2.y); ctx.strokeStyle = `rgba(120, 170, 255, ${0.08 - d / 1800})`; ctx.lineWidth = 0.8; ctx.stroke(); } } } animId = requestAnimationFrame(drawParticles); }
-    if (canvas) { resizeCanvas(); initParticles(); drawParticles(); }
-    window.addEventListener('resize', () => { if (canvas) { resizeCanvas(); initParticles(); } });
-    window.addEventListener('beforeunload', () => { if (animId) cancelAnimationFrame(animId); });
+    let ctx = canvas?.getContext('2d'), particles = [], animId = null;
+    function resizeCanvas() { if(canvas) { canvas.width = window.innerWidth; canvas.height = window.innerHeight; initParticles(); } }
+    function initParticles() { if(!canvas) return; particles = []; const count = window.innerWidth < 768 ? 40 : 80; for(let i=0;i<count;i++) particles.push({ x: Math.random()*canvas.width, y: Math.random()*canvas.height, r: Math.random()*2+1, dx: (Math.random()-0.5)*0.3, dy: (Math.random()-0.5)*0.3, a: Math.random()*0.5+0.2 }); }
+    function drawParticles() { if(!ctx||!canvas) return; ctx.clearRect(0,0,canvas.width,canvas.height); for(let i=0;i<particles.length;i++) { const p=particles[i]; ctx.beginPath(); ctx.arc(p.x,p.y,p.r,0,Math.PI*2); ctx.fillStyle=`rgba(120,210,255,${p.a})`; ctx.fill(); p.x+=p.dx; p.y+=p.dy; if(p.x<0||p.x>canvas.width) p.dx*=-1; if(p.y<0||p.y>canvas.height) p.dy*=-1; for(let j=i+1;j<particles.length&&j<i+30;j++) { const p2=particles[j]; const d=Math.hypot(p.x-p2.x,p.y-p2.y); if(d<120) { ctx.beginPath(); ctx.moveTo(p.x,p.y); ctx.lineTo(p2.x,p2.y); ctx.strokeStyle=`rgba(120,170,255,${0.08-d/1800})`; ctx.lineWidth=0.8; ctx.stroke(); } } } animId=requestAnimationFrame(drawParticles); }
+    if(canvas) { resizeCanvas(); initParticles(); drawParticles(); }
+    window.addEventListener('resize', () => { if(canvas) { resizeCanvas(); initParticles(); } });
+    window.addEventListener('beforeunload', () => { if(animId) cancelAnimationFrame(animId); });
   </script>
 </body>
 </html>
